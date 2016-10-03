@@ -5,11 +5,23 @@
  */
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Gonzalez
+ * @author Galleni
  */
+
+@Entity
+@Table(name = "funcionario")
 public class Funcionario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int codigo_funcionario;
     private String nome;
     private String endereco;
