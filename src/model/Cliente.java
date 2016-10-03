@@ -5,20 +5,30 @@
  */
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Gonzalez
  */
+@Entity
+@Table(name = "contato")
 public class Cliente {
-    int codigo_cliente;
-    String nome;
-    String endereco;
-    String bairro;
-    String numero;
-    String cidade;
-    String telefone;
-    String celular;
-    String cpf;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int codigo_cliente;
+    private String nome;
+    private String endereco;
+    private String bairro;
+    private String numero;
+    private String cidade;
+    private String telefone;
+    private String celular;
+    private String cpf;
     
     public Cliente(){
     

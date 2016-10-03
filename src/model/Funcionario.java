@@ -10,21 +10,21 @@ package model;
  * @author Gonzalez
  */
 public class Funcionario {
-    int codigo_funcionario;
-    String nome;
-    String endereco;
-    String bairro;
-    String numero;
-    String cidade;
-    String telefone;
-    String celular;
-    String cpf;
-    String rg;
-    String cargo;
-    String setor;
-    String hora_entrada;
-    String hora_saida;
-    String salario;
+    private int codigo_funcionario;
+    private String nome;
+    private String endereco;
+    private String bairro;
+    private String numero;
+    private String cidade;
+    private String telefone;
+    private String celular;
+    private String cpf;
+    private String rg;
+    private String cargo;
+    private String setor;
+    private String hora_entrada;
+    private String hora_saida;
+    private String salario;
     
     public Funcionario(){
     
