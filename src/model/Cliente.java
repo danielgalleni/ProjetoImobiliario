@@ -5,10 +5,14 @@
  */
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -16,7 +20,7 @@ import javax.persistence.Table;
  * @author Gonzalez
  */
 @Entity
-@Table(name = "contato")
+@Table(name = "Cliente")
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,6 +37,11 @@ public class Cliente {
     public Cliente(){
     
     }
+    
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL,orphanRemoval = true)    
+    private List<Telefone> telefones = new ArrayList<>();
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL,orphanRemoval = true)    
+    private List<Celular> celulares = new ArrayList<>();
     
     public Cliente (String nome,String endereco, String bairro, String numero, String cidade, String telefone, String celular, String cpf)throws Exception{
         if((nome == null) && (endereco == null) && (bairro == null) && (numero == null) && (cidade == null) && (telefone == null) && (celular == null) && (cpf == null)){
