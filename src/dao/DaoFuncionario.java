@@ -77,4 +77,17 @@ public class DaoFuncionario {
             HibernateUtil.getSessionFactory().close();
         }
     }
+
+    public List<Funcionario> list() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            List<Funcionario> lista = session.createQuery("from Funcionario").list();
+            return lista;
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            session.close();
+            HibernateUtil.getSessionFactory().close();
+        }
+    }
 }

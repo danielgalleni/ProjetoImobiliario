@@ -91,6 +91,5 @@ public class DaoCliente {
             session.close();
             HibernateUtil.getSessionFactory().close();
         }
-        
     }
 }
