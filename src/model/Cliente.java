@@ -22,7 +22,7 @@ import javax.persistence.Table;
 @Table(name = "Cliente")
 public class Cliente {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO) //Auto incrimento
     private int codigo_cliente;
     private String nome;
     private String endereco;

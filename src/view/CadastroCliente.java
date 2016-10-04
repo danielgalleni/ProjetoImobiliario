@@ -5,6 +5,12 @@
  */
 package view;
 
+import dao.DaoCliente;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import model.Cliente;
+
 /**
  *
  * @author Gonzalez
@@ -72,6 +78,11 @@ public class CadastroCliente extends javax.swing.JFrame {
         jLabel9.setText("CPF:");
 
         jBTNSalvar.setText("Salvar");
+        jBTNSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTNSalvarActionPerformed(evt);
+            }
+        });
 
         jBTNCancelar.setText("Cancelar");
         jBTNCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -174,8 +185,21 @@ public class CadastroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBTNCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNCancelarActionPerformed
-        // TODO add your handling code here:
+     if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente sair?", "Atenção", JOptionPane.YES_NO_OPTION) == 0)
+            this.dispose();
     }//GEN-LAST:event_jBTNCancelarActionPerformed
+
+    private void jBTNSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNSalvarActionPerformed
+    Cliente cliente = null;    
+        try {
+            cliente = new Cliente(jTFNome.getText(), jTFCPF.getText(), jTFEndereco.getText(), jTFNumero.getText(), jTFBairro.getText(), jTFCidade.getText(), jTFTelefone.getText(), jTFCelular.getText());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo cliente. Verifique o log abaixo: " + "\n\n" + ex);
+            //Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    DaoCliente dCliente = new DaoCliente();
+    dCliente.persistir(cliente);
+    }//GEN-LAST:event_jBTNSalvarActionPerformed
 
     /**
      * @param args the command line arguments
