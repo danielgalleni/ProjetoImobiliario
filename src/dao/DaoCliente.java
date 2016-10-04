@@ -22,6 +22,10 @@ public class DaoCliente {
         this.session = session;
     }
 
+    public DaoCliente() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public void persistir(Cliente cliente) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
