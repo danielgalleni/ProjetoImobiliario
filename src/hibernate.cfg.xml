@@ -7,5 +7,7 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Hibernate?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">wgsg1234</property>
+    <mapping class="model.Cliente"/>
+    <mapping class="model.Funcionario"/>
   </session-factory>
 </hibernate-configuration>
