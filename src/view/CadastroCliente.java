@@ -193,12 +193,12 @@ public class CadastroCliente extends javax.swing.JFrame {
     Cliente cliente = null;    
         try {
             cliente = new Cliente(jTFNome.getText(), jTFCPF.getText(), jTFEndereco.getText(), jTFNumero.getText(), jTFBairro.getText(), jTFCidade.getText(), jTFTelefone.getText(), jTFCelular.getText());
+            DaoCliente dCliente = new DaoCliente();
+            dCliente.persistir(cliente);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo cliente. Verifique o log abaixo: " + "\n\n" + ex);
             //Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-    DaoCliente dCliente = new DaoCliente();
-    dCliente.persistir(cliente);
     }//GEN-LAST:event_jBTNSalvarActionPerformed
 
     /**
