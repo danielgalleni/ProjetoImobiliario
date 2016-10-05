@@ -5,6 +5,10 @@
  */
 package view;
 
+import dao.DaoFuncionario;
+import javax.swing.JOptionPane;
+import model.Funcionario;
+
 /**
  *
  * @author Gonzalez
@@ -15,6 +19,10 @@ public class CadastroFuncionario extends javax.swing.JFrame {
      * Creates new form CadastroFuncionario
      */
     public CadastroFuncionario() {
+        initComponents();
+    }
+
+    CadastroFuncionario(Menu aThis, boolean b) {
         initComponents();
     }
 
@@ -61,6 +69,11 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jBTNSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setText("Código Funcionário:");
 
@@ -110,6 +123,11 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         });
 
         jBTNSalvar.setText("Salvar");
+        jBTNSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTNSalvarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,9 +140,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel6)
                         .addComponent(jLabel2)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTFCod_Funcionario))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTFCod_Funcionario)
                         .addComponent(jTFNome)
                         .addComponent(jLabel3)
                         .addComponent(jTFEndereco)
@@ -244,7 +261,30 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
     private void jBTNCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNCancelarActionPerformed
         // TODO add your handling code here:
+        this.formWindowClosing(null);
     }//GEN-LAST:event_jBTNCancelarActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente sair?", "Atenção", JOptionPane.YES_NO_OPTION) == 0) {
+            this.dispose();
+        }
+    }//GEN-LAST:event_formWindowClosing
+
+    private void jBTNSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNSalvarActionPerformed
+        // TODO add your handling code here:
+        Funcionario funcionario = null;
+        try {
+            funcionario = new Funcionario(jTFNome.getText(), jTFCPF.getText(), jTFEndereco.getText(), jTFNumero.getText(), jTFBairro.getText(), jTFCidade.getText(), jTFTelefone.getText(), jTFCelular.getText());
+            DaoFuncionario dFuncionario = new DaoFuncionario();
+            dFuncionario.persistir(funcionario);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo cliente. Verifique o log abaixo: " + "\n\n" + ex);
+            //Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jBTNSalvarActionPerformed
 
     /**
      * @param args the command line arguments
