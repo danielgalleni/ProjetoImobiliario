@@ -16,7 +16,7 @@ import org.hibernate.Transaction;
 public class DaoFuncionario {
     private Session session;
 
-    public DaoFuncionario(Session session) {
+    public DaoFuncionario() {
         this.session = session;
     }
 
