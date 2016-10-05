@@ -43,7 +43,7 @@ public class Cliente {
     private List<Celular> celulares = new ArrayList<>();
     
     public Cliente (String nome,String endereco, String bairro, String numero, String cidade, String telefone, String celular, String cpf)throws Exception{
-        if((nome == null) && (endereco == null) && (bairro == null) && (numero == null) && (cidade == null) && (telefone == null) && (celular == null) && (cpf == null)){
+        if((nome != null) && (endereco != null) && (bairro != null) && (numero != null) && (cidade != null) && (telefone != null) && (celular != null) && (cpf != null)){
             this.setNome(nome);
             this.setEndereco(endereco);
             this.setBairro(bairro);

@@ -41,7 +41,28 @@ public class Funcionario {
     public Funcionario(){
     
     }
-
+    
+    public Funcionario (String nome,String endereco, String bairro, String numero, String cidade, String telefone, String celular, String cpf, String rg, String cargo, String setor, String hora_entrada, String hora_saida, String salario)throws Exception{
+        if((nome != null) && (endereco != null) && (bairro != null) && (numero != null) && (cidade != null) && (telefone != null) && (celular != null) && (cpf != null) && (rg != null) && (cargo != null) && (setor != null) && (hora_entrada != null) && (hora_saida != null) && (salario != null)){
+            this.setNome(nome);
+            this.setEndereco(endereco);
+            this.setBairro(bairro);
+            this.setNumero(numero);
+            this.setCidade(cidade);
+            this.setTelefone(telefone);
+            this.setCelular(celular);
+            this.setCpf(cpf);
+            this.setRg(rg);
+            this.setCargo(cargo);
+            this.setSetor(setor);
+            this.setHora_entrada(hora_entrada);  
+            this.setHora_saida(hora_saida);
+            this.setSalario(salario);
+        }else{
+            throw new Exception("Erro!\nDados obrigatórios não preenchidos, por favor verifique!");
+        }
+    }
+    
     public int getCodigo_funcionario() {
         return codigo_funcionario;
     }
