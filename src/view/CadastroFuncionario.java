@@ -69,6 +69,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jBTNSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de Funcionário");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -141,7 +142,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addComponent(jLabel2)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTFCod_Funcionario)
                         .addComponent(jTFNome)
                         .addComponent(jLabel3)
                         .addComponent(jTFEndereco)
@@ -182,7 +182,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addComponent(jBTNSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(jBTNCancelar)))
+                            .addComponent(jBTNCancelar))
+                        .addComponent(jTFCod_Funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jTFSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
@@ -276,11 +277,11 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
         Funcionario funcionario = null;
         try {
-            funcionario = new Funcionario(jTFNome.getText(), jTFCPF.getText(), jTFEndereco.getText(), jTFNumero.getText(), jTFBairro.getText(), jTFCidade.getText(), jTFTelefone.getText(), jTFCelular.getText(),jTFCPF.getText(),jTFRG.getText(),jCBCargo.getSelectedIndex(),jCBSetor.getSelectedIndex(),jCBHora_Entrada.getSelectedIndex(),jCBHora_Saida.getSelectedIndex(),jTFSalario.getText());
+            funcionario = new Funcionario(jTFNome.getText(), jTFEndereco.getText(), jTFBairro.getText(), jTFNumero.getText(), jTFCidade.getText(), jTFTelefone.getText(), jTFCelular.getText(),jTFCPF.getText(),jTFRG.getText(), jCBCargo.getSelectedIndex(),jCBSetor.getSelectedIndex(),jCBHora_Entrada.getSelectedIndex(),jCBHora_Saida.getSelectedIndex(),jTFSalario.getText());
             DaoFuncionario dFuncionario = new DaoFuncionario();
             dFuncionario.persistir(funcionario);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo cliente. Verifique o log abaixo: " + "\n\n" + ex);
+            JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo funcionário. Verifique o log abaixo: " + "\n\n" + ex);
             //Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
 

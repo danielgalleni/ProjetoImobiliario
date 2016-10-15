@@ -105,22 +105,6 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
-        this.formWindowClosing(null);
-    }//GEN-LAST:event_exitMenuItemActionPerformed
-
-    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
-        // TODO add your handling code here:
-        CadastroFuncionario cadastroFuncionario = new CadastroFuncionario(this, true);
-        cadastroFuncionario.setVisible(true);
-    }//GEN-LAST:event_openMenuItemActionPerformed
-
-    private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
-        // TODO add your handling code here:
-        CadastroCliente cadastroCliente = new CadastroCliente(this, true);
-        cadastroCliente.setVisible(true);
-    }//GEN-LAST:event_saveMenuItemActionPerformed
-
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosed
@@ -132,6 +116,22 @@ public class Menu extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_formWindowClosing
+
+    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
+        this.formWindowClosing(null);
+    }//GEN-LAST:event_exitMenuItemActionPerformed
+
+    private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
+        // TODO add your handling code here:
+        CadastroCliente cadastroCliente = new CadastroCliente(this, true);
+        cadastroCliente.setVisible(true);
+    }//GEN-LAST:event_saveMenuItemActionPerformed
+
+    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
+        // TODO add your handling code here:
+        CadastroFuncionario cadastroFuncionario = new CadastroFuncionario(this, true);
+        cadastroFuncionario.setVisible(true);
+    }//GEN-LAST:event_openMenuItemActionPerformed
     
     /**
      * @param args the command line arguments
