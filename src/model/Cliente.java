@@ -18,8 +18,7 @@ import javax.persistence.Table;
  *
  * @author Gonzalez
  */
-@Entity
-@Table(name = "Cliente")
+
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) //Auto incrimento
