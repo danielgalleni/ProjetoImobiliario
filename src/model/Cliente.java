@@ -29,35 +29,33 @@ public class Cliente {
     private String bairro;
     private String numero;
     private String cidade;
-    private String telefone;
-    private String celular;
+    //private String telefone;
+    //private String celular;
     private String cpf;
     private String rg;
+    
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL,orphanRemoval = true)    
+    private List<Telefone> telefones = new ArrayList<>();
+    //@OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL,orphanRemoval = true)    
+    //private List<Celular> celulares = new ArrayList<>();
+    
     
     public Cliente(){
     
     }
-    
-    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL,orphanRemoval = true)    
-    private List<Telefone> telefones = new ArrayList<>();
-    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL,orphanRemoval = true)    
-    private List<Celular> celulares = new ArrayList<>();
-    
-    public Cliente (String nome,String endereco, String bairro, String numero, String cidade, String telefone, String celular, String cpf)throws Exception{
-        if((nome != null) && (endereco != null) && (bairro != null) && (numero != null) && (cidade != null) && (telefone != null) && (celular != null) && (cpf != null) && (rg != null)){
-            this.setNome(nome);
-            this.setEndereco(endereco);
-            this.setBairro(bairro);
-            this.setNumero(numero);
-            this.setCidade(cidade);
-            this.setTelefone(telefone);
-            this.setCelular(celular);
-            this.setCpf(cpf);
-            this.setRg(rg);
-        }else{
-            throw new Exception("Erro!\nDados obrigatórios não preenchidos, por favor verifique!");
-        }
+
+    public Cliente(int codigo_cliente, String nome, String endereco, String bairro, String numero, String cidade, String cpf, String rg) {
+        this.codigo_cliente = codigo_cliente;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.bairro = bairro;
+        this.numero = numero;
+        this.cidade = cidade;
+        this.cpf = cpf;
+        this.rg = rg;
     }
+
+    
     
     public int getCodigo_Cliente() {
         return codigo_cliente;
@@ -132,7 +130,7 @@ public class Cliente {
         }
     }
 
-    public String getTelefone() {
+    /*public String getTelefone() {
         return telefone;
     }
 
@@ -154,7 +152,7 @@ public class Cliente {
         }else{
             throw new Exception("Erro!\nNecessário informar o Celular do cliente");
         }
-    }
+    }*/
 
     public String getCpf() {
         return cpf;

@@ -25,9 +25,11 @@ public class Telefone {
     private int idTelefone;
     private String telefone;
     private String tipo;
+    
     @ManyToOne
     @JoinColumn(name = "codigo_cliente")    
-    private Cliente cliente;
+    private Pessoa pessoa;
+
 
     public Integer getIdTelefone() {
         return idTelefone;
@@ -53,13 +55,15 @@ public class Telefone {
         this.tipo = tipo;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public Pessoa getPessoa() {
+        return pessoa;
     }
 
-    public void setContato(Cliente cliente) {
-        this.cliente = cliente;
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
+
+  
    
    
 }
