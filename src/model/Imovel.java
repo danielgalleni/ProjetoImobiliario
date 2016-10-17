@@ -5,11 +5,26 @@
  */
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 /**
  *
  * @author Gonzalez
  */
+
+@Entity
+@Table(name = "Imovel")
 public class Imovel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO) //Auto incrimento
     private int codigo_imovel;
     private String cidade;
     private String endereco;
@@ -22,7 +37,7 @@ public class Imovel {
     public Imovel(){
     
     }
-
+    
     public Imovel(String cidade, String endereco, String bairro, String numero, String metros_quadrados, String area_construida, String observacao) throws Exception{
         if((cidade != null) && (endereco != null) && (bairro != null) && (numero != null) && (metros_quadrados != null) && (area_construida != null) && (observacao != null)){
             this.setCidade(cidade);

@@ -25,6 +25,7 @@ public class Funcionario {
     private int codigo_funcionario;
     private String nome;
     private String endereco;
+    private String estado;
     private String bairro;
     private String numero;
     private String cidade;
@@ -43,9 +44,10 @@ public class Funcionario {
     }
     
     public Funcionario (String nome,String endereco, String bairro, String numero, String cidade, String telefone, String celular, String cpf, String rg, String cargo, String setor, String hora_entrada, String hora_saida, String salario)throws Exception{
-        if((nome != null) && (endereco != null) && (bairro != null) && (numero != null) && (cidade != null) && (telefone != null) && (celular != null) && (cpf != null) && (rg != null) && (cargo != null) && (setor != null) && (hora_entrada != null) && (hora_saida != null) && (salario != null)){
+        if((nome != null) && (endereco != null) && (estado != null) && (bairro != null) && (numero != null) && (cidade != null) && (telefone != null) && (celular != null) && (cpf != null) && (rg != null) && (cargo != null) && (setor != null) && (hora_entrada != null) && (hora_saida != null) && (salario != null)){
             this.setNome(nome);
             this.setEndereco(endereco);
+            this.setEstado(estado);
             this.setBairro(bairro);
             this.setNumero(numero);
             this.setCidade(cidade);
@@ -99,6 +101,18 @@ public class Funcionario {
         }
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) throws Exception {
+        if (estado != null){
+            this.estado = estado;
+        }else{
+            throw new Exception ("Erro!\nNecessário informar o Estado do funcionário.");
+        }
+    }
+    
     public String getBairro() {
         return bairro;
     }

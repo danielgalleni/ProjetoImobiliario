@@ -32,6 +32,7 @@ public class Cliente {
     private String telefone;
     private String celular;
     private String cpf;
+    private String rg;
     
     public Cliente(){
     
@@ -43,7 +44,7 @@ public class Cliente {
     private List<Celular> celulares = new ArrayList<>();
     
     public Cliente (String nome,String endereco, String bairro, String numero, String cidade, String telefone, String celular, String cpf)throws Exception{
-        if((nome != null) && (endereco != null) && (bairro != null) && (numero != null) && (cidade != null) && (telefone != null) && (celular != null) && (cpf != null)){
+        if((nome != null) && (endereco != null) && (bairro != null) && (numero != null) && (cidade != null) && (telefone != null) && (celular != null) && (cpf != null) && (rg != null)){
             this.setNome(nome);
             this.setEndereco(endereco);
             this.setBairro(bairro);
@@ -51,7 +52,8 @@ public class Cliente {
             this.setCidade(cidade);
             this.setTelefone(telefone);
             this.setCelular(celular);
-            this.setCpf(cpf);    
+            this.setCpf(cpf);
+            this.setRg(rg);
         }else{
             throw new Exception("Erro!\nDados obrigatórios não preenchidos, por favor verifique!");
         }
@@ -61,7 +63,7 @@ public class Cliente {
         return codigo_cliente;
     }
 
-    public void setCodigo_Cliente(int codigo)throws Exception {
+    public void setCodigo_Cliente(int codigo_cliente)throws Exception {
         if (codigo_cliente > 0){
             this.codigo_cliente = codigo_cliente;
         }else{
@@ -165,6 +167,17 @@ public class Cliente {
             throw new Exception("Erro!\nNecessário informar o CPF do cliente.");
         }
     }
-    
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) throws Exception {
+        if (rg != null){
+            this.rg = rg;
+        }else{
+            throw new Exception("Erro!\nNecessário informa o RG do cliente.");
+        }
+    }
     
 }

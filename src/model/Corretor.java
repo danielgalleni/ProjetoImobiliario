@@ -5,18 +5,31 @@
  */
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Gonzalez
  */
+
+@Entity
+@Table(name = "Corretor")
 public class Corretor {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO) //Auto incrimento
     private int codigo_corretor;
     private String nome;
     private String cidade;
+    private String estado;
     private String endereco;
     private String bairro;
     private String numero;
+    private String email;
     
     
     public Corretor(){
@@ -24,9 +37,10 @@ public class Corretor {
     }
     
     public Corretor(String nome, String cidade, String endereco, String bairro, String numero)throws Exception{
-        if((nome != null) && (cidade != null) && (endereco != null) && (bairro != null) && (numero != null)){
+        if((nome != null) && (cidade != null) && (estado != null) && (endereco != null) && (bairro != null) && (numero != null)){
             this.setNome(nome);
             this.setCidade(cidade);
+            this.setEstado(estado);
             this.setEndereco(endereco);
             this.setBairro(bairro);
             this.setNumero(numero);
@@ -64,6 +78,14 @@ public class Corretor {
         return cidade;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public void setCidade(String cidade) throws Exception {
         if (cidade != null){
             this.cidade = cidade;
@@ -81,6 +103,18 @@ public class Corretor {
             this.endereco = endereco;
         }else{
             throw new Exception("Erro!\nNecessário informar o Endereço do corretor.");
+        }
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) throws Exception {
+        if (estado != null){
+            this.estado = estado;
+        }else{
+            throw new Exception("Erro!\nNecessário informa o Estado do corretor.");
         }
     }
 
