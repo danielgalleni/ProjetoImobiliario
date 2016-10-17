@@ -5,23 +5,13 @@
  */
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 /**
  *
  * @author Gonzalez
  * @author Galleni
  */
 
-//Anotação
+//@ - Anotação
 
 public class Funcionario extends Pessoa{
     
@@ -31,10 +21,21 @@ public class Funcionario extends Pessoa{
     private String hora_saida;
     private Float salario;  
 
-    public Funcionario(Integer codigo, String nome, String endereco, String estado, String bairro, String numero, String cidade, String cpf, String rg, String email) {
+    public Funcionario(Integer codigo, String nome, String endereco, String estado, String bairro, String numero, String cidade, String cpf, String rg, String email) throws Exception {
         super(codigo, nome, endereco, estado, bairro, numero, cidade, cpf, rg, email);
+        
+        if ((cargo != null) && (setor != null) && (hora_entrada != null) && (hora_saida != null) && (salario != null)){
+            this.setCargo(cargo);
+            this.setSetor(setor);
+            this.setHora_entrada(hora_entrada);
+            this.setHora_saida(hora_saida);
+            this.setSalario(salario);
+        }else{
+            throw new Exception("Erro!\nNecessário preencher todos os campos obrigatórios, verifique!");
+        }
+        
     }
-
+    
     public String getCargo() {
         return cargo;
     }
@@ -87,7 +88,11 @@ public class Funcionario extends Pessoa{
         return salario;
     }
 
-    public void setSalario(Float salario) {
-        this.salario = salario;
+    public void setSalario(Float salario) throws Exception {
+        if (salario != null){
+            this.salario = salario;
+        }else{
+            throw new Exception("Erro!\nÉ necessário informa o Salário do funcionário.");
+        }
     }    
 }
