@@ -79,7 +79,7 @@ public class CadastroImovel extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTAObservacao = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Imóvel");
@@ -338,9 +338,9 @@ public class CadastroImovel extends javax.swing.JFrame {
 
         jLabel20.setText("Observações:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTAObservacao.setColumns(20);
+        jTAObservacao.setRows(5);
+        jScrollPane1.setViewportView(jTAObservacao);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -487,11 +487,15 @@ public class CadastroImovel extends javax.swing.JFrame {
 
     private void jBTNSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNSalvarActionPerformed
         // TODO add your handling code here:
-        Funcionario funcionario = null;
+        Imovel imovel = null;
         try {
-            funcionario = new Funcionario(jTFNome.getText(), jTFEndereco.getText(), jCBEstado.getSelectedIndex(), jTFBairro.getText(), jTFNumero.getText(), jTFEndereco.getText(), jFTFCPF.getText(), jFTFRG.getText(),jTFEmail.getText(), jCBCargo.getSelectedIndex(),jCBSetor.getSelectedIndex(),jCBHora_Entrada.getSelectedIndex(),jCBHora_Saida.getSelectedIndex(),jTFSalario.getText(), jCBTipo.getSelectedIndex());
-            DaoFuncionario dFuncionario = new DaoFuncionario();
-            dFuncionario.persistir(funcionario);
+            imovel = new Imovel(jTFNome.getText(), jTFEndereco.getText(), jCBEstado.getSelectedIndex(),
+                jTFBairro.getText(), jTFNumero.getText(), jTFCidade.getText(), jFTFCPF.getText(), jFTFRG.getText(),
+                jTFEmail.getText(), jTFCidade_Imovel.getText(), jTFEndereco_Imovel.getText(), jTFBairro_Imovel.getText(),
+                jTFNumero_Imovel.getText(), jCBEstado_Imovel.getSelectedIndex(), jTFMetros_Quadrados.getText(), jTFArea_Construida.getText(),
+                jTAObservacao.getText());
+            DaoImovel dFuncionario = new DaoImovel();
+            dFuncionario.persistir(imovel);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo funcionário. Verifique o log abaixo: " + "\n\n" + ex);
             //Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
@@ -573,6 +577,7 @@ public class CadastroImovel extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTAObservacao;
     private javax.swing.JTextField jTFArea_Construida;
     private javax.swing.JTextField jTFBairro;
     private javax.swing.JTextField jTFBairro_Imovel;
@@ -587,6 +592,9 @@ public class CadastroImovel extends javax.swing.JFrame {
     private javax.swing.JTextField jTFNumero;
     private javax.swing.JTextField jTFNumero_Imovel;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
+
+    private void formWindowClosing(Object object) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

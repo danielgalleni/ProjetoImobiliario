@@ -469,7 +469,10 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
         Funcionario funcionario = null;
         try {
-            funcionario = new Funcionario(jTFNome.getText(), jTFEndereco.getText(), jCBEstado.getSelectedIndex(), jTFBairro.getText(), jTFNumero.getText(), jTFEndereco.getText(), jFTFCPF.getText(), jFTFRG.getText(),jTFEmail.getText(), jCBCargo.getSelectedIndex(),jCBSetor.getSelectedIndex(),jCBHora_Entrada.getSelectedIndex(),jCBHora_Saida.getSelectedIndex(),jTFSalario.getText(), jCBTipo.getSelectedIndex());
+            funcionario = new Funcionario(jTFNome.getText(), jTFEndereco.getText(), jCBEstado.getSelectedIndex(),
+                jTFBairro.getText(), jTFNumero.getText(), jTFEndereco.getText(), jFTFCPF.getText(), jFTFRG.getText(),
+                jTFEmail.getText(), jCBCargo.getSelectedIndex(),jCBSetor.getSelectedIndex(),jCBHora_Entrada.getSelectedIndex(),
+                jCBHora_Saida.getSelectedIndex(),jTFSalario.getText(), jCBTipo.getSelectedIndex());
             DaoFuncionario dFuncionario = new DaoFuncionario();
             dFuncionario.persistir(funcionario);
         } catch (Exception ex) {

@@ -35,10 +35,6 @@ public class Funcionario extends Pessoa{
         }
         
     }
-
-    public Funcionario(String text, String text0, int selectedIndex, String text1, String text2, String text3, String text4, String text5, String text6, int selectedIndex0, int selectedIndex1, int selectedIndex2, int selectedIndex3, String text7, int selectedIndex4) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     public String getCargo() {
         return cargo;

@@ -335,7 +335,9 @@ public class CadastroCliente extends javax.swing.JFrame {
     private void jBTNSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNSalvarActionPerformed
         Cliente cliente = null;
         try {
-            cliente = new Cliente(jTFNome.getText(), jTFEndereco.getText(), jCBEstado.getSelectedIndex(), jTFBairro.getText(), jTFNumero.getText(), jTFCidade.getText(), jFTFCPF.getText(), jFTFRG.getText(),jTFEmail.getText(),jFTFTelefone.getText(), jCBTipo.getSelectedIndex());
+            cliente = new Cliente(jTFNome.getText(), jTFEndereco.getText(), jCBEstado.getSelectedIndex(), jTFBairro.getText(),
+                jTFNumero.getText(), jTFCidade.getText(), jFTFCPF.getText(), jFTFRG.getText(),jTFEmail.getText(),
+                jFTFTelefone.getText(), jCBTipo.getSelectedIndex());
             DaoCliente dCliente = new DaoCliente();
             dCliente.persistir(cliente);
         } catch (Exception ex) {

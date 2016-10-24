@@ -22,16 +22,23 @@ public class Imovel extends Pessoa {
     private String area_construida;
     private String observacao;
 
-    public Imovel(String cidade_imovel, String endereco_imovel, String bairro_imovel, String numero_imovel, String estado_imovel, String metros_quadrados, String area_construida, String observacao, Integer codigo, String nome, String endereco, String estado, String bairro, String numero, String cidade, String cpf, String rg, String email) {
+    public Imovel(String cidade_imovel, String endereco_imovel, String bairro_imovel, String numero_imovel, String estado_imovel, String metros_quadrados, String area_construida, String observacao, Integer codigo, String nome, String endereco, String estado, String bairro, String numero, String cidade, String cpf, String rg, String email) throws Exception {
         super(codigo, nome, endereco, estado, bairro, numero, cidade, cpf, rg, email);
-        this.cidade_imovel = cidade_imovel;
-        this.endereco_imovel = endereco_imovel;
-        this.bairro_imovel = bairro_imovel;
-        this.numero_imovel = numero_imovel;
-        this.estado_imovel = estado_imovel;
-        this.metros_quadrados = metros_quadrados;
-        this.area_construida = area_construida;
-        this.observacao = observacao;
+        
+        if ((cidade_imovel != null) && (endereco_imovel != null) && (bairro_imovel != null) && (numero_imovel != null) &&
+           (estado_imovel != null) && (metros_quadrados != null) && (area_construida != null)) {
+            
+            this.cidade_imovel = cidade_imovel;
+            this.endereco_imovel = endereco_imovel;
+            this.bairro_imovel = bairro_imovel;
+            this.numero_imovel = numero_imovel;
+            this.estado_imovel = estado_imovel;
+            this.metros_quadrados = metros_quadrados;
+            this.area_construida = area_construida;
+            this.observacao = observacao;
+        }else{
+            throw new Exception("Erro!\nNecessário preencher todos os campos obrigatórios, verifique!");
+        }
     }
     
     public String getCidade_imovel() {
