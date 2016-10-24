@@ -15,8 +15,8 @@ import javax.persistence.OneToMany;
 
 public class Corretor {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) //Auto incrimento
+   // @Id
+    //@GeneratedValue(strategy = GenerationType.AUTO) //Auto incrimento
     private int codigo_corretor;
     private String nome;
     private String cidade;
