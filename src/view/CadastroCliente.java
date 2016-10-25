@@ -6,11 +6,9 @@
 package view;
 
 import dao.DaoCliente;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Cliente;
-import model.Funcionario;
+import model.Telefone;
 
 /**
  *
@@ -335,9 +333,21 @@ public class CadastroCliente extends javax.swing.JFrame {
     private void jBTNSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNSalvarActionPerformed
         Cliente cliente = null;
         try {
-            cliente = new Cliente(jTFNome.getText(), jTFEndereco.getText(), jCBEstado.getSelectedIndex(), jTFBairro.getText(),
-                jTFNumero.getText(), jTFCidade.getText(), jFTFCPF.getText(), jFTFRG.getText(),jTFEmail.getText(),
-                jFTFTelefone.getText(), jCBTipo.getSelectedIndex());
+            cliente = new Cliente();
+            cliente.setNome(jTFNome.getText());
+            cliente.setCidade(jTFCidade.getText());
+            cliente.setEstado(jCBEstado.getSelectedItem().toString());
+            cliente.setEndereco(jTFEndereco.getText());
+            cliente.setNumero(jTFNumero.getText());
+            cliente.setBairro(jTFBairro.getText());
+            cliente.setCpf(jFTFCPF.getText());
+            cliente.setRg(jFTFRG.getText());
+            cliente.setEmail(jTFEmail.getText());
+            Telefone telefone = new Telefone();
+            telefone.setTelefone(jFTFTelefone.getText());
+            telefone.setTipo(jCBTipo.getSelectedItem().toString());
+            cliente.getTelefones().add(telefone);
+            
             DaoCliente dCliente = new DaoCliente();
             dCliente.persistir(cliente);
         } catch (Exception ex) {

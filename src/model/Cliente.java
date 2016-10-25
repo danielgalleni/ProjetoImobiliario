@@ -19,4 +19,7 @@ public class Cliente extends Pessoa {
         super(codigo, nome, endereco, estado, bairro, numero, cidade, cpf, rg, email);
     }
 
+    public Cliente() {
+    }
+    
 }

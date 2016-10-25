@@ -8,6 +8,7 @@ package view;
 import dao.DaoCorretor;
 import javax.swing.JOptionPane;
 import model.Corretor;
+import model.Telefone;
 
 /**
  *
@@ -294,9 +295,22 @@ public class CadastroCorretor extends javax.swing.JFrame {
     private void jBTNSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNSalvarActionPerformed
     Corretor corretor = null;
         try {
-            corretor = new Corretor(jTFNome.getText(), jTFEndereco.getText(), jCBEstado.getSelectedIndex(), jTFBairro.getText(),
-            jTFNumero.getText(), jTFCidade.getText(), jFTFRG.getText(), jFTFCPF.getText(), jFTFTelefone.getText(),
-            jCBTipo.getSelectedIndex());
+            corretor = new Corretor();
+            corretor.setNome(jTFNome.getText());
+            corretor.setCidade(jTFCidade.getText());
+            corretor.setEstado(jCBEstado.getSelectedItem().toString());
+            corretor.setBairro(jTFBairro.getText());
+            corretor.setEndereco(jTFEndereco.getText());
+            corretor.setNumero(jTFNumero.getText());
+            corretor.setBairro(jTFBairro.getText());
+            corretor.setCpf(jFTFCPF.getText());
+            corretor.setRg(jFTFRG.getText());
+            corretor.setEmail(jTFEmail.getText());
+            Telefone telefone = new Telefone();
+            telefone.setTelefone(jFTFTelefone.getText());
+            telefone.setTipo(jCBTipo.getSelectedItem().toString());
+            corretor.getTelefones().add(telefone);           
+                    
             DaoCorretor dCorretor = new DaoCorretor();
             dCorretor.persistir(corretor);
         } catch (Exception ex) {

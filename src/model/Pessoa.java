@@ -29,6 +29,9 @@ public class Pessoa {
     @OneToMany(mappedBy = "pessoa",cascade = CascadeType.ALL,orphanRemoval = true)    
     private List<Telefone> telefones = new ArrayList<>();
 
+    public Pessoa() {
+    }
+    
     public Pessoa(Integer codigo, String nome, String endereco, String estado, String bairro, String numero, String cidade, String cpf, String rg, String email) {
         this.codigo = codigo;
         this.nome = nome;
