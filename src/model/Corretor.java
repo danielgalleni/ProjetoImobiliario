@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 
 public class Corretor extends Pessoa{
     
-   // @Id
+    //@Id
     //@GeneratedValue(strategy = GenerationType.AUTO) //Auto incrimento
     
     @OneToMany(mappedBy = "corretor",cascade = CascadeType.ALL,orphanRemoval = true)    

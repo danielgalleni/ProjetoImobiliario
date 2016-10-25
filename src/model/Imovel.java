@@ -20,9 +20,11 @@ public class Imovel extends Pessoa {
     private String estado_imovel;
     private String metros_quadrados;
     private String area_construida;
+    private float valor_imovel;
+    private float valor_locacao;
     private String observacao;
 
-    public Imovel(String cidade_imovel, String endereco_imovel, String bairro_imovel, String numero_imovel, String estado_imovel, String metros_quadrados, String area_construida, String observacao, Integer codigo, String nome, String endereco, String estado, String bairro, String numero, String cidade, String cpf, String rg, String email) throws Exception {
+    public Imovel(String cidade_imovel, String endereco_imovel, String bairro_imovel, String numero_imovel, String estado_imovel, String metros_quadrados, String area_construida, float valor_imovel, float valor_locacao, String observacao, Integer codigo, String nome, String endereco, String estado, String bairro, String numero, String cidade, String cpf, String rg, String email) throws Exception {
         super(codigo, nome, endereco, estado, bairro, numero, cidade, cpf, rg, email);
         
         if ((cidade_imovel != null) && (endereco_imovel != null) && (bairro_imovel != null) && (numero_imovel != null) &&
@@ -35,10 +37,16 @@ public class Imovel extends Pessoa {
             this.estado_imovel = estado_imovel;
             this.metros_quadrados = metros_quadrados;
             this.area_construida = area_construida;
+            this.valor_imovel = valor_imovel;
+            this.valor_locacao = valor_locacao;
             this.observacao = observacao;
         }else{
             throw new Exception("Erro!\nNecessário preencher todos os campos obrigatórios, verifique!");
         }
+    }
+
+    public Imovel() {
+        
     }
     
     public String getCidade_imovel() {
@@ -125,6 +133,30 @@ public class Imovel extends Pessoa {
         }
     }
 
+    public float getValor_imovel() {
+        return valor_imovel;
+    }
+
+    public void setValor_imovel(float valor_imovel) throws Exception {
+        if (valor_imovel > 0 ){
+            this.valor_imovel = valor_imovel;
+        }else{
+            throw new Exception("Erro!\nO Valor do Imóvel não pode ser menor que zero.");            
+        }
+    }
+
+    public float getValor_locacao() {
+        return valor_locacao;
+    }
+
+    public void setValor_locacao(float valor_locacao) throws Exception {
+        if (valor_locacao > 0){
+            this.valor_locacao = valor_locacao;
+        }else{
+            throw new Exception("Erro!\nO Valor de Locação do Imóvel não pode ser menor que zero.");
+        }
+    }
+
     public String getObservacao() {
         return observacao;
     }
@@ -132,7 +164,5 @@ public class Imovel extends Pessoa {
     public void setObservacao(String observacao) {
         this.observacao = observacao;
     }
-    
-  
     
 }

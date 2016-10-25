@@ -35,6 +35,10 @@ public class Funcionario extends Pessoa{
         }
         
     }
+
+    public Funcionario() {
+        
+    }
     
     public String getCargo() {
         return cargo;

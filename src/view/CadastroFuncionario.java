@@ -8,6 +8,7 @@ package view;
 import dao.DaoFuncionario;
 import javax.swing.JOptionPane;
 import model.Funcionario;
+import model.Telefone;
 
 /**
  *
@@ -20,6 +21,10 @@ public class CadastroFuncionario extends javax.swing.JFrame {
      */
     public CadastroFuncionario() {
         initComponents();
+    }
+
+    CadastroFuncionario(Menu aThis, boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -469,10 +474,23 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
         Funcionario funcionario = null;
         try {
-            funcionario = new Funcionario(jTFNome.getText(), jTFEndereco.getText(), jCBEstado.getSelectedIndex(),
-                jTFBairro.getText(), jTFNumero.getText(), jTFEndereco.getText(), jFTFCPF.getText(), jFTFRG.getText(),
-                jTFEmail.getText(), jCBCargo.getSelectedIndex(),jCBSetor.getSelectedIndex(),jCBHora_Entrada.getSelectedIndex(),
-                jCBHora_Saida.getSelectedIndex(),jTFSalario.getText(), jCBTipo.getSelectedIndex());
+            funcionario = new Funcionario();
+            funcionario.setNome(jTFNome.getText());
+            funcionario.setCidade(jTFCidade.getText());
+            funcionario.setEstado(jCBEstado.getSelectedItem().toString());
+            funcionario.setBairro(jTFBairro.getText());
+            funcionario.setEndereco(jTFEndereco.getText());
+            funcionario.setNumero(jTFNumero.getText());
+            funcionario.setCpf(jFTFCPF.getText());
+            funcionario.setRg(jFTFRG.getText());
+            funcionario.setEmail(jTFEmail.getText());            
+            Telefone telefone = new Telefone();
+            telefone.setTelefone(jFTFTelefone.getText());
+            telefone.setTipo(jCBTipo.getSelectedItem().toString());
+            funcionario.getTelefones().add(telefone);
+            
+            //CONTINUAR CADASTROS DE DADOS EMPRESARIAIS
+                    
             DaoFuncionario dFuncionario = new DaoFuncionario();
             dFuncionario.persistir(funcionario);
         } catch (Exception ex) {
