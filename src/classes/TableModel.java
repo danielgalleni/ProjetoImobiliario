@@ -11,7 +11,7 @@ import javax.swing.table.AbstractTableModel;
 public class TableModel extends AbstractTableModel {
 
     //<editor-fold desc="Atributos">
-    private List<Object> object;
+    private List<? extends Object> object;
     private String[] colunas;
     // </editor-fold>
     
@@ -45,7 +45,7 @@ public class TableModel extends AbstractTableModel {
     // </editor-fold>
     
     // <editor-fold desc="Métodos CRUD">  
-    public void addRow(Class object) {
+    public void addRow(Object object) {
         this.object.add(object);
         this.fireTableDataChanged();
     }

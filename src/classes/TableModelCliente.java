@@ -27,6 +27,11 @@ public class TableModelCliente extends TableModel{
     }
 
     @Override
+    public void addRow(Object object) {
+
+    }
+
+    @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch(columnIndex){
             case 0:
