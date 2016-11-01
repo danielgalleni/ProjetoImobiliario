@@ -21,7 +21,55 @@ public class BuscaPadrao extends javax.swing.JFrame {
     public BuscaPadrao() {
         initComponents();
     }
+// <editor-fond desc="Funções de controle>
+    private Cliente cliente = null;
+    
+    public Cliente getCliente(){
+        if (jTListaClientes.getRowCount() != 0){
+            int linha = jTListaClientes.getSelectedRow();
+            int codigo = (Integer)(jTListaClientes.getValueAt(linha, 0));
+            DaoCliente dClientes = new DaoCliente();
+            try {
+                cliente = dClientes.buscarPorCodigo(codigo);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ViewBuscaCliente.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(ViewBuscaCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return cliente;
+    }
+    
+    int codigo = 0, btnBuscar = 0;
+    
+    public void ValidarBotoes(){
+        jBBuscar.setSelected(false);
+        jBSair.setSelected(false);
+       
+        if (jTListaClientes.getRowCount() != 0)
+            jBSair.setText("Selecionar");
+        else
+            jBSair.setText("Sair");
+    }
+    
+    public void CarregarGrade(Cliente[] clientes) throws Exception{      
+        // Instancia o TableModelPadrao
+        TableModelCliente dtm = new TableModelCliente(){
+        @Override
+        public boolean isCellEditable(int row, int col)
+            {
+                return false;
+            }
+        };
+        
+        if (clientes != null)
+            for (Cliente c: clientes)
+                dtm.addRow(c);
 
+        jTListaClientes.setModel(dtm);
+    }
+// </editor-fold>
  int codigo = 0, btnBuscar = 0, btnSelecionar = 0;
 
     public void ValidarBotoes() {
