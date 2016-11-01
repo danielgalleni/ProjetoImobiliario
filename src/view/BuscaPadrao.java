@@ -76,7 +76,7 @@ public class BuscaPadrao extends javax.swing.JFrame {
         jBBuscar.setSelected(false);
         jBSair.setSelected(false);
 
-        if (jTBusca.getRowCount() != 0) {
+        if (jTLista.getRowCount() != 0) {
             jBSair.setText("Selecionar");
             btnSelecionar = 1;
         } else {
@@ -102,7 +102,7 @@ public class BuscaPadrao extends javax.swing.JFrame {
             EscreverLinha(listaBusca);
         }
 
-        jTBusca.setModel(dtm);
+        jTLista.setModel(dtm);
     }
 
     public void EscreverLinha(Object[] listaBusca) {
@@ -132,7 +132,7 @@ public class BuscaPadrao extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTBusca = new javax.swing.JTable();
+        jTLista = new javax.swing.JTable();
         jBSair = new javax.swing.JToggleButton();
         jBBuscar = new javax.swing.JToggleButton();
         jTFBusca = new javax.swing.JTextField();
@@ -150,7 +150,7 @@ public class BuscaPadrao extends javax.swing.JFrame {
             }
         });
 
-        jTBusca.setModel(new javax.swing.table.DefaultTableModel(
+        jTLista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -158,12 +158,12 @@ public class BuscaPadrao extends javax.swing.JFrame {
 
             }
         ));
-        jTBusca.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTLista.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTBuscaMouseClicked(evt);
+                jTListaMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTBusca);
+        jScrollPane1.setViewportView(jTLista);
 
         jBSair.setText("Sair");
         jBSair.setName("btnSair"); // NOI18N
@@ -187,9 +187,7 @@ public class BuscaPadrao extends javax.swing.JFrame {
             }
         });
 
-        jCBBusca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nome", "CPF", "Endereço", "Cidade" }));
-
-        jLabel2.setText("Digite: Cidade, Endereço ou Nome");
+        jLabel2.setText("Digite o termo da busca:");
 
         jLabel1.setText("Buscar por");
 
@@ -242,7 +240,7 @@ public class BuscaPadrao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSairActionPerformed
-        if (jTBusca.getRowCount() == 0) {
+        if (jTLista.getRowCount() == 0) {
             if (JOptionPane.showConfirmDialog(null, "Deseja realmente sair sem selecionar uma linha?", "Atenção", JOptionPane.YES_NO_OPTION) == 0) {
                 this.dispose();
             } else {
@@ -352,7 +350,7 @@ public class BuscaPadrao extends javax.swing.JFrame {
         this.ValidarBotoes();
     }//GEN-LAST:event_formWindowOpened
 
-    private void jTBuscaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTBuscaMouseClicked
+    private void jTListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTListaMouseClicked
         /*TODO: Implementar*/
         /*if (evt.getClickCount() > 1) {
             Object object = this.getPeriodo();
@@ -363,7 +361,7 @@ public class BuscaPadrao extends javax.swing.JFrame {
                 ValidarBotoes(0);
             }
         }*/
-    }//GEN-LAST:event_jTBuscaMouseClicked
+    }//GEN-LAST:event_jTListaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -407,7 +405,7 @@ public class BuscaPadrao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTBusca;
     private javax.swing.JTextField jTFBusca;
+    private javax.swing.JTable jTLista;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,7 +16,7 @@ import java.util.List;
  */
 public abstract class Dao {
 
-    // <editor-fold desc="Atributos">  
+    // <editor-fold desc="Atributos">
     private Session sessao;
     // </editor-fold>
 
@@ -53,13 +53,14 @@ public abstract class Dao {
             transaction.rollback();
             throw e;
         } finally {
+            /*TODO*/
             if (!this.getSessao().isOpen()) {
                 this.getSessao().close();
             }
             HibernateUtil.getSessionFactory().close();
         }
     }
-
+    
     public void atualizar(Object object) {
         if (!this.getSessao().isOpen()) {
             this.setSessao(HibernateUtil.getSessionFactory().openSession());
@@ -129,6 +130,8 @@ public abstract class Dao {
             HibernateUtil.getSessionFactory().close();
         }
     }
+    
+    //TODO: Implementar outros gets
     // </editor-fold>
     // </editor-fold>
 }

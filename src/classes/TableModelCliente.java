@@ -6,6 +6,7 @@
 package classes;
 
 import java.util.ArrayList;
+import java.util.List;
 import model.Cliente;
 
 /**
@@ -15,16 +16,21 @@ import model.Cliente;
 public class TableModelCliente extends TableModel{
 
     public TableModelCliente() {
-        Cliente = new ArrayList<>();
+        List<? extends Cliente> cliente;
+        super.setObject(cliente);
+    }
+    
+    // <editor-fold desc="Métodos sobrecarregados">
+    @Override    
+    public Object getLinha(int row) {
+        return super.getLinha(row); //To change body of generated methods, choose Tools | Templates.
     }
 
-    // <editor-fold desc="Métodos sobrecarregados">
-    
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch(columnIndex){
             case 0:
-                return this.object.get(rowIndex).getCodigo();
+                return super.getObject().get(rowIndex).getCodigo();
             case 1:
                 return this.cliente.get(rowIndex).getNome();
             case 2:
@@ -45,5 +51,4 @@ public class TableModelCliente extends TableModel{
         return null;
     }
     // </editor-fold>
-
 }

@@ -2,9 +2,7 @@ package classes;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.event.EventListenerList;
 import javax.swing.table.AbstractTableModel;
-import model.Cliente;
 
 /**
  *
@@ -13,8 +11,8 @@ import model.Cliente;
 public class TableModel extends AbstractTableModel {
 
     //<editor-fold desc="Atributos">
-    private final List<?> object<>;
-    private final String[] colunas = {""};
+    private List<Object> object;
+    private String[] colunas;
     // </editor-fold>
     
     // <editor-fold desc="Construtores">
@@ -22,25 +20,32 @@ public class TableModel extends AbstractTableModel {
         object = new ArrayList<>();
     }
     // </editor-fold>
-    
+
     // <editor-fold desc="Gets e Sets">  
     public List<?> getObject(){
         return this.object;
     }
-    // </editor-fold>
+
     
-    // <editor-fold desc="Métodos de Busca">
+    public void setObject(List<Object> object){
+        this.object = object;
+    }
+    
     public Object getLinha(int row) {
         return this.object.get(row);
     }
 
+    public void setColunas(String[] colunas){
+        this.colunas = colunas;
+    }
+    
     public String[] getColunas() {
         return this.colunas;
     }
     // </editor-fold>
     
     // <editor-fold desc="Métodos CRUD">  
-    public void addRow(Object object) {
+    public void addRow(Class object) {
         this.object.add(object);
         this.fireTableDataChanged();
     }
