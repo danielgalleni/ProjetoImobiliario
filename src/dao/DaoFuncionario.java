@@ -23,17 +23,17 @@ public class DaoFuncionario extends Dao{
     }
 
     @Override
-    public List<Funcionario> list() {
-        if (!this.getSession().isOpen())
-            this.setSession(HibernateUtil.getSessionFactory().openSession());
+    public List<Funcionario> getLista() {
+        if (!this.getSessao().isOpen())
+            this.setSessao(HibernateUtil.getSessionFactory().openSession());
         try {
-            List<Funcionario> lista = this.getSession().createQuery("from Funcionario").list();
+            List<Funcionario> lista = this.getSessao().createQuery("from Funcionario").list();
             return lista;
         } catch (Exception e) {
             throw e;
         } finally {
-            if (!this.getSession().isOpen())
-                this.getSession().close();
+            if (!this.getSessao().isOpen())
+                this.getSessao().close();
             HibernateUtil.getSessionFactory().close();
         } 
     }

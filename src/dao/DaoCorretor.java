@@ -24,19 +24,18 @@ public class DaoCorretor extends Dao{
     }
 
     @Override
-    public List<Corretor> list() {
-        if (!this.getSession().isOpen())
-            this.setSession(HibernateUtil.getSessionFactory().openSession());
+    public List<Corretor> getLista() {
+        if (!this.getSessao().isOpen())
+            this.setSessao(HibernateUtil.getSessionFactory().openSession());
         try {
-            List<Corretor> lista = this.getSession().createQuery("from Corretor").list();
+            List<Corretor> lista = this.getSessao().createQuery("from Corretor").list();
             return lista;
         } catch (Exception e) {
             throw e;
         } finally {
-            if (!this.getSession().isOpen())
-                this.getSession().close();
+            if (!this.getSessao().isOpen())
+                this.getSessao().close();
             HibernateUtil.getSessionFactory().close();
         }
-    }
-    
+    }    
 }

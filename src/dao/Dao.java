@@ -15,100 +15,120 @@ import java.util.List;
  * @author Gonzalez
  */
 public abstract class Dao {
-    private Session session;
 
-    public Dao(){
-        
-    }
-    
-    public Dao(Session session) {
-        this.setSession(session);
+    // <editor-fold desc="Atributos">  
+    private Session sessao;
+    // </editor-fold>
+
+    // <editor-fold desc="Contrutores">  
+    public Dao() {
+
     }
 
-    public Session getSession(){
-        return this.session;
+    public Dao(Session sessao) {
+        this.setSessao(sessao);
     }
-    
-    public void setSession(Session session){
-        this.session = session;
+    // </editor-fold>
+
+    // <editor-fold desc="Gets e Sets">
+    public Session getSessao() {
+        return this.sessao;
     }
-    
+
+    public void setSessao(Session sessao) {
+        this.sessao = sessao;
+    }
+    // </editor-fold>
+
+    // <editor-fold desc="Métodos CRUD">  
     public void persistir(Object object) {
-        if (!this.getSession().isOpen())
-            this.setSession(HibernateUtil.getSessionFactory().openSession());
-        Transaction transaction = this.getSession().beginTransaction();
+        if (!this.getSessao().isOpen()) {
+            this.setSessao(HibernateUtil.getSessionFactory().openSession());
+        }
+        Transaction transaction = this.getSessao().beginTransaction();
         try {
-            this.getSession().persist(object);
+            this.getSessao().persist(object);
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
             throw e;
         } finally {
-            if (!this.getSession().isOpen())
-                this.getSession().close();
+            if (!this.getSessao().isOpen()) {
+                this.getSessao().close();
+            }
             HibernateUtil.getSessionFactory().close();
         }
     }
 
-    public void update(Object object) {
-        if (!this.getSession().isOpen())
-            this.setSession(HibernateUtil.getSessionFactory().openSession());
-        Transaction transaction = this.getSession().beginTransaction();
+    public void atualizar(Object object) {
+        if (!this.getSessao().isOpen()) {
+            this.setSessao(HibernateUtil.getSessionFactory().openSession());
+        }
+        Transaction transaction = this.getSessao().beginTransaction();
         try {
-            this.getSession().update(object);
+            this.getSessao().update(object);
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
             throw e;
         } finally {
-            if (!this.getSession().isOpen())
-                this.getSession().close();
+            if (!this.getSessao().isOpen()) {
+                this.getSessao().close();
+            }
             HibernateUtil.getSessionFactory().close();
         }
     }
 
-    public void delete(Object object) {
-        if (!this.getSession().isOpen())
-            this.setSession(HibernateUtil.getSessionFactory().openSession());
-        Transaction transaction = this.getSession().beginTransaction();
+    public void deletar(Object object) {
+        if (!this.getSessao().isOpen()) {
+            this.setSessao(HibernateUtil.getSessionFactory().openSession());
+        }
+        Transaction transaction = this.getSessao().beginTransaction();
         try {
-            this.getSession().delete(object);
+            this.getSessao().delete(object);
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
             throw e;
         } finally {
-            if (!this.getSession().isOpen())
-                this.getSession().close();
+            if (!this.getSessao().isOpen()) {
+                this.getSessao().close();
+            }
             HibernateUtil.getSessionFactory().close();
         }
     }
 
+    // <editor-fold desc="Métodos de Busca">  
     public Object getById(Integer id) {
-        if (!this.getSession().isOpen())
-            this.setSession(HibernateUtil.getSessionFactory().openSession());
+        if (!this.getSessao().isOpen()) {
+            this.setSessao(HibernateUtil.getSessionFactory().openSession());
+        }
         try {
-            return (model.Cliente) this.getSession().load(Object.class, id);
+            return (model.Cliente) this.getSessao().load(Object.class, id);
         } catch (Exception e) {
             throw e;
         } finally {
-            this.getSession().close();
+            this.getSessao().close();
             HibernateUtil.getSessionFactory().close();
         }
     }
-    
-    public List<?> list(){
-        if (!this.getSession().isOpen())
-            this.setSession(HibernateUtil.getSessionFactory().openSession());
+
+    public List<?> getLista() {
+        if (!this.getSessao().isOpen()) {
+            this.setSessao(HibernateUtil.getSessionFactory().openSession());
+        }
         try {
-            List<Object> lista = this.getSession().createQuery("").list();
+            List<Object> lista = this.getSessao().createQuery("").list();
             return lista;
         } catch (Exception e) {
             throw e;
         } finally {
-            if (!this.getSession().isOpen())
-                this.getSession().close();
+            if (!this.getSessao().isOpen()) {
+                this.getSessao().close();
+            }
             HibernateUtil.getSessionFactory().close();
         }
     }
+    // </editor-fold>
+    // </editor-fold>
 }

@@ -24,17 +24,17 @@ public class DaoImovel extends Dao{
     }
 
     @Override
-    public List<Imovel> list() {
-        if (!this.getSession().isOpen())
-            this.setSession(HibernateUtil.getSessionFactory().openSession());
+    public List<Imovel> getLista() {
+        if (!this.getSessao().isOpen())
+            this.setSessao(HibernateUtil.getSessionFactory().openSession());
         try {
-            List<Imovel> lista = this.getSession().createQuery("from Imovel").list();
+            List<Imovel> lista = this.getSessao().createQuery("from Imovel").list();
             return lista;
         } catch (Exception e) {
             throw e;
         } finally {
-            if (!this.getSession().isOpen())
-                this.getSession().close();
+            if (!this.getSessao().isOpen())
+                this.getSessao().close();
             HibernateUtil.getSessionFactory().close();
         } 
     }

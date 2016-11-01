@@ -24,19 +24,18 @@ public class DaoCliente extends Dao{
     }
 
     @Override
-    public List<Cliente> list() {
-        if (!this.getSession().isOpen())
-            this.setSession(HibernateUtil.getSessionFactory().openSession());
+    public List<Cliente> getLista() {
+        if (!this.getSessao().isOpen())
+            this.setSessao(HibernateUtil.getSessionFactory().openSession());
         try {
-            List<Cliente> lista = this.getSession().createQuery("from Cliente").list();
+            List<Cliente> lista = this.getSessao().createQuery("from Cliente").list();
             return lista;
         } catch (Exception e) {
             throw e;
         } finally {
-            if (!this.getSession().isOpen())
-                this.getSession().close();
+            if (!this.getSessao().isOpen())
+                this.getSessao().close();
             HibernateUtil.getSessionFactory().close();
-        } 
-    }
-    
+        }
+    }    
 }
