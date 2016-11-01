@@ -8,28 +8,35 @@ package dao;
 import java.util.List;
 import model.Cliente;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 /**
  *
- * @author Daniel Galleni
+ * @author Galleni
+ * @author Gonzalez
  */
 public class DaoCliente extends Dao{
-/*
+
+    public DaoCliente() {
+    }
+
     public DaoCliente(Session session) {
         super(session);
-    }*/
+    }
 
+    @Override
     public List<Cliente> list() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        if (!this.getSession().isOpen())
+            this.setSession(HibernateUtil.getSessionFactory().openSession());
         try {
-            List<Cliente> lista = session.createQuery("from Cliente").list();
+            List<Cliente> lista = this.getSession().createQuery("from Cliente").list();
             return lista;
         } catch (Exception e) {
             throw e;
         } finally {
-            session.close();
+            if (!this.getSession().isOpen())
+                this.getSession().close();
             HibernateUtil.getSessionFactory().close();
-        }
+        } 
     }
+    
 }

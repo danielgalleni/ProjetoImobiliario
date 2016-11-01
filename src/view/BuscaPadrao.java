@@ -5,6 +5,7 @@
  */
 package view;
 
+import dao.Dao;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -43,7 +44,7 @@ public class BuscaPadrao extends javax.swing.JFrame {
         }
     };
 
-    public void CarregarGrade(Object[] listaBusca, String[] cabecalho) {
+    public void CarregarGrade(Object[] listaBusca) {
         // Define o título das colunas
         if (cabecalho != null) {
             for (String c : cabecalho) {
@@ -206,13 +207,26 @@ public class BuscaPadrao extends javax.swing.JFrame {
     }//GEN-LAST:event_jBSairActionPerformed
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
-        //TODO: Dao dDao = new Dao();
+        Dao dDao = new Dao() {};
         Object objetc[] = null;
         if (!jTFBusca.getText().equals("")) {
             // Caso o usuário digite algum termo para a busca
             switch (jCBBusca.getSelectedIndex()) {
                 /*TODO: Tratar as buscas*/
                 case 0:
+                    // Buscar por Nome
+                    try {
+                        objetc = dDao.getById(Integer.parseInt(jTFBusca.getText()));
+                        CarregarGrade(objetc);
+                    } catch (Exception ex) {
+                        try {
+                            JOptionPane.showMessageDialog(rootPane, "Erro.\nNão foi possível localizar o cadastro do cliente. Verifique o log abaixo: " + "\n\n" + ex);
+                        } catch (Exception ex1) {
+                            //TODO: Logger.getLogger(BuscaPadrao.class.getName()).log(Level.SEVERE, null, ex1);
+                        }
+                    }
+                    break;
+                case 1:
                     // Buscar por Nome
                     try {
                         //TODO: CarregarGrade(objetc = dDao.buscarPorNome("%" + jTFBusca.getText() + "%"));
@@ -224,7 +238,7 @@ public class BuscaPadrao extends javax.swing.JFrame {
                         }
                     }
                     break;
-                case 1:
+                case 2:
                     // Buscar por CPF
                     try {
                         //TODO: CarregarGrade(objetc = dDao.buscarPorCPF("%" + jTFBusca.getText() + "%"));
@@ -236,7 +250,7 @@ public class BuscaPadrao extends javax.swing.JFrame {
                         }
                     }
                     break;
-                case 2:
+                case 3:
                     // Buscar por endereço
                     try {
                         //TODO: CarregarGrade(objetc = dDao.buscarPorEndereco("%" + jTFBusca.getText() + "%"));
@@ -248,7 +262,7 @@ public class BuscaPadrao extends javax.swing.JFrame {
                         }
                     }
                     break;
-                case 3:
+                case 4:
                     // Buscar por Cidade
                     try {
                         //TODO: CarregarGrade(objetc = dDao.buscarPorCidade("%" + jTFBusca.getText() + "%"));

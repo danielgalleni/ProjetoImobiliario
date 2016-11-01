@@ -7,29 +7,35 @@ package dao;
 import java.util.List;
 import model.Funcionario;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 /**
  *
- * @author Daniel Galleni
+ * @author Galleni
+ * @author Gonzalez
  */
 public class DaoFuncionario extends Dao{
-/*
+
+    public DaoFuncionario() {
+    }
+
     public DaoFuncionario(Session session) {
         super(session);
     }
-    */
 
+    @Override
     public List<Funcionario> list() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        if (!this.getSession().isOpen())
+            this.setSession(HibernateUtil.getSessionFactory().openSession());
         try {
-            List<Funcionario> lista = session.createQuery("from Funcionario").list();
+            List<Funcionario> lista = this.getSession().createQuery("from Funcionario").list();
             return lista;
         } catch (Exception e) {
             throw e;
         } finally {
-            session.close();
+            if (!this.getSession().isOpen())
+                this.getSession().close();
             HibernateUtil.getSessionFactory().close();
-        }
+        } 
     }
+    
 }

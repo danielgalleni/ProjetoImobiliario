@@ -8,28 +8,35 @@ package dao;
 import java.util.List;
 import model.Imovel;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 /**
  *
  * @author Gonzalez
+ * @author Galleni
  */
 public class DaoImovel extends Dao{
-/*
+
+    public DaoImovel() {
+    }
+
     public DaoImovel(Session session) {
         super(session);
-    }*/
+    }
 
+    @Override
     public List<Imovel> list() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        if (!this.getSession().isOpen())
+            this.setSession(HibernateUtil.getSessionFactory().openSession());
         try {
-            List<Imovel> lista = session.createQuery("from Imovel").list();
+            List<Imovel> lista = this.getSession().createQuery("from Imovel").list();
             return lista;
         } catch (Exception e) {
             throw e;
         } finally {
-            session.close();
+            if (!this.getSession().isOpen())
+                this.getSession().close();
             HibernateUtil.getSessionFactory().close();
-        }
-    }    
+        } 
+    }
+       
 }

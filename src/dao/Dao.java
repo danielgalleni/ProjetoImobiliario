@@ -5,76 +5,110 @@
  */
 package dao;
 
-import model.Cliente;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import java.util.List;
 
 /**
  *
+ * @author Galleni
  * @author Gonzalez
  */
 public abstract class Dao {
     private Session session;
 
-   /* public Dao(Session session) {
-        this.session = session;
-    }*/
+    public Dao(){
+        
+    }
+    
+    public Dao(Session session) {
+        this.setSession(session);
+    }
 
+    public Session getSession(){
+        return this.session;
+    }
+    
+    public void setSession(Session session){
+        this.session = session;
+    }
+    
     public void persistir(Object object) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
+        if (!this.getSession().isOpen())
+            this.setSession(HibernateUtil.getSessionFactory().openSession());
+        Transaction transaction = this.getSession().beginTransaction();
         try {
-            session.persist(object);
+            this.getSession().persist(object);
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
             throw e;
         } finally {
-            session.close();
+            if (!this.getSession().isOpen())
+                this.getSession().close();
             HibernateUtil.getSessionFactory().close();
         }
     }
 
     public void update(Object object) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
+        if (!this.getSession().isOpen())
+            this.setSession(HibernateUtil.getSessionFactory().openSession());
+        Transaction transaction = this.getSession().beginTransaction();
         try {
-            session.update(object);
+            this.getSession().update(object);
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
             throw e;
         } finally {
-            session.close();
+            if (!this.getSession().isOpen())
+                this.getSession().close();
             HibernateUtil.getSessionFactory().close();
         }
     }
 
     public void delete(Object object) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
+        if (!this.getSession().isOpen())
+            this.setSession(HibernateUtil.getSessionFactory().openSession());
+        Transaction transaction = this.getSession().beginTransaction();
         try {
-            session.delete(object);
+            this.getSession().delete(object);
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
             throw e;
         } finally {
-            session.close();
+            if (!this.getSession().isOpen())
+                this.getSession().close();
             HibernateUtil.getSessionFactory().close();
         }
     }
 
     public Object getById(Integer id) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        if (!this.getSession().isOpen())
+            this.setSession(HibernateUtil.getSessionFactory().openSession());
         try {
-            return (model.Cliente) session.load(Object.class, id);
+            return (model.Cliente) this.getSession().load(Object.class, id);
         } catch (Exception e) {
             throw e;
         } finally {
-            session.close();
+            this.getSession().close();
             HibernateUtil.getSessionFactory().close();
         }
     }
     
+    public List<?> list(){
+        if (!this.getSession().isOpen())
+            this.setSession(HibernateUtil.getSessionFactory().openSession());
+        try {
+            List<Object> lista = this.getSession().createQuery("").list();
+            return lista;
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (!this.getSession().isOpen())
+                this.getSession().close();
+            HibernateUtil.getSessionFactory().close();
+        }
+    }
 }
