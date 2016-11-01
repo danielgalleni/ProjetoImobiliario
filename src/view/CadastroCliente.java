@@ -20,6 +20,7 @@ public class CadastroCliente extends javax.swing.JFrame {
      */
     public CadastroCliente() {
         initComponents();
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
     
     CadastroCliente(Menu aThis, boolean b) {
@@ -343,9 +344,11 @@ public class CadastroCliente extends javax.swing.JFrame {
             cliente.setCpf(jFTFCPF.getText());
             cliente.setRg(jFTFRG.getText());
             cliente.setEmail(jTFEmail.getText());
+            
             Telefone telefone = new Telefone();
             telefone.setTelefone(jFTFTelefone.getText());
             telefone.setTipo(jCBTipo.getSelectedItem().toString());
+            telefone.setPessoa(cliente);
             cliente.getTelefones().add(telefone);
             
             DaoCliente dCliente = new DaoCliente();

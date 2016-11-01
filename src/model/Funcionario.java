@@ -5,6 +5,9 @@
  */
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  *
  * @author Gonzalez
@@ -12,7 +15,8 @@ package model;
  */
 
 //@ - Anotação
-
+@Entity
+@Table(name = "funcionario")
 public class Funcionario extends Pessoa{
     
     private String cargo;

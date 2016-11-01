@@ -166,7 +166,7 @@ public class BuscaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jTFBuscaActionPerformed
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
-        DaoCliente dClientes = new DaoCliente();
+       /* DaoCliente dClientes = new DaoCliente();
         Cliente clientes[] = null;
         if (!jTFBusca.getText().equals("")) {
             // Caso o usuário digite algum termo para a busca
@@ -233,18 +233,18 @@ public class BuscaCliente extends javax.swing.JFrame {
             }
         }
 
-        this.ValidarBotoes();
+        this.ValidarBotoes();*/
     }//GEN-LAST:event_jBBuscarActionPerformed
 
     private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSairActionPerformed
-        if (jTListaClientes.getRowCount() == 0)
+    /*    if (jTListaClientes.getRowCount() == 0)
         if (JOptionPane.showConfirmDialog(null, "Deseja realmente sair sem selecionar um cliente?", "Atenção", JOptionPane.YES_NO_OPTION) == 0)
         this.dispose();
         else
         jBSair.setSelected(false);
         else{
             this.dispose();
-        }
+        }*/
     }//GEN-LAST:event_jBSairActionPerformed
 
     /**

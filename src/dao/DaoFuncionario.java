@@ -13,70 +13,12 @@ import org.hibernate.Transaction;
  *
  * @author Daniel Galleni
  */
-public class DaoFuncionario {
-    private Session session;
-
-    public DaoFuncionario() {
-        this.session = session;
+public class DaoFuncionario extends Dao{
+/*
+    public DaoFuncionario(Session session) {
+        super(session);
     }
-
-    public void persistir(Funcionario funcionario){
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
-        try{
-          session.persist(funcionario);
-          transaction.commit();
-        }catch(Exception e){
-          transaction.rollback();
-          throw e;
-        }finally{
-            session.close();
-            HibernateUtil.getSessionFactory().close();
-        }
-    }
-    
-    public void update(Funcionario funcionario) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
-        try {
-            session.update(funcionario);
-            transaction.commit();
-        } catch (Exception e) {
-            transaction.rollback();
-            throw e;
-        } finally {
-            session.close();
-            HibernateUtil.getSessionFactory().close();
-        }
-    }
-    
-    public void delete(Funcionario funcionario) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
-        try {
-            session.delete(funcionario);
-            transaction.commit();
-        } catch (Exception e) {
-            transaction.rollback();
-            throw e;
-        } finally {
-            session.close();
-            HibernateUtil.getSessionFactory().close();
-        }
-    }
-
-        public Funcionario getById(Integer id) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        try {
-            model.Funcionario funcionario = (model.Funcionario) session.load(model.Funcionario.class, id);
-            return funcionario;
-        } catch (Exception e) {
-            throw e;
-        } finally {
-            session.close();
-            HibernateUtil.getSessionFactory().close();
-        }
-    }
+    */
 
     public List<Funcionario> list() {
         Session session = HibernateUtil.getSessionFactory().openSession();
