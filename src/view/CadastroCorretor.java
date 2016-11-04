@@ -19,6 +19,7 @@ public class CadastroCorretor extends javax.swing.JFrame {
     /**
      * Creates new form CadastroCorretor
      */
+
     public CadastroCorretor() {
         initComponents();
     }
@@ -26,7 +27,7 @@ public class CadastroCorretor extends javax.swing.JFrame {
     CadastroCorretor(Menu aThis, boolean b) {
        
     }
-
+  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,7 +37,7 @@ public class CadastroCorretor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jBTNCancelar2 = new javax.swing.JButton();
+        jBTNCancelar = new javax.swing.JButton();
         jBTNSalvar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jTFNome = new javax.swing.JTextField();
@@ -63,14 +64,27 @@ public class CadastroCorretor extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jTFCodigo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jBTNNovo = new javax.swing.JButton();
+        jBTNNovo1 = new javax.swing.JButton();
+        jBTNNovo2 = new javax.swing.JButton();
+        jBTNNovo3 = new javax.swing.JButton();
+        jBTNNovo4 = new javax.swing.JButton();
+        jBTNNovo5 = new javax.swing.JButton();
+        jBTNNovo6 = new javax.swing.JButton();
+        jBTNNovo7 = new javax.swing.JButton();
+        jBTNNovo8 = new javax.swing.JButton();
+        jBTNNovo9 = new javax.swing.JButton();
+        jBTNNovo10 = new javax.swing.JButton();
+        jBTNNovo11 = new javax.swing.JButton();
+        jBTNNovo12 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Corretor");
 
-        jBTNCancelar2.setText("Cancelar");
-        jBTNCancelar2.addActionListener(new java.awt.event.ActionListener() {
+        jBTNCancelar.setText("Cancelar");
+        jBTNCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBTNCancelar2ActionPerformed(evt);
+                jBTNCancelarActionPerformed(evt);
             }
         });
 
@@ -257,6 +271,37 @@ public class CadastroCorretor extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jBTNNovo.setText("Novo");
+        jBTNNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTNNovoActionPerformed(evt);
+            }
+        });
+
+        jBTNNovo1.setText("Novo");
+
+        jBTNNovo2.setText("Novo");
+
+        jBTNNovo3.setText("Novo");
+
+        jBTNNovo4.setText("Novo");
+
+        jBTNNovo5.setText("Novo");
+
+        jBTNNovo6.setText("Novo");
+
+        jBTNNovo7.setText("Novo");
+
+        jBTNNovo8.setText("Novo");
+
+        jBTNNovo9.setText("Novo");
+
+        jBTNNovo10.setText("Novo");
+
+        jBTNNovo11.setText("Novo");
+
+        jBTNNovo12.setText("Novo");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -266,57 +311,114 @@ public class CadastroCorretor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jBTNNovo12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBTNSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jBTNCancelar2)))
+                        .addComponent(jBTNCancelar)))
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(206, 206, 206)
+                    .addComponent(jBTNNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(207, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 212, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jBTNNovo1)
+                        .addComponent(jBTNNovo2)
+                        .addComponent(jBTNNovo3)
+                        .addComponent(jBTNNovo4)
+                        .addComponent(jBTNNovo5)
+                        .addComponent(jBTNNovo6)
+                        .addComponent(jBTNNovo7)
+                        .addComponent(jBTNNovo8)
+                        .addComponent(jBTNNovo9)
+                        .addComponent(jBTNNovo10)
+                        .addComponent(jBTNNovo11))
+                    .addGap(0, 213, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBTNCancelar2)
-                    .addComponent(jBTNSalvar))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jBTNCancelar)
+                            .addComponent(jBTNSalvar)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jBTNNovo12)))
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(246, 246, 246)
+                    .addComponent(jBTNNovo)
+                    .addContainerGap(247, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 16, Short.MAX_VALUE)
+                    .addComponent(jBTNNovo1)
+                    .addGap(0, 16, Short.MAX_VALUE)
+                    .addComponent(jBTNNovo2)
+                    .addGap(0, 16, Short.MAX_VALUE)
+                    .addComponent(jBTNNovo3)
+                    .addGap(0, 16, Short.MAX_VALUE)
+                    .addComponent(jBTNNovo4)
+                    .addGap(0, 16, Short.MAX_VALUE)
+                    .addComponent(jBTNNovo5)
+                    .addGap(0, 16, Short.MAX_VALUE)
+                    .addComponent(jBTNNovo6)
+                    .addGap(0, 16, Short.MAX_VALUE)
+                    .addComponent(jBTNNovo7)
+                    .addGap(0, 16, Short.MAX_VALUE)
+                    .addComponent(jBTNNovo8)
+                    .addGap(0, 16, Short.MAX_VALUE)
+                    .addComponent(jBTNNovo9)
+                    .addGap(0, 16, Short.MAX_VALUE)
+                    .addComponent(jBTNNovo10)
+                    .addGap(0, 22, Short.MAX_VALUE)
+                    .addComponent(jBTNNovo11)
+                    .addGap(0, 81, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBTNCancelar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNCancelar2ActionPerformed
+    private void jBTNCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNCancelarActionPerformed
         if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente sair?", "Atenção", JOptionPane.YES_NO_OPTION) == 0)
         this.dispose();
-    }//GEN-LAST:event_jBTNCancelar2ActionPerformed
+    }//GEN-LAST:event_jBTNCancelarActionPerformed
 
     private void jBTNSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNSalvarActionPerformed
-    Corretor corretor = null;
-        try {
-            corretor = new Corretor();
-            corretor.setNome(jTFNome.getText());
-            corretor.setCidade(jTFCidade.getText());
-            corretor.setEstado(jCBEstado.getSelectedItem().toString());
-            corretor.setBairro(jTFBairro.getText());
-            corretor.setEndereco(jTFEndereco.getText());
-            corretor.setNumero(jTFNumero.getText());
-            corretor.setBairro(jTFBairro.getText());
-            corretor.setCpf(jFTFCPF.getText());
-            corretor.setRg(jFTFRG.getText());
-            corretor.setEmail(jTFEmail.getText());
-            Telefone telefone = new Telefone();
-            telefone.setTelefone(jFTFTelefone.getText());
-            telefone.setTipo(jCBTipo.getSelectedItem().toString());
-            corretor.getTelefones().add(telefone);           
-                    
-            DaoCorretor dCorretor = new DaoCorretor();
-            dCorretor.persistir(corretor);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo corretor. Verifique o log abaixo: " + "\n\n" + ex);
-            //Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Corretor corretor = null;
+            try {
+                corretor = new Corretor();
+                corretor.setNome(jTFNome.getText());
+                corretor.setCidade(jTFCidade.getText());
+                corretor.setEstado(jCBEstado.getSelectedItem().toString());
+                corretor.setBairro(jTFBairro.getText());
+                corretor.setEndereco(jTFEndereco.getText());
+                corretor.setNumero(jTFNumero.getText());
+                corretor.setBairro(jTFBairro.getText());
+                corretor.setCpf(jFTFCPF.getText());
+                corretor.setRg(jFTFRG.getText());
+                corretor.setEmail(jTFEmail.getText());
+                Telefone telefone = new Telefone();
+                telefone.setTelefone(jFTFTelefone.getText());
+                telefone.setTipo(jCBTipo.getSelectedItem().toString());
+                corretor.getTelefones().add(telefone);           
+
+                DaoCorretor dCorretor = new DaoCorretor();
+                dCorretor.persistir(corretor);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo corretor. Verifique o log abaixo: " + "\n\n" + ex);
+                //Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }//GEN-LAST:event_jBTNSalvarActionPerformed
 
     private void jTFBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFBairroActionPerformed
@@ -326,6 +428,10 @@ public class CadastroCorretor extends javax.swing.JFrame {
     private void jFTFTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFTFTelefoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFTFTelefoneActionPerformed
+
+    private void jBTNNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNNovoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBTNNovoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -363,7 +469,20 @@ public class CadastroCorretor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBTNCancelar2;
+    private javax.swing.JButton jBTNCancelar;
+    private javax.swing.JButton jBTNNovo;
+    private javax.swing.JButton jBTNNovo1;
+    private javax.swing.JButton jBTNNovo10;
+    private javax.swing.JButton jBTNNovo11;
+    private javax.swing.JButton jBTNNovo12;
+    private javax.swing.JButton jBTNNovo2;
+    private javax.swing.JButton jBTNNovo3;
+    private javax.swing.JButton jBTNNovo4;
+    private javax.swing.JButton jBTNNovo5;
+    private javax.swing.JButton jBTNNovo6;
+    private javax.swing.JButton jBTNNovo7;
+    private javax.swing.JButton jBTNNovo8;
+    private javax.swing.JButton jBTNNovo9;
     private javax.swing.JButton jBTNSalvar;
     private javax.swing.JComboBox jCBEstado;
     private javax.swing.JComboBox jCBTipo;

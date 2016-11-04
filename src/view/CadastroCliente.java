@@ -17,10 +17,11 @@ import model.Telefone;
 public class CadastroCliente extends javax.swing.JFrame {
     /**
      * Creates new form CadastroCliente
-     */
+     */ 
+
     public CadastroCliente() {
         initComponents();
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        //setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
     
     CadastroCliente(Menu aThis, boolean b) {
@@ -333,7 +334,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
-     if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente sair?", "Atenção", JOptionPane.YES_NO_OPTION) == 0)
+    if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente sair?", "Atenção", JOptionPane.YES_NO_OPTION) == 0)
             this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
@@ -344,30 +345,30 @@ public class CadastroCliente extends javax.swing.JFrame {
 
     private void jBTNSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNSalvarActionPerformed
         Cliente cliente = null;
-        try {
-            cliente = new Cliente();
-            cliente.setNome(jTFNome.getText());
-            cliente.setCidade(jTFCidade.getText());
-            cliente.setEstado(jCBEstado.getSelectedItem().toString());
-            cliente.setEndereco(jTFEndereco.getText());
-            cliente.setNumero(jTFNumero.getText());
-            cliente.setBairro(jTFBairro.getText());
-            cliente.setCpf(jFTFCPF.getText());
-            cliente.setRg(jFTFRG.getText());
-            cliente.setEmail(jTFEmail.getText());
-            
-            Telefone telefone = new Telefone();
-            telefone.setTelefone(jFTFTelefone.getText());
-            telefone.setTipo(jCBTipo.getSelectedItem().toString());
-            telefone.setPessoa(cliente);
-            cliente.getTelefones().add(telefone);
-            
-            DaoCliente dCliente = new DaoCliente();
-            dCliente.persistir(cliente);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo cliente. Verifique o log abaixo: " + "\n\n" + ex);
-            //Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            try {
+                cliente = new Cliente();
+                cliente.setNome(jTFNome.getText());
+                cliente.setCidade(jTFCidade.getText());
+                cliente.setEstado(jCBEstado.getSelectedItem().toString());
+                cliente.setEndereco(jTFEndereco.getText());
+                cliente.setNumero(jTFNumero.getText());
+                cliente.setBairro(jTFBairro.getText());
+                cliente.setCpf(jFTFCPF.getText());
+                cliente.setRg(jFTFRG.getText());
+                cliente.setEmail(jTFEmail.getText());
+
+                Telefone telefone = new Telefone();
+                telefone.setTelefone(jFTFTelefone.getText());
+                telefone.setTipo(jCBTipo.getSelectedItem().toString());
+                telefone.setPessoa(cliente);
+                cliente.getTelefones().add(telefone);
+
+                DaoCliente dCliente = new DaoCliente();
+                dCliente.persistir(cliente);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo cliente. Verifique o log abaixo: " + "\n\n" + ex);
+                //Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }//GEN-LAST:event_jBTNSalvarActionPerformed
 
     private void jFTFTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFTFTelefoneActionPerformed
@@ -468,7 +469,5 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JTextField jTFNumero;
     // End of variables declaration//GEN-END:variables
 
-    private void BloqueiaDesbloqueiaCampos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 }
