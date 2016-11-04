@@ -29,13 +29,40 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jBTNNovo12" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="jBTNSalvar" min="-2" pref="75" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jBTNCancelar2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBTNCancelar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
+                  <Component id="jBTNNovo" min="-2" pref="69" max="-2" attributes="0"/>
+                  <EmptySpace pref="207" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+          <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="0" pref="212" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jBTNNovo1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBTNNovo2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBTNNovo3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBTNNovo4" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBTNNovo5" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBTNNovo6" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBTNNovo7" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBTNNovo8" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBTNNovo9" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBTNNovo10" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBTNNovo11" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="0" pref="213" max="32767" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -44,23 +71,65 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jBTNCancelar2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jBTNSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jBTNCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jBTNSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jBTNNovo12" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="246" max="-2" attributes="0"/>
+                  <Component id="jBTNNovo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="247" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+          <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
+                  <Component id="jBTNNovo1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
+                  <Component id="jBTNNovo2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
+                  <Component id="jBTNNovo3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
+                  <Component id="jBTNNovo4" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
+                  <Component id="jBTNNovo5" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
+                  <Component id="jBTNNovo6" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
+                  <Component id="jBTNNovo7" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
+                  <Component id="jBTNNovo8" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
+                  <Component id="jBTNNovo9" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
+                  <Component id="jBTNNovo10" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="22" max="32767" attributes="0"/>
+                  <Component id="jBTNNovo11" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="81" max="32767" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jBTNCancelar2">
+    <Component class="javax.swing.JButton" name="jBTNCancelar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBTNCancelar2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBTNCancelarActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jBTNSalvar">
@@ -378,5 +447,73 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="jBTNNovo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Novo"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBTNNovoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBTNNovo1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Novo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBTNNovo2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Novo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBTNNovo3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Novo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBTNNovo4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Novo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBTNNovo5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Novo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBTNNovo6">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Novo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBTNNovo7">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Novo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBTNNovo8">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Novo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBTNNovo9">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Novo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBTNNovo10">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Novo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBTNNovo11">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Novo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBTNNovo12">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Novo"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
