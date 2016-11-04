@@ -46,7 +46,7 @@ public class TableModel extends AbstractTableModel {
     
     // <editor-fold desc="Métodos CRUD">  
     public void addRow(Object object) {
-        this.object.add(object);
+        //this.object.add(object);
         this.fireTableDataChanged();
     }
 

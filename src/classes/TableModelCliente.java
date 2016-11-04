@@ -14,11 +14,6 @@ import model.Cliente;
  * @author Galleni
  */
 public class TableModelCliente extends TableModel{
-
-    public TableModelCliente() {
-        List<? extends Cliente> cliente;
-        super.setObject(cliente);
-    }
     
     // <editor-fold desc="Métodos sobrecarregados">
     @Override    

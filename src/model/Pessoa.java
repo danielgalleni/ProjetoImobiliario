@@ -26,7 +26,7 @@ import org.hibernate.annotations.Columns;
 @Entity
 @Table(name = "pessoa")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Pessoa {
+public class Pessoa extends Object {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
