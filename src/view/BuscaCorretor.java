@@ -7,7 +7,7 @@ package view;
 
 /**
  *
- * @author Daniel
+ * @author Galleni
  */
 public class BuscaCorretor extends BuscaPadrao{
 

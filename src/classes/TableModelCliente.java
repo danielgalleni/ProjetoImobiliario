@@ -28,7 +28,7 @@ public class TableModelCliente extends TableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        switch(columnIndex){
+        /*switch(columnIndex){
             case 0:
                 return super.getObject().get(rowIndex).getCodigo();
             case 1:
@@ -48,6 +48,7 @@ public class TableModelCliente extends TableModel{
             case 8:
                 return this.cliente.get(rowIndex).getCpf();
         }
+        return null;*/
         return null;
     }
     // </editor-fold>

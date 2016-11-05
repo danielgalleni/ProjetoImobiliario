@@ -7,7 +7,7 @@ package view;
 
 /**
  *
- * @author Daniel
+ * @author Galleni
  */
 public class BuscaCliente extends BuscaPadrao {
 
