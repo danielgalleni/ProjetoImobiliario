@@ -15,12 +15,117 @@ import model.Telefone;
  * @author Gonzalez
  */
 public class CadastroFuncionario extends javax.swing.JFrame {
-
+    int btnSalvar = 0, btnNovo = 0;
     /**
-     * Creates new form CadastroFunc
+     * Creates new form CadastroCorretor
      */
+
+    /* TERMINAR A PROGRAMAÇÃO DA ORDEM DE BOTÕES*/
+    public void ValidarBotoes(int funcao){
+    //FUNÇÃO  = 0 TELA LIMPA
+    //FUNÇÃO = 1 NOVO CADASTRO
+        
+        switch(funcao){
+            case 0: //TELA LIMPA, SEM CADASTRO
+            {
+                LimpaCampos();
+                BloqueiaDesbloqueiaCampos(0);
+                btnSalvar = 0;
+                btnNovo = 0;
+                jBTNNovo.setEnabled(true);
+                jBTNNovo.setSelected(true);
+		//jBTNSalvar.setSelected(false);
+                jBTNSalvar.setEnabled(false);
+                jBTNCancelar.setEnabled(true);
+                jBTNCancelar.setSelected(true);
+                break;
+            }
+            case 1: //TELA LIBERADA PARA NOVO CADASTRO
+            {
+                LimpaCampos();
+                BloqueiaDesbloqueiaCampos(1);
+                jTFCodigo.setText("NOVO");
+                jBTNNovo.setText("Limpar");
+                jBTNNovo.setEnabled(true);
+                jBTNNovo.setSelected(true);                
+                btnSalvar = 1;
+                btnNovo = 1;
+                jBTNSalvar.setEnabled(true);
+                jBTNSalvar.setSelected(true);
+                jBTNCancelar.setEnabled(true);
+                jBTNCancelar.setSelected(true);
+                jTFNome.requestFocus();
+                break;
+            }
+        }	
+    }
+    
+    public void LimpaCampos(){
+        jTFNome.setText(null);
+        jTFCidade.setText(null);
+        jCBEstado.setSelectedItem(null);
+        jTFEndereco.setText(null);
+        jTFNumero.setText(null);
+        jTFBairro.setText(null);
+        jFTFCPF.setText(null);
+        jFTFRG.setText(null);
+        jTFEmail.setText(null);
+        jFTFTelefone.setText(null);
+        jCBTipo.setSelectedItem(null);
+    }
+    
+    public void BloqueiaDesbloqueiaCampos(int funcao){
+        //FUNÇÃO = 0, BLOQUEIA OS CAMPOS
+        //FUNÇÃO = 1, DESBLOQUEIA OS CAMPOS
+        if (funcao == 0){
+            //BLOQUEIA CAMPOS
+            jTFNome.setEditable(false);
+            jTFCidade.setEditable(false);
+            jCBEstado.setEnabled(false);
+            jTFEndereco.setEditable(false);
+            jTFNumero.setEditable(false);
+            jTFBairro.setEditable(false);
+            jFTFCPF.setEditable(false);
+            jFTFRG.setEditable(false);
+            jTFEmail.setEditable(false);
+            jFTFTelefone.setEditable(false);
+            jCBTipo.setEnabled(false);
+            jCBCargo.setEnabled(false);
+            jCBSetor.setEnabled(false);
+            jCBHora_Entrada.setEnabled(false);
+            jCBHora_Saida.setEnabled(false);
+            jTFSalario.setEditable(false);
+            jBTNCadastro_Cargo.setEnabled(false);
+            jBTNCadastrar_Setor.setEnabled(false);
+            jBTNCadastrar_Hora_Entrada.setEnabled(false);
+            jBTNCadastrar_Hora_Saida.setEnabled(false);
+        }else{
+            //DESBLOQUEIA CAMPOS
+            jTFNome.setEditable(true);
+            jTFCidade.setEditable(true);
+            jCBEstado.setEnabled(true);
+            jTFEndereco.setEditable(true);
+            jTFNumero.setEditable(true);
+            jTFBairro.setEditable(true);
+            jFTFCPF.setEditable(true);
+            jFTFRG.setEditable(true);
+            jTFEmail.setEditable(true);
+            jFTFTelefone.setEditable(true);
+            jCBTipo.setEnabled(true);
+            jCBCargo.setEnabled(true);
+            jCBSetor.setEnabled(true);
+            jCBHora_Entrada.setEnabled(true);
+            jCBHora_Saida.setEnabled(true);
+            jTFSalario.setEditable(true);
+            jBTNCadastro_Cargo.setEnabled(true);
+            jBTNCadastrar_Setor.setEnabled(true);
+            jBTNCadastrar_Hora_Entrada.setEnabled(true);
+            jBTNCadastrar_Hora_Saida.setEnabled(true);
+        }
+    }
     public CadastroFuncionario() {
         initComponents();
+        this.ValidarBotoes(0);
     }
 
     CadastroFuncionario(Menu aThis, boolean b) {
@@ -66,6 +171,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jBTNCancelar = new javax.swing.JButton();
         jBTNSalvar = new javax.swing.JButton();
+        jBTNNovo = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jCBCargo = new javax.swing.JComboBox();
@@ -157,23 +263,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                     .addComponent(jTFEmail)
                     .addComponent(jTFBairro)
                     .addComponent(jTFNome)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel17))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jFTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel18)
-                            .addComponent(jCBTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -201,7 +290,23 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jFTFRG, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10))))
+                            .addComponent(jLabel10)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel17)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jFTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jCBTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -277,6 +382,13 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             }
         });
 
+        jBTNNovo.setText("Novo");
+        jBTNNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTNNovoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -284,8 +396,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jBTNNovo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBTNSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jBTNCancelar)))
@@ -296,10 +412,11 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBTNSalvar)
-                    .addComponent(jBTNCancelar))
+                    .addComponent(jBTNCancelar)
+                    .addComponent(jBTNNovo))
                 .addContainerGap())
         );
 
@@ -368,19 +485,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                             .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCBHora_Entrada, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jCBCargo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jBTNCadastro_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jBTNCadastrar_Setor, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jBTNCadastrar_Hora_Entrada))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(jBTNCadastrar_Hora_Saida, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jBTNCadastro_Cargo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBTNCadastrar_Setor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBTNCadastrar_Hora_Entrada, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jBTNCadastrar_Hora_Saida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -438,7 +548,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(236, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Cadastro de Dados Empresariais", jPanel2);
@@ -466,36 +576,40 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jFTFTelefoneActionPerformed
 
     private void jBTNCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNCancelarActionPerformed
-        // TODO add your handling code here:
-        this.formWindowClosing(null);
+        if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente sair?", "Atenção", JOptionPane.YES_NO_OPTION) == 0)
+        this.dispose();
     }//GEN-LAST:event_jBTNCancelarActionPerformed
 
     private void jBTNSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNSalvarActionPerformed
-        // TODO add your handling code here:
-        Funcionario funcionario = null;
-        try {
-            funcionario = new Funcionario();
-            funcionario.setNome(jTFNome.getText());
-            funcionario.setCidade(jTFCidade.getText());
-            funcionario.setEstado(jCBEstado.getSelectedItem().toString());
-            funcionario.setBairro(jTFBairro.getText());
-            funcionario.setEndereco(jTFEndereco.getText());
-            funcionario.setNumero(jTFNumero.getText());
-            funcionario.setCpf(jFTFCPF.getText());
-            funcionario.setRg(jFTFRG.getText());
-            funcionario.setEmail(jTFEmail.getText());            
-            Telefone telefone = new Telefone();
-            telefone.setTelefone(jFTFTelefone.getText());
-            telefone.setTipo(jCBTipo.getSelectedItem().toString());
-            funcionario.getTelefones().add(telefone);
-            
-            //CONTINUAR CADASTROS DE DADOS EMPRESARIAIS
-                    
-            DaoFuncionario dFuncionario = new DaoFuncionario();
-            dFuncionario.persistir(funcionario);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo funcionário. Verifique o log abaixo: " + "\n\n" + ex);
-            //Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+        if(btnSalvar == 0){
+            //HABILITA CAMPOS
+            this.ValidarBotoes(1);
+        }else if (btnSalvar == 1){   
+            Funcionario funcionario = null;
+            try {
+                funcionario = new Funcionario();
+                funcionario.setNome(jTFNome.getText());
+                funcionario.setCidade(jTFCidade.getText());
+                funcionario.setEstado(jCBEstado.getSelectedItem().toString());
+                funcionario.setBairro(jTFBairro.getText());
+                funcionario.setEndereco(jTFEndereco.getText());
+                funcionario.setNumero(jTFNumero.getText());
+                funcionario.setCpf(jFTFCPF.getText());
+                funcionario.setRg(jFTFRG.getText());
+                funcionario.setEmail(jTFEmail.getText());            
+                Telefone telefone = new Telefone();
+                telefone.setTelefone(jFTFTelefone.getText());
+                telefone.setTipo(jCBTipo.getSelectedItem().toString());
+                funcionario.getTelefones().add(telefone);
+
+                //CONTINUAR CADASTROS DE DADOS EMPRESARIAIS
+
+                DaoFuncionario dFuncionario = new DaoFuncionario();
+                dFuncionario.persistir(funcionario);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo funcionário. Verifique o log abaixo: " + "\n\n" + ex);
+                //Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_jBTNSalvarActionPerformed
 
@@ -514,6 +628,14 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private void jBTNCadastrar_Hora_SaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNCadastrar_Hora_SaidaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBTNCadastrar_Hora_SaidaActionPerformed
+
+    private void jBTNNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNNovoActionPerformed
+        // TODO add your handling code here:
+        this.ValidarBotoes(1);
+        if(btnNovo == 0){
+            this.ValidarBotoes(0);
+        }
+    }//GEN-LAST:event_jBTNNovoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -557,6 +679,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton jBTNCadastrar_Setor;
     private javax.swing.JButton jBTNCadastro_Cargo;
     private javax.swing.JButton jBTNCancelar;
+    private javax.swing.JButton jBTNNovo;
     private javax.swing.JButton jBTNSalvar;
     private javax.swing.JComboBox jCBCargo;
     private javax.swing.JComboBox jCBEstado;

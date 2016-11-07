@@ -15,12 +15,122 @@ import model.Telefone;
  * @author Gonzalez
  */
 public class CadastroImovel extends javax.swing.JFrame {
-
+    int btnSalvar = 0, btnNovo = 0;
     /**
-     * Creates new form Imovel
+     * Creates new form CadastroCorretor
      */
+
+    /* TERMINAR A PROGRAMAÇÃO DA ORDEM DE BOTÕES*/
+    public void ValidarBotoes(int funcao){
+    //FUNÇÃO  = 0 TELA LIMPA
+    //FUNÇÃO = 1 NOVO CADASTRO
+        
+        switch(funcao){
+            case 0: //TELA LIMPA, SEM CADASTRO
+            {
+                LimpaCampos();
+                BloqueiaDesbloqueiaCampos(0);
+                btnSalvar = 0;
+                btnNovo = 0;
+                jBTNNovo.setEnabled(true);
+                jBTNNovo.setSelected(true);
+		//jBTNSalvar.setSelected(false);
+                jBTNSalvar.setEnabled(false);
+                jBTNCancelar.setEnabled(true);
+                jBTNCancelar.setSelected(true);
+                break;
+            }
+            case 1: //TELA LIBERADA PARA NOVO CADASTRO
+            {
+                LimpaCampos();
+                BloqueiaDesbloqueiaCampos(1);
+                jTFCodigo.setText("NOVO");
+                jBTNNovo.setText("Limpar");
+                jBTNNovo.setEnabled(true);
+                jBTNNovo.setSelected(true);                
+                btnSalvar = 1;
+                btnNovo = 1;
+                jBTNSalvar.setEnabled(true);
+                jBTNSalvar.setSelected(true);
+                jBTNCancelar.setEnabled(true);
+                jBTNCancelar.setSelected(true);
+                jTFNome.requestFocus();
+                break;
+            }
+        }	
+    }
+    
+    public void LimpaCampos(){
+        jTFNome.setText(null);
+        jTFCidade.setText(null);
+        jCBEstado.setSelectedItem(null);
+        jTFEndereco.setText(null);
+        jTFNumero.setText(null);
+        jTFBairro.setText(null);
+        jFTFCPF.setText(null);
+        jFTFRG.setText(null);
+        jTFEmail.setText(null);
+        jFTFTelefone.setText(null);
+        jCBTipo.setSelectedItem(null);
+    }
+    
+    public void BloqueiaDesbloqueiaCampos(int funcao){
+        //FUNÇÃO = 0, BLOQUEIA OS CAMPOS
+        //FUNÇÃO = 1, DESBLOQUEIA OS CAMPOS
+        if (funcao == 0){
+            //BLOQUEIA CAMPOS
+            jTFNome.setEditable(false);
+            jTFCidade.setEditable(false);
+            jCBEstado.setEnabled(false);
+            jTFEndereco.setEditable(false);
+            jTFNumero.setEditable(false);
+            jTFBairro.setEditable(false);
+            jFTFCPF.setEditable(false);
+            jFTFRG.setEditable(false);
+            jTFEmail.setEditable(false);
+            jFTFTelefone.setEditable(false);
+            jCBTipo.setEnabled(false);
+            jTFCidade_Imovel.setEditable(false);
+            jCBEstado_Imovel.setEnabled(false);
+            jTFBairro_Imovel.setEditable(false);
+            jTFEndereco_Imovel.setEditable(false);
+            jTFNumero_Imovel.setEditable(false);
+            jTFMetros_Quadrados.setEditable(false);
+            jTFArea_Construida.setEditable(false);
+            jTFValor_Imovel.setEditable(false);
+            jTFValor_Locacao.setEditable(false);
+            jCBStatus.setEnabled(false);
+            jTAObservacao.setEditable(false);
+        }else{
+            //DESBLOQUEIA CAMPOS
+            jTFNome.setEditable(true);
+            jTFCidade.setEditable(true);
+            jCBEstado.setEnabled(true);
+            jTFEndereco.setEditable(true);
+            jTFNumero.setEditable(true);
+            jTFBairro.setEditable(true);
+            jFTFCPF.setEditable(true);
+            jFTFRG.setEditable(true);
+            jTFEmail.setEditable(true);
+            jFTFTelefone.setEditable(true);
+            jCBTipo.setEnabled(true);
+            jTFCidade_Imovel.setEditable(true);
+            jCBEstado_Imovel.setEnabled(true);
+            jTFBairro_Imovel.setEditable(true);
+            jTFEndereco_Imovel.setEditable(true);
+            jTFNumero_Imovel.setEditable(true);
+            jTFMetros_Quadrados.setEditable(true);
+            jTFArea_Construida.setEditable(true);
+            jTFValor_Imovel.setEditable(true);
+            jTFValor_Locacao.setEditable(true);
+            jCBStatus.setEnabled(true);
+            jTAObservacao.setEditable(true);
+        }
+    }
+    
     public CadastroImovel() {
         initComponents();
+        this.ValidarBotoes(0);
     }
 
     /**
@@ -60,6 +170,7 @@ public class CadastroImovel extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jBTNCancelar = new javax.swing.JButton();
         jBTNSalvar = new javax.swing.JButton();
+        jBTNNovo = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jTFCodigo = new javax.swing.JTextField();
@@ -282,14 +393,23 @@ public class CadastroImovel extends javax.swing.JFrame {
             }
         });
 
+        jBTNNovo.setText("Novo");
+        jBTNNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTNNovoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jBTNNovo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBTNSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jBTNCancelar))
@@ -309,7 +429,8 @@ public class CadastroImovel extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBTNSalvar)
-                    .addComponent(jBTNCancelar))
+                    .addComponent(jBTNCancelar)
+                    .addComponent(jBTNNovo))
                 .addContainerGap())
         );
 
@@ -527,49 +648,61 @@ public class CadastroImovel extends javax.swing.JFrame {
     }//GEN-LAST:event_jFTFTelefoneActionPerformed
 
     private void jBTNCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNCancelarActionPerformed
-        // TODO add your handling code here:
-        this.formWindowClosing(null);
+        if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente sair?", "Atenção", JOptionPane.YES_NO_OPTION) == 0)
+        this.dispose();
     }//GEN-LAST:event_jBTNCancelarActionPerformed
 
     private void jBTNSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNSalvarActionPerformed
         // TODO add your handling code here:
-        Imovel imovel = null;
-        try {
-            imovel = new Imovel();
-            imovel.setNome(jTFNome.getText());
-            imovel.setCidade(jTFCidade.getText());
-            imovel.setEstado(jCBEstado.getSelectedItem().toString());
-            imovel.setBairro(jTFBairro.getText());
-            imovel.setEndereco(jTFEndereco.getText());
-            imovel.setNumero(jTFNumero.getText());
-            imovel.setCpf(jFTFCPF.getText());
-            imovel.setRg(jFTFRG.getText());
-            imovel.setEmail(jTFEmail.getText());
-            Telefone telefone = new Telefone();
-            telefone.setTelefone(jFTFTelefone.getText());
-            telefone.setTipo(jCBTipo.getSelectedItem().toString());
-            imovel.getTelefones().add(telefone);
-            
-            imovel.setCidade_imovel(jTFCidade_Imovel.getText());
-            imovel.setEstado_imovel(jCBEstado_Imovel.getSelectedItem().toString());
-            imovel.setBairro_imovel(jTFBairro_Imovel.getText());
-            imovel.setEndereco(jTFEndereco_Imovel.getText());
-            imovel.setNumero_imovel(jTFNumero_Imovel.getText());
-            imovel.setMetros_quadrados(jTFMetros_Quadrados.getText());
-            imovel.setArea_construida(jTFArea_Construida.getText());
-            imovel.setObservacao(jTAObservacao.getText());
-            
-            DaoImovel dFuncionario = new DaoImovel();
-            dFuncionario.persistir(imovel);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo funcionário. Verifique o log abaixo: " + "\n\n" + ex);
-            //Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+        if(btnSalvar == 0){
+            //HABILITA CAMPOS
+            this.ValidarBotoes(1);
+        }else if (btnSalvar == 1){ 
+            Imovel imovel = null;
+            try {
+                imovel = new Imovel();
+                imovel.setNome(jTFNome.getText());
+                imovel.setCidade(jTFCidade.getText());
+                imovel.setEstado(jCBEstado.getSelectedItem().toString());
+                imovel.setBairro(jTFBairro.getText());
+                imovel.setEndereco(jTFEndereco.getText());
+                imovel.setNumero(jTFNumero.getText());
+                imovel.setCpf(jFTFCPF.getText());
+                imovel.setRg(jFTFRG.getText());
+                imovel.setEmail(jTFEmail.getText());
+                Telefone telefone = new Telefone();
+                telefone.setTelefone(jFTFTelefone.getText());
+                telefone.setTipo(jCBTipo.getSelectedItem().toString());
+                imovel.getTelefones().add(telefone);
+
+                imovel.setCidade_imovel(jTFCidade_Imovel.getText());
+                imovel.setEstado_imovel(jCBEstado_Imovel.getSelectedItem().toString());
+                imovel.setBairro_imovel(jTFBairro_Imovel.getText());
+                imovel.setEndereco(jTFEndereco_Imovel.getText());
+                imovel.setNumero_imovel(jTFNumero_Imovel.getText());
+                imovel.setMetros_quadrados(jTFMetros_Quadrados.getText());
+                imovel.setArea_construida(jTFArea_Construida.getText());
+                imovel.setObservacao(jTAObservacao.getText());
+
+                DaoImovel dFuncionario = new DaoImovel();
+                dFuncionario.persistir(imovel);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo funcionário. Verifique o log abaixo: " + "\n\n" + ex);
+                //Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_jBTNSalvarActionPerformed
 
     private void jTFBairro_ImovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFBairro_ImovelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTFBairro_ImovelActionPerformed
+
+    private void jBTNNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNNovoActionPerformed
+        this.ValidarBotoes(1);
+        if(btnNovo == 0){
+            this.ValidarBotoes(0);
+        }
+    }//GEN-LAST:event_jBTNNovoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -609,6 +742,7 @@ public class CadastroImovel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBTNCancelar;
+    private javax.swing.JButton jBTNNovo;
     private javax.swing.JButton jBTNSalvar;
     private javax.swing.JComboBox jCBEstado;
     private javax.swing.JComboBox jCBEstado_Imovel;

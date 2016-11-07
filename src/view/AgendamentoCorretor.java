@@ -5,6 +5,10 @@
  */
 package view;
 
+import dao.DaoCorretor;
+import javax.swing.JOptionPane;
+import model.Agendamento;
+
 /**
  *
  * @author Daniel
@@ -166,6 +170,34 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
 
     private void jBTNAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNAgendarActionPerformed
         // TODO add your handling code here:
+        if(!jTableAgendamento.getValueAt(getSelectedRow(), coluna)){
+            JOptionPane.showMessageDialog("Erro!\nSelecione um cliente para Agendar.", evt, null, WIDTH);
+        }else{
+            /*PREENCHE COMANDO SALVAR*/
+            Agendamento agendamento == null;  
+            try{
+                agendamento = new Agendamento();
+                agendamento.setNome(jTFNome.getText());
+                agendamento.setCidade(jTFCidade.getText());
+                agendamento.setEstado(jCBEstado.getSelectedItem().toString());
+                agendamento.setBairro(jTFBairro.getText());
+                agendamento.setEndereco(jTFEndereco.getText());
+                agendamento.setNumero(jTFNumero.getText());
+                agendamento.setBairro(jTFBairro.getText());
+                agendamento.setCpf(jFTFCPF.getText());
+                agendamento.setRg(jFTFRG.getText());
+                agendamento.setEmail(jTFEmail.getText());
+                Telefone telefone = new Telefone();
+                telefone.setTelefone(jFTFTelefone.getText());
+                telefone.setTipo(jCBTipo.getSelectedItem().toString());
+                agendamento.getTelefones().add(telefone);
+
+                DaoAgendamento dAgendamento = new DaoAgendamento();
+                dAgendamento.persistir(agendamento);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo corretor. Verifique o log abaixo: " + "\n\n" + ex);
+            }
+        }
     }//GEN-LAST:event_jBTNAgendarActionPerformed
 
     /**
@@ -219,4 +251,8 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
     private javax.swing.JTextField jTFBusca;
     private javax.swing.JTable jTableAgendamento;
     // End of variables declaration//GEN-END:variables
+
+    private int getSelectedRow() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

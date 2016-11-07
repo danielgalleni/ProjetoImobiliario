@@ -81,7 +81,7 @@ public class CadastroCorretor extends javax.swing.JFrame {
             //BLOQUEIA CAMPOS
             jTFNome.setEditable(false);
             jTFCidade.setEditable(false);
-            jCBEstado.setEditable(false);
+            jCBEstado.setEnabled(false);
             jTFEndereco.setEditable(false);
             jTFNumero.setEditable(false);
             jTFBairro.setEditable(false);
@@ -89,12 +89,12 @@ public class CadastroCorretor extends javax.swing.JFrame {
             jFTFRG.setEditable(false);
             jTFEmail.setEditable(false);
             jFTFTelefone.setEditable(false);
-            jCBTipo.setEditable(false);
+            jCBTipo.setEnabled(false);
         }else{
             //DESBLOQUEIA CAMPOS
             jTFNome.setEditable(true);
             jTFCidade.setEditable(true);
-            //jCBEstado.setEditable(true);
+            jCBEstado.setEnabled(true);
             jTFEndereco.setEditable(true);
             jTFNumero.setEditable(true);
             jTFBairro.setEditable(true);
@@ -102,12 +102,13 @@ public class CadastroCorretor extends javax.swing.JFrame {
             jFTFRG.setEditable(true);
             jTFEmail.setEditable(true);
             jFTFTelefone.setEditable(true);
-            //jCBTipo.setEditable(true);
+            jCBTipo.setEnabled(true);
         }
     }
     
     public CadastroCorretor() {
         initComponents();
+        this.ValidarBotoes(0);
     }
 
     CadastroCorretor(Menu aThis, boolean b) {
@@ -150,8 +151,6 @@ public class CadastroCorretor extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jTFCodigo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jBTNNovo8 = new javax.swing.JButton();
-        jBTNNovo9 = new javax.swing.JButton();
         jBTNNovo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -347,10 +346,6 @@ public class CadastroCorretor extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jBTNNovo8.setText("Novo");
-
-        jBTNNovo9.setText("Novo");
-
         jBTNNovo.setText("Novo");
         jBTNNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -373,13 +368,6 @@ public class CadastroCorretor extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jBTNCancelar)))
                 .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 212, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jBTNNovo8)
-                        .addComponent(jBTNNovo9))
-                    .addGap(0, 213, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -392,13 +380,6 @@ public class CadastroCorretor extends javax.swing.JFrame {
                     .addComponent(jBTNSalvar)
                     .addComponent(jBTNNovo))
                 .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 289, Short.MAX_VALUE)
-                    .addComponent(jBTNNovo8)
-                    .addGap(0, 16, Short.MAX_VALUE)
-                    .addComponent(jBTNNovo9)
-                    .addGap(0, 165, Short.MAX_VALUE)))
         );
 
         pack();
@@ -497,8 +478,6 @@ public class CadastroCorretor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBTNCancelar;
     private javax.swing.JButton jBTNNovo;
-    private javax.swing.JButton jBTNNovo8;
-    private javax.swing.JButton jBTNNovo9;
     private javax.swing.JButton jBTNSalvar;
     private javax.swing.JComboBox jCBEstado;
     private javax.swing.JComboBox jCBTipo;

@@ -15,12 +15,100 @@ import model.Telefone;
  * @author Gonzalez
  */
 public class CadastroCliente extends javax.swing.JFrame {
+    int btnSalvar = 0, btnNovo = 0;
     /**
-     * Creates new form CadastroCliente
-     */ 
+     * Creates new form CadastroCorretor
+     */
+
+    /* TERMINAR A PROGRAMAÇÃO DA ORDEM DE BOTÕES*/
+    public void ValidarBotoes(int funcao){
+    //FUNÇÃO  = 0 TELA LIMPA
+    //FUNÇÃO = 1 NOVO CADASTRO
+        
+        switch(funcao){
+            case 0: //TELA LIMPA, SEM CADASTRO
+            {
+                LimpaCampos();
+                BloqueiaDesbloqueiaCampos(0);
+                btnSalvar = 0;
+                btnNovo = 0;
+                jBTNNovo.setEnabled(true);
+                jBTNNovo.setSelected(true);
+		//jBTNSalvar.setSelected(false);
+                jBTNSalvar.setEnabled(false);
+                jBTNCancelar.setEnabled(true);
+                jBTNCancelar.setSelected(true);
+                break;
+            }
+            case 1: //TELA LIBERADA PARA NOVO CADASTRO
+            {
+                LimpaCampos();
+                BloqueiaDesbloqueiaCampos(1);
+                jTFCodigo.setText("NOVO");
+                jBTNNovo.setText("Limpar");
+                jBTNNovo.setEnabled(true);
+                jBTNNovo.setSelected(true);                
+                btnSalvar = 1;
+                btnNovo = 1;
+                jBTNSalvar.setEnabled(true);
+                jBTNSalvar.setSelected(true);
+                jBTNCancelar.setEnabled(true);
+                jBTNCancelar.setSelected(true);
+                jTFNome.requestFocus();
+                break;
+            }
+        }	
+    }
+    
+    public void LimpaCampos(){
+        jTFNome.setText(null);
+        jTFCidade.setText(null);
+        jCBEstado.setSelectedItem(null);
+        jTFEndereco.setText(null);
+        jTFNumero.setText(null);
+        jTFBairro.setText(null);
+        jFTFCPF.setText(null);
+        jFTFRG.setText(null);
+        jTFEmail.setText(null);
+        jFTFTelefone.setText(null);
+        jCBTipo.setSelectedItem(null);
+    }
+    
+    public void BloqueiaDesbloqueiaCampos(int funcao){
+        //FUNÇÃO = 0, BLOQUEIA OS CAMPOS
+        //FUNÇÃO = 1, DESBLOQUEIA OS CAMPOS
+        if (funcao == 0){
+            //BLOQUEIA CAMPOS
+            jTFNome.setEditable(false);
+            jTFCidade.setEditable(false);
+            jCBEstado.setEnabled(false);
+            jTFEndereco.setEditable(false);
+            jTFNumero.setEditable(false);
+            jTFBairro.setEditable(false);
+            jFTFCPF.setEditable(false);
+            jFTFRG.setEditable(false);
+            jTFEmail.setEditable(false);
+            jFTFTelefone.setEditable(false);
+            jCBTipo.setEnabled(false);
+        }else{
+            //DESBLOQUEIA CAMPOS
+            jTFNome.setEditable(true);
+            jTFCidade.setEditable(true);
+            jCBEstado.setEnabled(true);
+            jTFEndereco.setEditable(true);
+            jTFNumero.setEditable(true);
+            jTFBairro.setEditable(true);
+            jFTFCPF.setEditable(true);
+            jFTFRG.setEditable(true);
+            jTFEmail.setEditable(true);
+            jFTFTelefone.setEditable(true);
+            jCBTipo.setEnabled(true);
+        }
+    }
 
     public CadastroCliente() {
         initComponents();
+        this.ValidarBotoes(0);
         //setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
     
@@ -53,7 +141,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         jTFNome = new javax.swing.JTextField();
         jTFBairro = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTFCodigo_Cliente = new javax.swing.JTextField();
+        jTFCodigo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -151,7 +239,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         jLabel1.setText("Código do Cliente:");
 
-        jTFCodigo_Cliente.setEnabled(false);
+        jTFCodigo.setEnabled(false);
 
         jLabel2.setText("Nome:");
 
@@ -225,7 +313,7 @@ public class CadastroCliente extends javax.swing.JFrame {
                                 .addComponent(jLabel6))
                             .addComponent(jLabel7)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTFCodigo_Cliente, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTFCodigo, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel10)
@@ -244,7 +332,7 @@ public class CadastroCliente extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTFCodigo_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -344,31 +432,36 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jBTNCancelarActionPerformed
 
     private void jBTNSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNSalvarActionPerformed
-        Cliente cliente = null;
-            try {
-                cliente = new Cliente();
-                cliente.setNome(jTFNome.getText());
-                cliente.setCidade(jTFCidade.getText());
-                cliente.setEstado(jCBEstado.getSelectedItem().toString());
-                cliente.setEndereco(jTFEndereco.getText());
-                cliente.setNumero(jTFNumero.getText());
-                cliente.setBairro(jTFBairro.getText());
-                cliente.setCpf(jFTFCPF.getText());
-                cliente.setRg(jFTFRG.getText());
-                cliente.setEmail(jTFEmail.getText());
+        if(btnSalvar == 0){
+            //HABILITA CAMPOS
+            this.ValidarBotoes(1);
+        }else if (btnSalvar == 1){   
+            Cliente cliente = null;
+                try {
+                    cliente = new Cliente();
+                    cliente.setNome(jTFNome.getText());
+                    cliente.setCidade(jTFCidade.getText());
+                    cliente.setEstado(jCBEstado.getSelectedItem().toString());
+                    cliente.setEndereco(jTFEndereco.getText());
+                    cliente.setNumero(jTFNumero.getText());
+                    cliente.setBairro(jTFBairro.getText());
+                    cliente.setCpf(jFTFCPF.getText());
+                    cliente.setRg(jFTFRG.getText());
+                    cliente.setEmail(jTFEmail.getText());
 
-                Telefone telefone = new Telefone();
-                telefone.setTelefone(jFTFTelefone.getText());
-                telefone.setTipo(jCBTipo.getSelectedItem().toString());
-                telefone.setPessoa(cliente);
-                cliente.getTelefones().add(telefone);
+                    Telefone telefone = new Telefone();
+                    telefone.setTelefone(jFTFTelefone.getText());
+                    telefone.setTipo(jCBTipo.getSelectedItem().toString());
+                    telefone.setPessoa(cliente);
+                    cliente.getTelefones().add(telefone);
 
-                DaoCliente dCliente = new DaoCliente();
-                dCliente.persistir(cliente);
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo cliente. Verifique o log abaixo: " + "\n\n" + ex);
-                //Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                    DaoCliente dCliente = new DaoCliente();
+                    dCliente.persistir(cliente);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo cliente. Verifique o log abaixo: " + "\n\n" + ex);
+                    //Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
     }//GEN-LAST:event_jBTNSalvarActionPerformed
 
     private void jFTFTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFTFTelefoneActionPerformed
@@ -401,6 +494,10 @@ public class CadastroCliente extends javax.swing.JFrame {
 
     private void jBTNNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNNovoActionPerformed
         // TODO add your handling code here:
+        this.ValidarBotoes(1);
+        if(btnNovo == 0){
+            this.ValidarBotoes(0);
+        }
     }//GEN-LAST:event_jBTNNovoActionPerformed
 
     /**
@@ -462,7 +559,7 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTFBairro;
     private javax.swing.JTextField jTFCidade;
-    private javax.swing.JTextField jTFCodigo_Cliente;
+    private javax.swing.JTextField jTFCodigo;
     private javax.swing.JTextField jTFEmail;
     private javax.swing.JTextField jTFEndereco;
     private javax.swing.JTextField jTFNome;
