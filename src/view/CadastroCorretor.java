@@ -15,11 +15,97 @@ import model.Telefone;
  * @author Gonzalez
  */
 public class CadastroCorretor extends javax.swing.JFrame {
-
+    int btnSalvar = 0, btnNovo = 0;
     /**
      * Creates new form CadastroCorretor
      */
 
+    /* TERMINAR A PROGRAMAÇÃO DA ORDEM DE BOTÕES*/
+    public void ValidarBotoes(int funcao){
+    //FUNÇÃO  = 0 TELA LIMPA
+    //FUNÇÃO = 1 NOVO CADASTRO
+        
+        switch(funcao){
+            case 0: //TELA LIMPA, SEM CADASTRO
+            {
+                LimpaCampos();
+                BloqueiaDesbloqueiaCampos(0);
+                btnSalvar = 0;
+                btnNovo = 0;
+                jBTNNovo.setEnabled(true);
+                jBTNNovo.setSelected(true);
+		//jBTNSalvar.setSelected(false);
+                jBTNSalvar.setEnabled(false);
+                jBTNCancelar.setEnabled(true);
+                jBTNCancelar.setSelected(true);
+                break;
+            }
+            case 1: //TELA LIBERADA PARA NOVO CADASTRO
+            {
+                LimpaCampos();
+                BloqueiaDesbloqueiaCampos(1);
+                jTFCodigo.setText("NOVO");
+                jBTNNovo.setText("Limpar");
+                jBTNNovo.setEnabled(true);
+                jBTNNovo.setSelected(true);                
+                btnSalvar = 1;
+                btnNovo = 1;
+                jBTNSalvar.setEnabled(true);
+                jBTNSalvar.setSelected(true);
+                jBTNCancelar.setEnabled(true);
+                jBTNCancelar.setSelected(true);
+                jTFNome.requestFocus();
+                break;
+            }
+        }	
+    }
+    
+    public void LimpaCampos(){
+        jTFNome.setText(null);
+        jTFCidade.setText(null);
+        jCBEstado.setSelectedItem(null);
+        jTFEndereco.setText(null);
+        jTFNumero.setText(null);
+        jTFBairro.setText(null);
+        jFTFCPF.setText(null);
+        jFTFRG.setText(null);
+        jTFEmail.setText(null);
+        jFTFTelefone.setText(null);
+        jCBTipo.setSelectedItem(null);
+    }
+    
+    public void BloqueiaDesbloqueiaCampos(int funcao){
+        //FUNÇÃO = 0, BLOQUEIA OS CAMPOS
+        //FUNÇÃO = 1, DESBLOQUEIA OS CAMPOS
+        if (funcao == 0){
+            //BLOQUEIA CAMPOS
+            jTFNome.setEditable(false);
+            jTFCidade.setEditable(false);
+            jCBEstado.setEditable(false);
+            jTFEndereco.setEditable(false);
+            jTFNumero.setEditable(false);
+            jTFBairro.setEditable(false);
+            jFTFCPF.setEditable(false);
+            jFTFRG.setEditable(false);
+            jTFEmail.setEditable(false);
+            jFTFTelefone.setEditable(false);
+            jCBTipo.setEditable(false);
+        }else{
+            //DESBLOQUEIA CAMPOS
+            jTFNome.setEditable(true);
+            jTFCidade.setEditable(true);
+            //jCBEstado.setEditable(true);
+            jTFEndereco.setEditable(true);
+            jTFNumero.setEditable(true);
+            jTFBairro.setEditable(true);
+            jFTFCPF.setEditable(true);
+            jFTFRG.setEditable(true);
+            jTFEmail.setEditable(true);
+            jFTFTelefone.setEditable(true);
+            //jCBTipo.setEditable(true);
+        }
+    }
+    
     public CadastroCorretor() {
         initComponents();
     }
@@ -64,19 +150,9 @@ public class CadastroCorretor extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jTFCodigo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jBTNNovo = new javax.swing.JButton();
-        jBTNNovo1 = new javax.swing.JButton();
-        jBTNNovo2 = new javax.swing.JButton();
-        jBTNNovo3 = new javax.swing.JButton();
-        jBTNNovo4 = new javax.swing.JButton();
-        jBTNNovo5 = new javax.swing.JButton();
-        jBTNNovo6 = new javax.swing.JButton();
-        jBTNNovo7 = new javax.swing.JButton();
         jBTNNovo8 = new javax.swing.JButton();
         jBTNNovo9 = new javax.swing.JButton();
-        jBTNNovo10 = new javax.swing.JButton();
-        jBTNNovo11 = new javax.swing.JButton();
-        jBTNNovo12 = new javax.swing.JButton();
+        jBTNNovo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Corretor");
@@ -271,36 +347,16 @@ public class CadastroCorretor extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jBTNNovo8.setText("Novo");
+
+        jBTNNovo9.setText("Novo");
+
         jBTNNovo.setText("Novo");
         jBTNNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBTNNovoActionPerformed(evt);
             }
         });
-
-        jBTNNovo1.setText("Novo");
-
-        jBTNNovo2.setText("Novo");
-
-        jBTNNovo3.setText("Novo");
-
-        jBTNNovo4.setText("Novo");
-
-        jBTNNovo5.setText("Novo");
-
-        jBTNNovo6.setText("Novo");
-
-        jBTNNovo7.setText("Novo");
-
-        jBTNNovo8.setText("Novo");
-
-        jBTNNovo9.setText("Novo");
-
-        jBTNNovo10.setText("Novo");
-
-        jBTNNovo11.setText("Novo");
-
-        jBTNNovo12.setText("Novo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -311,7 +367,7 @@ public class CadastroCorretor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jBTNNovo12)
+                        .addComponent(jBTNNovo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBTNSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -319,24 +375,10 @@ public class CadastroCorretor extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(206, 206, 206)
-                    .addComponent(jBTNNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(207, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
                     .addGap(0, 212, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jBTNNovo1)
-                        .addComponent(jBTNNovo2)
-                        .addComponent(jBTNNovo3)
-                        .addComponent(jBTNNovo4)
-                        .addComponent(jBTNNovo5)
-                        .addComponent(jBTNNovo6)
-                        .addComponent(jBTNNovo7)
                         .addComponent(jBTNNovo8)
-                        .addComponent(jBTNNovo9)
-                        .addComponent(jBTNNovo10)
-                        .addComponent(jBTNNovo11))
+                        .addComponent(jBTNNovo9))
                     .addGap(0, 213, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -344,46 +386,19 @@ public class CadastroCorretor extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jBTNCancelar)
-                            .addComponent(jBTNSalvar)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jBTNNovo12)))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBTNCancelar)
+                    .addComponent(jBTNSalvar)
+                    .addComponent(jBTNNovo))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(246, 246, 246)
-                    .addComponent(jBTNNovo)
-                    .addContainerGap(247, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 16, Short.MAX_VALUE)
-                    .addComponent(jBTNNovo1)
-                    .addGap(0, 16, Short.MAX_VALUE)
-                    .addComponent(jBTNNovo2)
-                    .addGap(0, 16, Short.MAX_VALUE)
-                    .addComponent(jBTNNovo3)
-                    .addGap(0, 16, Short.MAX_VALUE)
-                    .addComponent(jBTNNovo4)
-                    .addGap(0, 16, Short.MAX_VALUE)
-                    .addComponent(jBTNNovo5)
-                    .addGap(0, 16, Short.MAX_VALUE)
-                    .addComponent(jBTNNovo6)
-                    .addGap(0, 16, Short.MAX_VALUE)
-                    .addComponent(jBTNNovo7)
-                    .addGap(0, 16, Short.MAX_VALUE)
+                    .addGap(0, 289, Short.MAX_VALUE)
                     .addComponent(jBTNNovo8)
                     .addGap(0, 16, Short.MAX_VALUE)
                     .addComponent(jBTNNovo9)
-                    .addGap(0, 16, Short.MAX_VALUE)
-                    .addComponent(jBTNNovo10)
-                    .addGap(0, 22, Short.MAX_VALUE)
-                    .addComponent(jBTNNovo11)
-                    .addGap(0, 81, Short.MAX_VALUE)))
+                    .addGap(0, 165, Short.MAX_VALUE)))
         );
 
         pack();
@@ -395,30 +410,37 @@ public class CadastroCorretor extends javax.swing.JFrame {
     }//GEN-LAST:event_jBTNCancelarActionPerformed
 
     private void jBTNSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNSalvarActionPerformed
-        Corretor corretor = null;
-            try {
-                corretor = new Corretor();
-                corretor.setNome(jTFNome.getText());
-                corretor.setCidade(jTFCidade.getText());
-                corretor.setEstado(jCBEstado.getSelectedItem().toString());
-                corretor.setBairro(jTFBairro.getText());
-                corretor.setEndereco(jTFEndereco.getText());
-                corretor.setNumero(jTFNumero.getText());
-                corretor.setBairro(jTFBairro.getText());
-                corretor.setCpf(jFTFCPF.getText());
-                corretor.setRg(jFTFRG.getText());
-                corretor.setEmail(jTFEmail.getText());
-                Telefone telefone = new Telefone();
-                telefone.setTelefone(jFTFTelefone.getText());
-                telefone.setTipo(jCBTipo.getSelectedItem().toString());
-                corretor.getTelefones().add(telefone);           
+        if(btnSalvar == 0){
+            //HABILITA CAMPOS
+            this.ValidarBotoes(1);
+        }else if (btnSalvar == 1){   
+            Corretor corretor = null;
+                try {
+                    corretor = new Corretor();
+                    corretor.setNome(jTFNome.getText());
+                    corretor.setCidade(jTFCidade.getText());
+                    corretor.setEstado(jCBEstado.getSelectedItem().toString());
+                    corretor.setBairro(jTFBairro.getText());
+                    corretor.setEndereco(jTFEndereco.getText());
+                    corretor.setNumero(jTFNumero.getText());
+                    corretor.setBairro(jTFBairro.getText());
+                    corretor.setCpf(jFTFCPF.getText());
+                    corretor.setRg(jFTFRG.getText());
+                    corretor.setEmail(jTFEmail.getText());
+                    Telefone telefone = new Telefone();
+                    telefone.setTelefone(jFTFTelefone.getText());
+                    telefone.setTipo(jCBTipo.getSelectedItem().toString());
+                    corretor.getTelefones().add(telefone);           
 
-                DaoCorretor dCorretor = new DaoCorretor();
-                dCorretor.persistir(corretor);
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo corretor. Verifique o log abaixo: " + "\n\n" + ex);
-                //Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                    DaoCorretor dCorretor = new DaoCorretor();
+                    dCorretor.persistir(corretor);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo corretor. Verifique o log abaixo: " + "\n\n" + ex);
+                    //Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+                } finally{
+                    this.ValidarBotoes(0);
+                }
+        }
     }//GEN-LAST:event_jBTNSalvarActionPerformed
 
     private void jTFBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFBairroActionPerformed
@@ -431,6 +453,10 @@ public class CadastroCorretor extends javax.swing.JFrame {
 
     private void jBTNNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNNovoActionPerformed
         // TODO add your handling code here:
+        this.ValidarBotoes(1);
+        if(btnNovo == 0){
+            this.ValidarBotoes(0);
+        }
     }//GEN-LAST:event_jBTNNovoActionPerformed
 
     /**
@@ -471,16 +497,6 @@ public class CadastroCorretor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBTNCancelar;
     private javax.swing.JButton jBTNNovo;
-    private javax.swing.JButton jBTNNovo1;
-    private javax.swing.JButton jBTNNovo10;
-    private javax.swing.JButton jBTNNovo11;
-    private javax.swing.JButton jBTNNovo12;
-    private javax.swing.JButton jBTNNovo2;
-    private javax.swing.JButton jBTNNovo3;
-    private javax.swing.JButton jBTNNovo4;
-    private javax.swing.JButton jBTNNovo5;
-    private javax.swing.JButton jBTNNovo6;
-    private javax.swing.JButton jBTNNovo7;
     private javax.swing.JButton jBTNNovo8;
     private javax.swing.JButton jBTNNovo9;
     private javax.swing.JButton jBTNSalvar;
