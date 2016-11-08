@@ -39,7 +39,7 @@ public class BuscaPadrao extends javax.swing.JFrame {
         initComponents();
     }
 
-// <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+// <editor-fold defaultstate="collapsed" desc="Código do Formulário">                          
     private void initComponents() {
         
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -216,7 +216,6 @@ public class BuscaPadrao extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(BuscaPadrao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

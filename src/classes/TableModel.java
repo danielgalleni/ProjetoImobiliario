@@ -3,6 +3,7 @@ package classes;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
+import model.Cliente;
 
 /**
  *
@@ -11,7 +12,7 @@ import javax.swing.table.AbstractTableModel;
 public class TableModel extends AbstractTableModel {
 
     //<editor-fold desc="Atributos">
-    private List<? extends Object> object;
+    private List<Object> object;
     private String[] colunas;
     // </editor-fold>
     
@@ -26,7 +27,6 @@ public class TableModel extends AbstractTableModel {
         return this.object;
     }
 
-    
     public void setObject(List<Object> object){
         this.object = object;
     }
@@ -46,7 +46,7 @@ public class TableModel extends AbstractTableModel {
     
     // <editor-fold desc="Métodos CRUD">  
     public void addRow(Object object) {
-        //this.object.add(object);
+        this.object.add(object);
         this.fireTableDataChanged();
     }
 
@@ -59,8 +59,8 @@ public class TableModel extends AbstractTableModel {
     // <editor-fold desc="Métodos sobrecarregados">
     @Override
     public String getColumnName(int column) {
-        return this.colunas[column];
-        //return super.getColumnName(column);
+        //return this.colunas[column];
+        return super.getColumnName(column);
     }
 
     @Override
@@ -78,4 +78,14 @@ public class TableModel extends AbstractTableModel {
         return null;
     }
     // </editor-fold>
+    
+    // <editor-fold desc="Personalização do GRID">
+    // TODO: para cada classe do pacote 'model', preencher o cabecalho de um jeito
+    private void nomearColunas(){
+        if (this.object instanceof Cliente){
+            
+        }
+    }
+    
+    // </editor/fold>
 }

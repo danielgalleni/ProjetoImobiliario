@@ -5,6 +5,8 @@
  */
 package classes;
 
+import model.Cliente;
+
 /**
  *
  * @author Galleni
@@ -12,39 +14,29 @@ package classes;
 public class TableModelCliente extends TableModel{
     
     // <editor-fold desc="Métodos sobrecarregados">
-    @Override    
-    public Object getLinha(int row) {
-        return super.getLinha(row); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void addRow(Object object) {
-
-    }
-
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        /*switch(columnIndex){
+        switch(columnIndex){
             case 0:
-                return super.getObject().get(rowIndex).getCodigo();
+                return ((Cliente) super.getObject().get(rowIndex)).getCodigo();
             case 1:
-                return this.cliente.get(rowIndex).getNome();
+                return ((Cliente) super.getObject().get(rowIndex)).getNome();
             case 2:
-                return this.cliente.get(rowIndex).getEndereco();
+                return ((Cliente) super.getObject().get(rowIndex)).getEndereco();
             case 3:
-                return this.cliente.get(rowIndex).getNumero();
+                return ((Cliente) super.getObject().get(rowIndex)).getNumero();
             case 4:
-                return this.cliente.get(rowIndex).getBairro();
+                return ((Cliente) super.getObject().get(rowIndex)).getBairro();
             case 5:
-                return this.cliente.get(rowIndex).getCidade();
+                return ((Cliente) super.getObject().get(rowIndex)).getCidade();
             case 6:
-                return this.cliente.get(rowIndex).getTelefone();
+                //TODO: return ((Cliente) super.getObject().get(rowIndex)).getTelefone();
             case 7:
-                return this.cliente.get(rowIndex).getCelular();
+                //TODO: return ((Cliente) super.getObject().get(rowIndex)).getCelular();
             case 8:
-                return this.cliente.get(rowIndex).getCpf();
+                return ((Cliente) super.getObject().get(rowIndex)).getCpf();
         }
-        return null;*/
+        //return super.getObject().get(rowIndex).toString();
         return null;
     }
     // </editor-fold>

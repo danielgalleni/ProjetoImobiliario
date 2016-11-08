@@ -17,7 +17,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import org.hibernate.annotations.Columns;
 
 /**
  *
@@ -26,7 +25,7 @@ import org.hibernate.annotations.Columns;
 @Entity
 @Table(name = "pessoa")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Pessoa extends Object {
+public class Pessoa extends ClasseModel {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -62,7 +61,8 @@ public class Pessoa extends Object {
         this.rg = rg;
         this.email = email;
     }
-    
+
+    @Campo(nome="Código", posicao=0)
     public Integer getCodigo() {
         return codigo;
     }
