@@ -5,6 +5,7 @@
  */
 package model;
 
+import classes.Anotacao;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -25,7 +26,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "pessoa")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Pessoa extends ClasseModel {
+public class Pessoa extends Anotacao {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -62,7 +63,7 @@ public class Pessoa extends ClasseModel {
         this.email = email;
     }
 
-    @Campo(nome="Código", posicao=0)
+    @Campo(nome="Código", posicao=0, formato="%i")
     public Integer getCodigo() {
         return codigo;
     }
@@ -75,6 +76,7 @@ public class Pessoa extends ClasseModel {
         }
     }
 
+    @Campo(nome="Nome", posicao=1, formato="%s")
     public String getNome() {
         return nome;
     }
@@ -87,6 +89,7 @@ public class Pessoa extends ClasseModel {
         }
     }
 
+    @Campo(nome="Endereço", posicao=2, formato="%s")
     public String getEndereco() {
         return endereco;
     }
@@ -99,6 +102,7 @@ public class Pessoa extends ClasseModel {
         }
     }
 
+    @Campo(nome="UF", posicao=3, formato="%s")
     public String getEstado() {
         return estado;
     }
@@ -111,6 +115,7 @@ public class Pessoa extends ClasseModel {
         }
     }
 
+    @Campo(nome="Bairro", posicao=4, formato="%s")
     public String getBairro() {
         return bairro;
     }
@@ -123,6 +128,7 @@ public class Pessoa extends ClasseModel {
         }
     }
 
+    @Campo(nome="Número", posicao=5, formato="%s")
     public String getNumero() {
         return numero;
     }
@@ -135,6 +141,7 @@ public class Pessoa extends ClasseModel {
         }
     }
 
+    @Campo(nome="Cidade", posicao=6, formato="%s")
     public String getCidade() {
         return cidade;
     }
@@ -147,6 +154,7 @@ public class Pessoa extends ClasseModel {
         }
     }
 
+    @Campo(nome="CPF", posicao=7, formato="%s")
     public String getCpf() {
         return cpf;
     }
@@ -159,6 +167,7 @@ public class Pessoa extends ClasseModel {
         }
     }
 
+    @Campo(nome="RG", posicao=8, formato="%s")
     public String getRg() {
         return rg;
     }
@@ -171,6 +180,7 @@ public class Pessoa extends ClasseModel {
         }
     }
 
+    @Campo(nome="E-mail", posicao=9, formato="%s")
     public String getEmail() {
         return email;
     }

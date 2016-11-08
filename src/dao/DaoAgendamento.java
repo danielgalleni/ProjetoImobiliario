@@ -5,11 +5,9 @@
  */
 package dao;
 
-import java.util.List;
-import model.Cliente;
-
 /**
  *
+ * @author Galleni
  * @author Gonzalez
  */
 public class DaoAgendamento extends Dao{

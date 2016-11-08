@@ -3,28 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package classes;
 
 import java.lang.annotation.*;
+import java.lang.reflect.*;
 
 /**
  *
  * @author Galleni
  */
-public class ClasseModel {
+public class Anotacao {
     // <editor-fold desc="Anotações">
-    @Target(ElementType.FIELD)
+    @Target(ElementType.METHOD)
     @Retention(RetentionPolicy.RUNTIME)
     public @interface Campo {
         String nome();
         int posicao();
-    }
-    
-    private Integer campo;
-    
-    @Campo(nome="Código",posicao=0)
-    public Integer getCampo(){
-        return this.campo;
+        String formato();
     }
     // </editor-fold>
 }

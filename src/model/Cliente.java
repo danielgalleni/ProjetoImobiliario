@@ -6,9 +6,13 @@
 package model;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ *
+ * @author Galleni
+ * @author Gonzalez
+ */
 @Entity
 @Table(name = "cliente")
 public class Cliente extends Pessoa {

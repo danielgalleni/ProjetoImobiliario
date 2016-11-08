@@ -44,7 +44,7 @@ public abstract class Dao {
     public void persistir(Object object) {
        if (!this.getSessao().isOpen()) {
             this.setSessao(HibernateUtil.getSessionFactory().openSession());
-        //}
+        }
         Transaction transaction = this.getSessao().beginTransaction();
         try {
             this.getSessao().persist(object);

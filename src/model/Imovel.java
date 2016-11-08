@@ -8,6 +8,7 @@ package model;
 /**
  *
  * @author Gonzalez
+ * @author Galleni
  */
 
 public class Imovel extends Pessoa {
@@ -49,6 +50,7 @@ public class Imovel extends Pessoa {
         
     }
     
+    @Campo(nome="Cidade", posicao=0, formato="%s")
     public String getCidade_imovel() {
         return cidade_imovel;
     }
@@ -61,6 +63,7 @@ public class Imovel extends Pessoa {
         }
     }
 
+    @Campo(nome="Endereço", posicao=1, formato="%s")
     public String getEndereco_imovel() {
         return endereco_imovel;
     }
@@ -73,6 +76,7 @@ public class Imovel extends Pessoa {
         }
     }
 
+    @Campo(nome="Bairro", posicao=2, formato="%s")
     public String getBairro_imovel() {
         return bairro_imovel;
     }
@@ -85,6 +89,7 @@ public class Imovel extends Pessoa {
         }
     }
 
+    @Campo(nome="Númmero", posicao=3, formato="%s")
     public String getNumero_imovel() {
         return numero_imovel;
     }
@@ -97,6 +102,7 @@ public class Imovel extends Pessoa {
         }
     }
 
+    @Campo(nome="UF", posicao=4, formato="%s")
     public String getEstado_imovel() {
         return estado_imovel;
     }
@@ -109,6 +115,7 @@ public class Imovel extends Pessoa {
         }
     }
     
+    @Campo(nome="Metragem (M²)", posicao=5, formato="M² %,#.2f")
     public String getMetros_quadrados() {
         return metros_quadrados;
     }
@@ -121,6 +128,7 @@ public class Imovel extends Pessoa {
         }
     }
 
+    @Campo(nome="Área construída (M²)", posicao=6, formato="M² %,#.2f")
     public String getArea_construida() {
         return area_construida;
     }
@@ -133,6 +141,7 @@ public class Imovel extends Pessoa {
         }
     }
 
+    @Campo(nome="Valor compra/venda", posicao=7, formato="R$ %,#.2f")
     public float getValor_imovel() {
         return valor_imovel;
     }
@@ -145,6 +154,7 @@ public class Imovel extends Pessoa {
         }
     }
 
+    @Campo(nome="Valor Locação", posicao=8, formato="R$ %,#.2f")
     public float getValor_locacao() {
         return valor_locacao;
     }
@@ -157,6 +167,7 @@ public class Imovel extends Pessoa {
         }
     }
 
+    @Campo(nome="Obs.", posicao=9, formato="%s")
     public String getObservacao() {
         return observacao;
     }

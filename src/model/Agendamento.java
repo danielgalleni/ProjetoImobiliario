@@ -5,30 +5,30 @@
  */
 package model;
 
+import classes.Anotacao;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
  *
+ * @author Galleni
  * @author Gonzalez
  */
-
 @Entity
 @Table(name = "Agendamento")
-public class Agendamento {
+public class Agendamento extends Anotacao{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)    
     private Integer codigo;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date DataInicio;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date DataFim;
-
-    public Integer getCodigo() {
-            return codigo;
-    }
 
     public Agendamento(Integer codigo, Date DataInicio, Date DataFim) throws Exception {
         if((DataInicio != null) && (DataFim != null)){
@@ -39,6 +39,11 @@ public class Agendamento {
             throw new Exception("Erro!\nNecessário selecionar a Data de Agendamento.");
         }
     }
+    
+    @Campo(nome="Núm. Agendamento", posicao=0, formato="%i")
+    public Integer getCodigo() {
+            return codigo;
+    }
   
     public void setCodigo(Integer codigo) throws Exception {
         if(codigo > 0){
@@ -48,6 +53,7 @@ public class Agendamento {
         }
     }
 
+    @Campo(nome="Inicia em", posicao=1, formato="%1$td/%1$tm/%1$tY")
     public Date getDataInicio() {
         return DataInicio;
     }
@@ -60,6 +66,7 @@ public class Agendamento {
         }
     }
 
+    @Campo(nome="Termina em", posicao=2, formato="%1$td/%1$tm/%1$tY")
     public Date getDataFim() {
         return DataFim;
     }

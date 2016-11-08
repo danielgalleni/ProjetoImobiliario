@@ -5,6 +5,8 @@
  */
 package view;
 
+import classes.TableModel;
+
 /**
  *
  * @author Galleni
@@ -27,4 +29,5 @@ public class BuscaCliente extends BuscaPadrao {
         setTitle("Buscar Cliente");
     }
     // </editor-fold>
+
 }

@@ -5,6 +5,7 @@
  */
 package classes;
 
+import java.util.List;
 import model.Cliente;
 
 /**
@@ -12,6 +13,10 @@ import model.Cliente;
  * @author Galleni
  */
 public class TableModelCliente extends TableModel{
+
+    public TableModelCliente(List<?> object) {
+        super(object);
+    }
     
     // <editor-fold desc="Métodos sobrecarregados">
     @Override

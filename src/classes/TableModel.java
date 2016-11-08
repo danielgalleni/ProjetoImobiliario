@@ -1,9 +1,12 @@
 package classes;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import model.Cliente;
+import classes.Anotacao;
+import java.lang.reflect.InvocationTargetException;
 
 /**
  *
@@ -12,40 +15,42 @@ import model.Cliente;
 public class TableModel extends AbstractTableModel {
 
     //<editor-fold desc="Atributos">
-    private List<Object> object;
-    private String[] colunas;
+    private List<?> object;
+    private Class<?> classe;
+    //private List<Object> object;
+    /*private String[] colunas;*/
     // </editor-fold>
-    
+
     // <editor-fold desc="Construtores">
     public TableModel() {
-        object = new ArrayList<>();
+
     }
     // </editor-fold>
 
     // <editor-fold desc="Gets e Sets">  
-    public List<?> getObject(){
+    public List<?> getObject() {
         return this.object;
     }
 
-    public void setObject(List<Object> object){
+    public void setObject(List<?> object) {
         this.object = object;
-    }
-    
-    public Object getLinha(int row) {
-        return this.object.get(row);
+        this.classe = object.get(0).getClass();
     }
 
-    public void setColunas(String[] colunas){
-        this.colunas = colunas;
-    }
-    
-    public String[] getColunas() {
-        return this.colunas;
-    }
+    /*public Object getLinha(int row) {
+     return this.object.get(row);
+     }
+
+     public void setColunas(String[] colunas) {
+     this.colunas = colunas;
+     }
+
+     public String[] getColunas() {
+     return this.colunas;
+     }*/
     // </editor-fold>
-    
     // <editor-fold desc="Métodos CRUD">  
-    public void addRow(Object object) {
+    public void addRow(<?> extends Object) {
         this.object.add(object);
         this.fireTableDataChanged();
     }
@@ -54,13 +59,23 @@ public class TableModel extends AbstractTableModel {
         this.object.remove(row);
         this.fireTableRowsDeleted(row, row);
     }
-    // </editor-fold>
 
+    // </editor-fold>
     // <editor-fold desc="Métodos sobrecarregados">
+
     @Override
     public String getColumnName(int column) {
+        for (Method metodo : classe.getDeclaredMethods()) {
+            if (metodo.isAnnotationPresent(Anotacao.Campo.class)) {
+                Anotacao.Campo anotacao = metodo.getAnnotation(Anotacao.Campo.class);
+                if (anotacao.posicao() == column) {
+                    return anotacao.nome();
+                }
+            }
+        }
+        return "";
         //return this.colunas[column];
-        return super.getColumnName(column);
+        //return super.getColumnName(column);
     }
 
     @Override
@@ -70,22 +85,36 @@ public class TableModel extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return this.colunas.length;
+        Object objeto = this.object.get(0);
+        Class<?> classe = objeto.getClass();
+
+        int coluna = 0;
+        for (Method metodo : classe.getDeclaredMethods()) {
+            if (metodo.isAnnotationPresent(Anotacao.Campo.class)) {
+                coluna++;
+            }
+        }
+        return coluna;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        return null;
-    }
-    // </editor-fold>
-    
-    // <editor-fold desc="Personalização do GRID">
-    // TODO: para cada classe do pacote 'model', preencher o cabecalho de um jeito
-    private void nomearColunas(){
-        if (this.object instanceof Cliente){
-            
+        try {
+            Object objeto = this.object.get(rowIndex);
+            Class<?> classe = objeto.getClass();
+            for (Method metodo : classe.getDeclaredMethods()) {
+                if (metodo.isAnnotationPresent(Anotacao.Campo.class)) {
+                    Anotacao.Campo anotacao = metodo.getAnnotation(Anotacao.Campo.class);
+                    if (anotacao.posicao() == columnIndex) {
+                        return String.format(anotacao.formato(), metodo.invoke(objeto));
+                    }
+                }
+            }
+            return "";
+        } catch (SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+            return "Erro: " + e;
         }
     }
-    
-    // </editor/fold>
+    // </editor-fold>
+
 }

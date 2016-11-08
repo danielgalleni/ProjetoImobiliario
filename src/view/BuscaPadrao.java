@@ -6,6 +6,7 @@
 package view;
 
 import classes.TableModel;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -162,7 +163,7 @@ public class BuscaPadrao extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {
         this.ValidarBotoes();
-        Object[] object = null;
+        List<Object> object = null;
         try {
             CarregarGrade(object);
             this.ValidarBotoes();
@@ -245,8 +246,8 @@ public class BuscaPadrao extends javax.swing.JFrame {
         }
     }
 
-    public void CarregarGrade(Object[] object) throws Exception {
-        // Instancia o TableModel
+    public void CarregarGrade(List<?> object) throws Exception {
+        // TODO: Sobrecarregar o método na classe herdada
         TableModel dtm = new TableModel() {
             @Override
             public boolean isCellEditable(int row, int col) {

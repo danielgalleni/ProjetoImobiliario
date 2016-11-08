@@ -44,6 +44,7 @@ public class Funcionario extends Pessoa{
         
     }
     
+    @Campo(nome="Cargo", posicao=0, formato="%i")
     public String getCargo() {
         return cargo;
     }
@@ -56,6 +57,7 @@ public class Funcionario extends Pessoa{
         }
     }
 
+    @Campo(nome="Setor", posicao=1, formato="%s")
     public String getSetor() {
         return setor;
     }
@@ -68,6 +70,7 @@ public class Funcionario extends Pessoa{
         }
     }
 
+    @Campo(nome="Hora de Entrada", posicao=2, formato="%tH:%tM:%tS")
     public String getHora_entrada() {
         return hora_entrada;
     }
@@ -80,6 +83,7 @@ public class Funcionario extends Pessoa{
         }
     }
 
+    @Campo(nome="Hora de Saída", posicao=3, formato="%tH:%tM:%tS")
     public String getHora_saida() {
         return hora_saida;
     }
@@ -92,6 +96,7 @@ public class Funcionario extends Pessoa{
         }
     }
 
+    @Campo(nome="Salário", posicao=4, formato="R$ %,#.2f")
     public Float getSalario() {
         return salario;
     }

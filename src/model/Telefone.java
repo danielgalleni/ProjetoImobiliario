@@ -12,10 +12,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import classes.Anotacao.Campo;
 
 /**
  *
  * @author Gonzalez
+ * @author Galleni
  */
 @Entity
 @Table(name = "telefone")
@@ -30,7 +32,6 @@ public class Telefone {
     @JoinColumn(name = "codigo_cliente")    
     private Pessoa pessoa;
 
-
     public Integer getIdTelefone() {
         return idTelefone;
     }
@@ -39,6 +40,8 @@ public class Telefone {
         this.idTelefone = idTelefone;
     }
 
+    // TODO: Verificar como formatar o número de telefone
+    @Campo(nome="Número", posicao=0, formato="%s")
     public String getTelefone() {
         return telefone;
     }
@@ -47,6 +50,7 @@ public class Telefone {
         this.telefone = telefone;
     }
 
+    @Campo(nome="Tipo de telefone", posicao=1, formato="%s")
     public String getTipo() {
         return tipo;
     }
