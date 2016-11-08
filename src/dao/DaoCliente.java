@@ -37,5 +37,22 @@ public class DaoCliente extends Dao{
                 this.getSessao().close();
             HibernateUtil.getSessionFactory().close();
         }
-    }    
+    }
+    
+    public List<Cliente> getLista(String nome) {
+        if (!this.getSessao().isOpen())
+            this.setSessao(HibernateUtil.getSessionFactory().openSession());
+        try {
+            List<Cliente> lista = this.getSessao().createQuery("from Cliente c where c.nome like :nome")
+                    .setParameter("nome", nome)
+                    .list();
+            return lista;
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            if (!this.getSessao().isOpen())
+                this.getSessao().close();
+            HibernateUtil.getSessionFactory().close();
+        }
+    }     
 }

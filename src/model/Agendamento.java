@@ -61,8 +61,6 @@ public class Agendamento {
     }
 
     public Date getDataFim() {
-        Date utilData = this.getDataFim();
-        java.sql.Date sqlData = new java.sql.Date(utilData.getTime());
         return DataFim;
     }
 

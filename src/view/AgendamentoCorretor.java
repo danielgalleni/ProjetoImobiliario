@@ -5,20 +5,29 @@
  */
 package view;
 
+import dao.DaoCliente;
 import dao.DaoCorretor;
+import dao.HibernateUtil;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.Agendamento;
+import model.Cliente;
+import org.hibernate.Session;
 
 /**
  *
  * @author Daniel
  */
 public class AgendamentoCorretor extends javax.swing.JFrame {
-
     /**
      * Creates new form AgendamentoCorretor
      */
+    private Session session;
     public AgendamentoCorretor() {
+        session = HibernateUtil.getSessionFactory().openSession();
         initComponents();
     }
 
@@ -50,13 +59,10 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
 
         jTableAgendamento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Código", "Nome", "CPF"
             }
         ));
         jScrollPane1.setViewportView(jTableAgendamento);
@@ -69,7 +75,18 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
 
         jLabel3.setText("Buscar Cliente:");
 
+        jTFBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFBuscaActionPerformed(evt);
+            }
+        });
+
         jBTNBuscar.setText("Buscar");
+        jBTNBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTNBuscarActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Corretor:");
 
@@ -109,7 +126,7 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addComponent(jCBCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jBTNNovo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jBTNBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -141,7 +158,7 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jCBCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jBTNAgendar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -159,10 +176,9 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -170,11 +186,11 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
 
     private void jBTNAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNAgendarActionPerformed
         // TODO add your handling code here:
-        if(!jTableAgendamento.getValueAt(getSelectedRow(), coluna)){
-            JOptionPane.showMessageDialog("Erro!\nSelecione um cliente para Agendar.", evt, null, WIDTH);
+        /*if(!jTableAgendamento.getValueAt(getSelectedRow(), coluna)){
+            //JOptionPane.showMessageDialog("Erro!\nSelecione um cliente para Agendar.", evt, null, WIDTH);
         }else{
             /*PREENCHE COMANDO SALVAR*/
-            Agendamento agendamento == null;  
+            /*Agendamento agendamento == null;  
             try{
                 agendamento = new Agendamento();
                 agendamento.setNome(jTFNome.getText());
@@ -196,9 +212,29 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
                 dAgendamento.persistir(agendamento);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo corretor. Verifique o log abaixo: " + "\n\n" + ex);
-            }
-        }
+            }*/
+        //}
     }//GEN-LAST:event_jBTNAgendarActionPerformed
+
+    private void jBTNBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNBuscarActionPerformed
+        // TODO add your handling code here:
+        
+        String busca = jTFBusca.getText();
+        DaoCliente daoCliente = new DaoCliente(session);
+        List<Cliente> lista = null;
+        if (busca.equals("")){
+            lista = daoCliente.getLista();
+        }else{
+            lista = daoCliente.getLista(busca);
+        }
+        
+        preencherTable(lista);
+        
+    }//GEN-LAST:event_jBTNBuscarActionPerformed
+
+    private void jTFBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFBuscaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFBuscaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,5 +290,15 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
 
     private int getSelectedRow() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public void preencherTable(List<Cliente> lista){
+                
+        DefaultTableModel modelo = (DefaultTableModel)jTableAgendamento.getModel();
+        modelo.setNumRows(0);
+        
+        for(Cliente c: lista){
+            modelo.addRow(new Object[]{c.getCodigo(),c.getNome(),c.getCpf()});
+        }
     }
 }

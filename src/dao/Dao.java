@@ -42,9 +42,9 @@ public abstract class Dao {
 
     // <editor-fold desc="Métodos CRUD">  
     public void persistir(Object object) {
-        if (!this.getSessao().isOpen()) {
+       if (!this.getSessao().isOpen()) {
             this.setSessao(HibernateUtil.getSessionFactory().openSession());
-        }
+        //}
         Transaction transaction = this.getSessao().beginTransaction();
         try {
             this.getSessao().persist(object);
