@@ -15,13 +15,13 @@ import model.Cliente;
 public class TableModelCliente extends TableModel{
 
     public TableModelCliente(List<?> object) {
-        super(object);
+        /*super(object);*/
     }
     
     // <editor-fold desc="Métodos sobrecarregados">
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        switch(columnIndex){
+        /*switch(columnIndex){
             case 0:
                 return ((Cliente) super.getObject().get(rowIndex)).getCodigo();
             case 1:
@@ -41,7 +41,7 @@ public class TableModelCliente extends TableModel{
             case 8:
                 return ((Cliente) super.getObject().get(rowIndex)).getCpf();
         }
-        //return super.getObject().get(rowIndex).toString();
+        //return super.getObject().get(rowIndex).toString();*/
         return null;
     }
     // </editor-fold>

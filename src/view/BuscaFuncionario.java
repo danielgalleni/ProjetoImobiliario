@@ -9,13 +9,12 @@ package view;
  *
  * @author Galleni
  */
-public class BuscaCliente extends BuscaPrincipal {
+public class BuscaFuncionario extends BuscaPrincipal{
 
-    public BuscaCliente() {
-        super();
+    public BuscaFuncionario() {
     }
 
-    public BuscaCliente(Menu aThis, boolean b) {
+    public BuscaFuncionario(Menu aThis, boolean b) {
         super(aThis, b);
     }
 
@@ -23,7 +22,7 @@ public class BuscaCliente extends BuscaPrincipal {
     @Override
    public void initComponents() {
        super.initComponents();
-       
+    
         // <editor-fold defaultstate="collapsed" desc="Layout do Formulário">
         // Desenhar o formulário aqui
         
@@ -41,11 +40,10 @@ public class BuscaCliente extends BuscaPrincipal {
     @Override
     public void setPropriedades() {
         // TODO inserir aqui as propriedades do formulário
-        setTitle("Busca de Cadastro | Cliente");
+        setTitle("Busca de Cadastro | Funcionário");
         setLarguraForm(602);
         setAlturaForm(342);
         super.setPropriedades();
     }
     // </editor-fold>
-
 }

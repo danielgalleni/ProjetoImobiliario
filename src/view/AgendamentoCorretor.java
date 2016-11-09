@@ -19,7 +19,8 @@ import org.hibernate.Session;
 
 /**
  *
- * @author Daniel
+ * @author Gonzalez
+ * @author Galleni
  */
 public class AgendamentoCorretor extends javax.swing.JFrame {
     /**

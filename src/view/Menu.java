@@ -10,7 +10,7 @@ import projetoimobiliario.ProjetoImobiliario;
 
 /**
  *
- * @author Daniel
+ * @author Galleni
  */
 public class Menu extends javax.swing.JFrame {
 
@@ -48,6 +48,7 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Imobiliaria GG");
+        setExtendedState(MAXIMIZED_BOTH);
         setLocationByPlatform(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -55,6 +56,9 @@ public class Menu extends javax.swing.JFrame {
             }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
@@ -148,6 +152,7 @@ public class Menu extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
@@ -203,6 +208,10 @@ public class Menu extends javax.swing.JFrame {
         BuscaFuncionario buscaFuncionario = new BuscaFuncionario(this, true);
         buscaFuncionario.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
     
     /**
      * @param args the command line arguments
