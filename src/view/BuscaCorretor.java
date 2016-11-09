@@ -9,7 +9,7 @@ package view;
  *
  * @author Galleni
  */
-public class BuscaCorretor extends BuscaPadrao{
+public class BuscaCorretor extends BuscaPrincipal{
 
     public BuscaCorretor() {
         super();
@@ -19,11 +19,32 @@ public class BuscaCorretor extends BuscaPadrao{
         super(aThis, b);
     }
 
-    // <editor-fold desc="Definir atributos do formulário">
+    // <editor-fold defaultstate="collapsed" desc="Código do Formulário">
+    @Override
+   public void initComponents() {
+       super.initComponents();
+       
+        // <editor-fold defaultstate="collapsed" desc="Layout do Formulário">
+        // Desenhar o formulário aqui
+        
+        // </editor-fold>
+        
+        // <editor-fold defaultstate="collapsed" desc="Propriedades do Formulário">
+        
+        //Chama o evento para configurar as propriedades do formulário
+    
+        // </editor-fold>
+    }
+    // </editor-fold>
+   
+    // <editor-fold defaultstate="collapsed" desc="Métodos Próprios">
     @Override
     public void setPropriedades() {
-        super.setPropriedades(); //To change body of generated methods, choose Tools | Templates.
-        setTitle("Buscar Corretor");
+        // TODO inserir aqui as propriedades do formulário
+        setTitle("Busca de Cadastro | Corretor");
+        setLarguraForm(602);
+        setAlturaForm(342);
+        super.setPropriedades();
     }
     // </editor-fold>
 }

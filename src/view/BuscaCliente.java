@@ -11,7 +11,7 @@ import classes.TableModel;
  *
  * @author Galleni
  */
-public class BuscaCliente extends BuscaPadrao {
+public class BuscaCliente extends BuscaPrincipal {
 
     public BuscaCliente() {
         super();
@@ -20,13 +20,33 @@ public class BuscaCliente extends BuscaPadrao {
     public BuscaCliente(Menu aThis, boolean b) {
         super(aThis, b);
     }
+
+    // <editor-fold defaultstate="collapsed" desc="Código do Formulário">
+    @Override
+   public void initComponents() {
+       super.initComponents();
+       
+        // <editor-fold defaultstate="collapsed" desc="Layout do Formulário">
+        // Desenhar o formulário aqui
+        
+        // </editor-fold>
+        
+        // <editor-fold defaultstate="collapsed" desc="Propriedades do Formulário">
+        
+        //Chama o evento para configurar as propriedades do formulário
     
-    // <editor-fold desc="Definir atributos do formulário">
-    
+        // </editor-fold>
+    }
+    // </editor-fold>
+   
+    // <editor-fold defaultstate="collapsed" desc="Métodos Próprios">
     @Override
     public void setPropriedades() {
-        super.setPropriedades(); //To change body of generated methods, choose Tools | Templates.
-        setTitle("Buscar Cliente");
+        // TODO inserir aqui as propriedades do formulário
+        setTitle("Busca de Cadastro | Cliente");
+        setLarguraForm(602);
+        setAlturaForm(342);
+        super.setPropriedades();
     }
     // </editor-fold>
 
