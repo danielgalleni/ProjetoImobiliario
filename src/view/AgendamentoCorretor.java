@@ -5,6 +5,7 @@
  */
 package view;
 
+import classes.ComboModel;
 import classes.ComboModelCorretores;
 import dao.DaoCliente;
 import dao.HibernateUtil;
@@ -34,9 +35,9 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
         }
     }
     
-    public void CarregarComboModel(Corretores[] corretor){
-        ComboModelCorretores ComboModel = new ComboModelCorretores(corretor);
-        jCBCorretor.setModel(ComboModel);
+    public void CarregarComboModel(Corretores[] corretores){
+        ComboModel comboModel = new ComboModel(corretores);
+        jCBCorretor.setModel(comboModel);
     }
     
     /**
