@@ -30,7 +30,8 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
 
     public void CarregarCampos(Corretores corretor){
         if (corretor != null){
-            jCBCorretor.setSelectedItem(corretor.).getCodigo());
+            //jCBCorretor.setSelectedItem(corretor.).getCodigo());
+        }
     }
     
     public void CarregarComboModel(Corretores[] corretor){
