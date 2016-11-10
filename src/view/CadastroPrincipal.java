@@ -5,23 +5,16 @@
  */
 package view;
 
-import classes.TableModel;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import model.Cliente;
-
 /**
  *
  * @author Galleni
  */
-public class BuscaCliente extends BuscaPrincipal {
+public abstract class CadastroPrincipal extends TelaPrincipal {
 
-    public BuscaCliente() {
-        super();
+    public CadastroPrincipal() {
     }
 
-    public BuscaCliente(Menu aThis, boolean b) {
+    public CadastroPrincipal(Menu aThis, boolean b) {
         super(aThis, b);
     }
 
@@ -29,7 +22,7 @@ public class BuscaCliente extends BuscaPrincipal {
     @Override
    public void initComponents() {
        super.initComponents();
-       
+    
         // <editor-fold defaultstate="collapsed" desc="Layout do Formulário">
         // Desenhar o formulário aqui
         
@@ -43,28 +36,11 @@ public class BuscaCliente extends BuscaPrincipal {
     }
     // </editor-fold>
    
-    // <editor-fold defaultstate="collapsed" desc="Métodos do Formulário">
-    @Override
-    public void formWindowOpened(java.awt.event.WindowEvent evt) {                                  
-        Cliente[] clientes = null;
-        try {
-            this.CarregarGrade(clientes);
-            this.ValidarBotoes();
-        } catch (Exception ex) {
-            Logger.getLogger(BuscaCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-   // </editor-fold>
-   
     // <editor-fold defaultstate="collapsed" desc="Métodos Próprios">
     @Override
     public void setPropriedades() {
         // TODO inserir aqui as propriedades do formulário
-        super.setPropriedades();
-        setTitle("Busca de Cadastro | Cliente");
+
     }
-    
-
     // </editor-fold>
-
 }

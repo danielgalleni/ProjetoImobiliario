@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author Galleni
  */
-public class TelaPrincipal extends JFrame {
+public abstract class TelaPrincipal extends JFrame {
 
     private int alturaForm;
     private int larguraForm;
@@ -166,7 +166,7 @@ public class TelaPrincipal extends JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPrincipal().setVisible(true);
+                
             }
         });
     }

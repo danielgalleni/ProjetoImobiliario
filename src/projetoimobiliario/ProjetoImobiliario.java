@@ -10,6 +10,7 @@ import view.Menu;
 /**
  *
  * @author Gonzalez
+ * @author Galleni
  */
 public class ProjetoImobiliario {
 
