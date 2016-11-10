@@ -460,6 +460,8 @@ public class CadastroCliente extends javax.swing.JFrame {
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo cliente. Verifique o log abaixo: " + "\n\n" + ex);
                     //Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+                }finally{
+                    this.ValidarBotoes(0);
                 }
         }
     }//GEN-LAST:event_jBTNSalvarActionPerformed

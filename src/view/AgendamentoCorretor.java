@@ -5,15 +5,11 @@
  */
 package view;
 
+import classes.ComboModelCorretores;
 import dao.DaoCliente;
-import dao.DaoCorretor;
 import dao.HibernateUtil;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.Agendamento;
 import model.Cliente;
 import org.hibernate.Session;
 
@@ -32,6 +28,16 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
         initComponents();
     }
 
+    public void CarregarCampos(Corretores corretor){
+        if (corretor != null){
+            jCBCorretor.setSelectedItem(corretor.).getCodigo());
+    }
+    
+    public void CarregarComboModel(Corretores[] corretor){
+        ComboModelCorretores ComboModel = new ComboModelCorretores(corretor);
+        jCBCorretor.setModel(ComboModel);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -92,6 +98,16 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
         jLabel4.setText("Corretor:");
 
         jCBCorretor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBCorretor.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCBCorretorItemStateChanged(evt);
+            }
+        });
+        jCBCorretor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBCorretorActionPerformed(evt);
+            }
+        });
 
         jBTNAgendar.setText("Agendar");
         jBTNAgendar.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +143,7 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addComponent(jCBCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jBTNNovo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jBTNBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -159,27 +175,28 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jCBCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jBTNAgendar)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -218,7 +235,6 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
     }//GEN-LAST:event_jBTNAgendarActionPerformed
 
     private void jBTNBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNBuscarActionPerformed
-        // TODO add your handling code here:
         
         String busca = jTFBusca.getText();
         DaoCliente daoCliente = new DaoCliente(session);
@@ -226,7 +242,8 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
         if (busca.equals("")){
             lista = daoCliente.getLista();
         }else{
-            lista = daoCliente.getLista(busca);
+            lista = daoCliente.getLista("%" + jTFBusca.getText() + "%");//OU PODERIA PASSAR A VARIAVEL "BUSCA" 
+                                                                //COMO PARAMETRO PARA BUSCAR SOMENT A INFORMAÇÃO DESEJADA 
         }
         
         preencherTable(lista);
@@ -236,6 +253,17 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
     private void jTFBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFBuscaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTFBuscaActionPerformed
+
+    private void jCBCorretorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBCorretorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBCorretorActionPerformed
+
+    private void jCBCorretorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCBCorretorItemStateChanged
+        this.corretor = (Corretores) jCBCorretor.getModel().getSelectedItem();
+        if (this.corretor != null){
+            CalcularData(this.periodo);
+        }
+    }//GEN-LAST:event_jCBCorretorItemStateChanged
 
     /**
      * @param args the command line arguments

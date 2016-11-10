@@ -29,7 +29,8 @@ public class Agendamento extends Anotacao{
     private Date DataInicio;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date DataFim;
-
+    private Corretor corretores;
+    
     public Agendamento(Integer codigo, Date DataInicio, Date DataFim) throws Exception {
         if((DataInicio != null) && (DataFim != null)){
             this.codigo = codigo;
@@ -74,4 +75,13 @@ public class Agendamento extends Anotacao{
     public void setDataFim(Date DataFim) {
         this.DataFim = DataFim;
     }   
+
+    public Corretor getCorretores() {
+        return corretores;
+    }
+
+    public void setCorretores(Corretor corretores) {
+        this.corretores = corretores;
+    }
+ 
 }
