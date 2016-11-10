@@ -6,12 +6,12 @@
 package view;
 
 import classes.ComboModel;
-import classes.ComboModelCorretores;
 import dao.DaoCliente;
 import dao.HibernateUtil;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.Cliente;
+import model.Corretor;
 import org.hibernate.Session;
 
 /**
@@ -24,18 +24,19 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
      * Creates new form AgendamentoCorretor
      */
     private Session session;
+    private Corretor corretor;
     public AgendamentoCorretor() {
         session = HibernateUtil.getSessionFactory().openSession();
         initComponents();
     }
 
-    public void CarregarCampos(Corretores corretor){
+    public void CarregarCampos(Corretor corretor){
         if (corretor != null){
-            //jCBCorretor.setSelectedItem(corretor.).getCodigo());
+            this.jCBCorretor.setSelectedItem(corretor.getNome());
         }
     }
     
-    public void CarregarComboModel(Corretores[] corretores){
+    public void CarregarComboModel(Corretor[] corretores){
         ComboModel comboModel = new ComboModel(corretores);
         jCBCorretor.setModel(comboModel);
     }
@@ -261,10 +262,7 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
     }//GEN-LAST:event_jCBCorretorActionPerformed
 
     private void jCBCorretorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCBCorretorItemStateChanged
-        this.corretor = (Corretores) jCBCorretor.getModel().getSelectedItem();
-        if (this.corretor != null){
-            CalcularData(this.periodo);
-        }
+        this.corretor = (Corretor) jCBCorretor.getModel().getSelectedItem();
     }//GEN-LAST:event_jCBCorretorItemStateChanged
 
     /**
