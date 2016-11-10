@@ -26,7 +26,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "pessoa")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Pessoa extends Anotacao {
+public abstract class Pessoa extends Anotacao {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

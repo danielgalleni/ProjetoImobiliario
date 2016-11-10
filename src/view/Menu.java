@@ -42,7 +42,6 @@ public class Menu extends javax.swing.JFrame {
         exitMenuItem = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
 
@@ -111,14 +110,6 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem3);
-
-        jMenuItem4.setText("Busca Principal Teste");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem4);
 
         jMenuItem2.setText("Cliente");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -198,11 +189,6 @@ public class Menu extends javax.swing.JFrame {
         buscaCorretor.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        BuscaPrincipal buscaPrincipal = new BuscaPrincipal(this, true);
-        buscaPrincipal.setVisible(true);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
         BuscaFuncionario buscaFuncionario = new BuscaFuncionario(this, true);
@@ -255,7 +241,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;

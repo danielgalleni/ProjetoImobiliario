@@ -40,10 +40,8 @@ public class BuscaFuncionario extends BuscaPrincipal{
     @Override
     public void setPropriedades() {
         // TODO inserir aqui as propriedades do formulário
-        setTitle("Busca de Cadastro | Funcionário");
-        setLarguraForm(602);
-        setAlturaForm(342);
         super.setPropriedades();
+        setTitle("Busca de Cadastro | Funcionário");
     }
     // </editor-fold>
 }
