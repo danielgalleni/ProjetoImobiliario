@@ -5,6 +5,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gonzalez
@@ -16,6 +18,7 @@ public class CadastroSetor extends javax.swing.JFrame {
      */
     public CadastroSetor() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -40,6 +43,11 @@ public class CadastroSetor extends javax.swing.JFrame {
         setTitle("Cadastro de Setor Empresarial");
 
         jBTNCancelar.setText("Cancelar");
+        jBTNCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTNCancelarActionPerformed(evt);
+            }
+        });
 
         jBTNSalvar.setText("Salvar");
 
@@ -118,6 +126,12 @@ public class CadastroSetor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBTNCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNCancelarActionPerformed
+        if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente sair?", "Atenção", JOptionPane.YES_NO_OPTION) == 0){
+            this.dispose();
+        }  
+    }//GEN-LAST:event_jBTNCancelarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -157,19 +171,9 @@ public class CadastroSetor extends javax.swing.JFrame {
     private javax.swing.JButton jBTNCancelar;
     private javax.swing.JButton jBTNNovo;
     private javax.swing.JButton jBTNSalvar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTFCargo;
-    private javax.swing.JTextField jTFCargo1;
-    private javax.swing.JTextField jTFCodigo;
-    private javax.swing.JTextField jTFCodigo1;
     private javax.swing.JTextField jTFCodigo_Setor;
     private javax.swing.JTextField jTFSetor;
     // End of variables declaration//GEN-END:variables

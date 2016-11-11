@@ -19,6 +19,11 @@ public class CadastroImovel extends javax.swing.JFrame {
     /**
      * Creates new form CadastroCorretor
      */
+    public CadastroImovel() {
+        initComponents();
+        this.ValidarBotoes(0);
+        this.setLocationRelativeTo(null);
+    }
 
     /* TERMINAR A PROGRAMAÇÃO DA ORDEM DE BOTÕES*/
     public void ValidarBotoes(int funcao){
@@ -128,11 +133,6 @@ public class CadastroImovel extends javax.swing.JFrame {
         }
     }
     
-    public CadastroImovel() {
-        initComponents();
-        this.ValidarBotoes(0);
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

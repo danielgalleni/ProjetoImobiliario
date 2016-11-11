@@ -5,6 +5,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gonzalez
@@ -16,6 +18,7 @@ public class CadastroHora extends javax.swing.JFrame {
      */
     public CadastroHora() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -39,6 +42,7 @@ public class CadastroHora extends javax.swing.JFrame {
         jBTNNovo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro do Horario Empresarial");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados de Cadastro"));
 
@@ -102,6 +106,11 @@ public class CadastroHora extends javax.swing.JFrame {
         jBTNSalvar.setText("Salvar");
 
         jBTNCancelar.setText("Cancelar");
+        jBTNCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTNCancelarActionPerformed(evt);
+            }
+        });
 
         jBTNNovo.setText("Novo");
 
@@ -136,6 +145,12 @@ public class CadastroHora extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBTNCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNCancelarActionPerformed
+        if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente sair?", "Atenção", JOptionPane.YES_NO_OPTION) == 0){
+            this.dispose();
+        }  
+    }//GEN-LAST:event_jBTNCancelarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -19,7 +19,14 @@ public class CadastroCliente extends javax.swing.JFrame {
     /**
      * Creates new form CadastroCorretor
      */
-
+    
+    public CadastroCliente() {
+        initComponents();
+        this.ValidarBotoes(0);
+        this.setLocationRelativeTo(null);
+        //setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }
+    
     /* TERMINAR A PROGRAMAÇÃO DA ORDEM DE BOTÕES*/
     public void ValidarBotoes(int funcao){
     //FUNÇÃO  = 0 TELA LIMPA
@@ -106,12 +113,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         }
     }
 
-    public CadastroCliente() {
-        initComponents();
-        this.ValidarBotoes(0);
-        //setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-    }
-    
     CadastroCliente(Menu aThis, boolean b) {
         initComponents();
     }

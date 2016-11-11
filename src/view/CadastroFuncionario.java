@@ -19,6 +19,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     /**
      * Creates new form CadastroCorretor
      */
+    
+    public CadastroFuncionario() {
+        initComponents();
+        this.ValidarBotoes(0);
+        this.setLocationRelativeTo(null);
+    }
 
     /* TERMINAR A PROGRAMAÇÃO DA ORDEM DE BOTÕES*/
     public void ValidarBotoes(int funcao){
@@ -97,8 +103,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             jTFSalario.setEditable(false);
             jBTNCadastro_Cargo.setEnabled(false);
             jBTNCadastrar_Setor.setEnabled(false);
-            jBTNCadastrar_Hora_Entrada.setEnabled(false);
-            jBTNCadastrar_Hora_Saida.setEnabled(false);
+            jBTNCadastrar_Horarios.setEnabled(false);
+            jBTNCadastrar_Horarios.setEnabled(false);
         }else{
             //DESBLOQUEIA CAMPOS
             jTFNome.setEditable(true);
@@ -119,13 +125,9 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             jTFSalario.setEditable(true);
             jBTNCadastro_Cargo.setEnabled(true);
             jBTNCadastrar_Setor.setEnabled(true);
-            jBTNCadastrar_Hora_Entrada.setEnabled(true);
-            jBTNCadastrar_Hora_Saida.setEnabled(true);
+            jBTNCadastrar_Horarios.setEnabled(true);
+            jBTNCadastrar_Horarios.setEnabled(true);
         }
-    }
-    public CadastroFuncionario() {
-        initComponents();
-        this.ValidarBotoes(0);
     }
 
     CadastroFuncionario(Menu aThis, boolean b) {
@@ -181,10 +183,9 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jCBSetor = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
         jCBHora_Entrada = new javax.swing.JComboBox();
-        jBTNCadastrar_Hora_Entrada = new javax.swing.JButton();
+        jBTNCadastrar_Horarios = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jCBHora_Saida = new javax.swing.JComboBox();
-        jBTNCadastrar_Hora_Saida = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jTFSalario = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
@@ -429,6 +430,11 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jLabel11.setText("Cargo:");
 
         jBTNCadastro_Cargo.setText("Cadastrar Cargo");
+        jBTNCadastro_Cargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTNCadastro_CargoActionPerformed(evt);
+            }
+        });
 
         jBTNCadastrar_Setor.setText("Cadastrar Setor");
         jBTNCadastrar_Setor.addActionListener(new java.awt.event.ActionListener() {
@@ -448,23 +454,16 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
         jCBHora_Entrada.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jBTNCadastrar_Hora_Entrada.setText("Cadastrar Hora Entrada");
-        jBTNCadastrar_Hora_Entrada.addActionListener(new java.awt.event.ActionListener() {
+        jBTNCadastrar_Horarios.setText("Cadastrar Horários");
+        jBTNCadastrar_Horarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBTNCadastrar_Hora_EntradaActionPerformed(evt);
+                jBTNCadastrar_HorariosActionPerformed(evt);
             }
         });
 
         jLabel13.setText("Hora de Entrada:");
 
         jCBHora_Saida.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jBTNCadastrar_Hora_Saida.setText("Cadastrar Hora Saída");
-        jBTNCadastrar_Hora_Saida.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBTNCadastrar_Hora_SaidaActionPerformed(evt);
-            }
-        });
 
         jLabel14.setText("Hora de Saída:");
 
@@ -485,12 +484,11 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                             .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCBHora_Entrada, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jCBCargo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jBTNCadastro_Cargo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBTNCadastrar_Setor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBTNCadastrar_Hora_Entrada, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jBTNCadastrar_Hora_Saida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jBTNCadastro_Cargo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                            .addComponent(jBTNCadastrar_Setor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                            .addComponent(jBTNCadastrar_Horarios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -520,16 +518,14 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCBHora_Entrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBTNCadastrar_Hora_Entrada))
+                    .addComponent(jBTNCadastrar_Horarios))
                 .addGap(13, 13, 13)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCBHora_Saida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBTNCadastrar_Hora_Saida))
+                .addComponent(jCBHora_Saida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jTFSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -547,7 +543,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(258, Short.MAX_VALUE))
         );
 
@@ -616,28 +612,30 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jBTNSalvarActionPerformed
 
     private void jBTNCadastrar_SetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNCadastrar_SetorActionPerformed
-        // TODO add your handling code here:
+        CadastroSetor casdastroSetor = new CadastroSetor();
+        casdastroSetor.setVisible(true);
     }//GEN-LAST:event_jBTNCadastrar_SetorActionPerformed
 
     private void jCBSetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBSetorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCBSetorActionPerformed
 
-    private void jBTNCadastrar_Hora_EntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNCadastrar_Hora_EntradaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBTNCadastrar_Hora_EntradaActionPerformed
-
-    private void jBTNCadastrar_Hora_SaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNCadastrar_Hora_SaidaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBTNCadastrar_Hora_SaidaActionPerformed
+    private void jBTNCadastrar_HorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNCadastrar_HorariosActionPerformed
+        CadastroHora cadastroHora = new CadastroHora();
+        cadastroHora.setVisible(true);
+    }//GEN-LAST:event_jBTNCadastrar_HorariosActionPerformed
 
     private void jBTNNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNNovoActionPerformed
-        // TODO add your handling code here:
         this.ValidarBotoes(1);
         if(btnNovo == 0){
             this.ValidarBotoes(0);
         }
     }//GEN-LAST:event_jBTNNovoActionPerformed
+
+    private void jBTNCadastro_CargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNCadastro_CargoActionPerformed
+        CadastroCargo cadastroCargo = new CadastroCargo();
+        cadastroCargo.setVisible(true);
+    }//GEN-LAST:event_jBTNCadastro_CargoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -676,8 +674,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBTNCadastrar_Hora_Entrada;
-    private javax.swing.JButton jBTNCadastrar_Hora_Saida;
+    private javax.swing.JButton jBTNCadastrar_Horarios;
     private javax.swing.JButton jBTNCadastrar_Setor;
     private javax.swing.JButton jBTNCadastro_Cargo;
     private javax.swing.JButton jBTNCancelar;

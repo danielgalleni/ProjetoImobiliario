@@ -448,7 +448,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel4" min="-2" pref="301" max="-2" attributes="0"/>
+                      <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="258" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -479,12 +479,11 @@
                                       <Component id="jCBHora_Entrada" alignment="1" max="32767" attributes="0"/>
                                       <Component id="jCBCargo" alignment="1" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jBTNCadastro_Cargo" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
-                                      <Component id="jBTNCadastrar_Setor" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
-                                      <Component id="jBTNCadastrar_Hora_Entrada" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jBTNCadastrar_Hora_Saida" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
+                                  <EmptySpace pref="31" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jBTNCadastro_Cargo" alignment="1" pref="147" max="32767" attributes="0"/>
+                                      <Component id="jBTNCadastrar_Setor" alignment="1" pref="147" max="32767" attributes="0"/>
+                                      <Component id="jBTNCadastrar_Horarios" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -523,18 +522,15 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jCBHora_Entrada" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jBTNCadastrar_Hora_Entrada" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jBTNCadastrar_Horarios" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                           <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jCBHora_Saida" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jBTNCadastrar_Hora_Saida" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jCBHora_Saida" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="7" max="32767" attributes="0"/>
                           <Component id="jTFSalario" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -563,6 +559,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cadastrar Cargo"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBTNCadastro_CargoActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="jBTNCadastrar_Setor">
                   <Properties>
@@ -604,12 +603,12 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jBTNCadastrar_Hora_Entrada">
+                <Component class="javax.swing.JButton" name="jBTNCadastrar_Horarios">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Cadastrar Hora Entrada"/>
+                    <Property name="text" type="java.lang.String" value="Cadastrar Hor&#xe1;rios"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBTNCadastrar_Hora_EntradaActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBTNCadastrar_HorariosActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel13">
@@ -628,14 +627,6 @@
                       </StringArray>
                     </Property>
                   </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="jBTNCadastrar_Hora_Saida">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Cadastrar Hora Sa&#xed;da"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBTNCadastrar_Hora_SaidaActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel14">
                   <Properties>

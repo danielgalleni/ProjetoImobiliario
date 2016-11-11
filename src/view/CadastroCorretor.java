@@ -19,6 +19,12 @@ public class CadastroCorretor extends javax.swing.JFrame {
     /**
      * Creates new form CadastroCorretor
      */
+    
+    public CadastroCorretor() {
+        initComponents();
+        this.ValidarBotoes(0);
+        this.setLocationRelativeTo(null);
+    }
 
     /* TERMINAR A PROGRAMAÇÃO DA ORDEM DE BOTÕES*/
     public void ValidarBotoes(int funcao){
@@ -106,11 +112,6 @@ public class CadastroCorretor extends javax.swing.JFrame {
         }
     }
     
-    public CadastroCorretor() {
-        initComponents();
-        this.ValidarBotoes(0);
-    }
-
     CadastroCorretor(Menu aThis, boolean b) {
        
     }

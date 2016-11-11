@@ -5,19 +5,21 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gonzalez
  */
 public class CadastroCargo extends javax.swing.JFrame {
-
     /**
      * Creates new form CadastroCardo
      */
     public CadastroCargo() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -81,6 +83,11 @@ public class CadastroCargo extends javax.swing.JFrame {
         );
 
         jBTNCancelar.setText("Cancelar");
+        jBTNCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTNCancelarActionPerformed(evt);
+            }
+        });
 
         jBTNSalvar.setText("Salvar");
 
@@ -117,6 +124,12 @@ public class CadastroCargo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBTNCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNCancelarActionPerformed
+        if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente sair?", "Atenção", JOptionPane.YES_NO_OPTION) == 0){
+            this.dispose();
+        }   
+    }//GEN-LAST:event_jBTNCancelarActionPerformed
 
     /**
      * @param args the command line arguments
