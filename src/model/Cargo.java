@@ -5,11 +5,22 @@
  */
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Gonzalez
  */
+@Entity
+@Table(name = "cargo")
 public class Cargo {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer codigo;
     private String cargo;
 

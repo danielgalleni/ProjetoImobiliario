@@ -5,6 +5,8 @@
  */
 package view;
 
+import classes.ComboModel;
+import com.sun.corba.se.impl.orbutil.CorbaResourceUtil;
 import javax.swing.JOptionPane;
 
 /**
@@ -82,6 +84,7 @@ public class CadastroCargo extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jBTNCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/CANCELAR.png"))); // NOI18N
         jBTNCancelar.setText("Cancelar");
         jBTNCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,8 +92,15 @@ public class CadastroCargo extends javax.swing.JFrame {
             }
         });
 
+        jBTNSalvar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gonzalez\\Desktop\\SALVAR.png")); // NOI18N
         jBTNSalvar.setText("Salvar");
+        jBTNSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTNSalvarActionPerformed(evt);
+            }
+        });
 
+        jBTNNovo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gonzalez\\Desktop\\NOVO.png")); // NOI18N
         jBTNNovo.setText("Novo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -101,12 +111,12 @@ public class CadastroCargo extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jBTNNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
-                        .addComponent(jBTNSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBTNCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jBTNNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                        .addComponent(jBTNSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBTNCancelar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -115,10 +125,11 @@ public class CadastroCargo extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBTNCancelar)
-                    .addComponent(jBTNSalvar)
-                    .addComponent(jBTNNovo))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBTNSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jBTNCancelar)
+                        .addComponent(jBTNNovo)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -130,6 +141,11 @@ public class CadastroCargo extends javax.swing.JFrame {
             this.dispose();
         }   
     }//GEN-LAST:event_jBTNCancelarActionPerformed
+
+    private void jBTNSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNSalvarActionPerformed
+        // TODO add your handling code here:
+        String NomeCargo = jTFCargo.getText();
+    }//GEN-LAST:event_jBTNSalvarActionPerformed
 
     /**
      * @param args the command line arguments

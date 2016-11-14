@@ -103,8 +103,10 @@ public class CadastroHora extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jBTNSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/SALVAR.png"))); // NOI18N
         jBTNSalvar.setText("Salvar");
 
+        jBTNCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/CANCELAR.png"))); // NOI18N
         jBTNCancelar.setText("Cancelar");
         jBTNCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +114,7 @@ public class CadastroHora extends javax.swing.JFrame {
             }
         });
 
+        jBTNNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/NOVO.png"))); // NOI18N
         jBTNNovo.setText("Novo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -123,11 +126,11 @@ public class CadastroHora extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jBTNNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBTNNovo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBTNSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBTNSalvar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBTNCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jBTNCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(

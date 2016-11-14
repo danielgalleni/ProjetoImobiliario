@@ -36,11 +36,11 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jBTNNovo" min="-2" pref="75" max="-2" attributes="0"/>
+                  <Component id="jPanel2" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jBTNNovo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jBTNSalvar" min="-2" pref="75" max="-2" attributes="0"/>
+                      <Component id="jBTNSalvar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jBTNCancelar" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -54,7 +54,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <EmptySpace pref="31" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jBTNCancelar" alignment="3" max="-2" attributes="0"/>
                   <Component id="jBTNSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -68,6 +68,9 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="jBTNSalvar">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/imagens/SALVAR.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Salvar"/>
         <Property name="iconTextGap" type="int" value="10"/>
       </Properties>
@@ -77,6 +80,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jBTNCancelar">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/imagens/CANCELAR.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
         <Property name="horizontalTextPosition" type="int" value="4"/>
         <Property name="iconTextGap" type="int" value="10"/>
@@ -402,6 +408,9 @@
     </Container>
     <Component class="javax.swing.JButton" name="jBTNNovo">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/imagens/NOVO.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Novo"/>
         <Property name="iconTextGap" type="int" value="10"/>
       </Properties>
