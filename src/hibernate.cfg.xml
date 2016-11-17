@@ -8,6 +8,7 @@
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">wgsg1234</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
+    <mapping class="annotations.Users"></mapping> 
     <mapping class="model.Cliente"/>
     <mapping class="model.Funcionario"/>
     <mapping class="model.Telefone"/>

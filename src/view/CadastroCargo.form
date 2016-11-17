@@ -144,7 +144,7 @@
     <Component class="javax.swing.JButton" name="jBTNSalvar">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Gonzalez\Desktop\SALVAR.png"/>
+          <Image iconType="3" name="/imagens/SALVAR.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Salvar"/>
       </Properties>
@@ -155,7 +155,7 @@
     <Component class="javax.swing.JButton" name="jBTNNovo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Gonzalez\Desktop\NOVO.png"/>
+          <Image iconType="3" name="/imagens/NOVO.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Novo"/>
       </Properties>

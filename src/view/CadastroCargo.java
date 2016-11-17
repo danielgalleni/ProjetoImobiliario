@@ -92,7 +92,7 @@ public class CadastroCargo extends javax.swing.JFrame {
             }
         });
 
-        jBTNSalvar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gonzalez\\Desktop\\SALVAR.png")); // NOI18N
+        jBTNSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/SALVAR.png"))); // NOI18N
         jBTNSalvar.setText("Salvar");
         jBTNSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +100,7 @@ public class CadastroCargo extends javax.swing.JFrame {
             }
         });
 
-        jBTNNovo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gonzalez\\Desktop\\NOVO.png")); // NOI18N
+        jBTNNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/NOVO.png"))); // NOI18N
         jBTNNovo.setText("Novo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

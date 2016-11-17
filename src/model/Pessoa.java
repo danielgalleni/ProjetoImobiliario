@@ -35,13 +35,21 @@ public abstract class Pessoa extends Anotacao {
         
     @Column(length = 100, nullable = false)
     private String nome;
+    @Column(length = 100, nullable = false)
     private String endereco;
+    @Column(length = 2, nullable = false)
     private String estado;
+    @Column(length = 50, nullable = false)
     private String bairro;
+    @Column(length = 20, nullable = false)    
     private String numero;
+    @Column(length = 50, nullable = false)
     private String cidade;
+    @Column(length = 14, nullable = false)
     private String cpf;
-    private String rg;  
+    @Column(length = 12, nullable = false)
+    private String rg;
+    @Column(length = 100, nullable = true)
     private String email;
     
     @OneToMany(mappedBy = "pessoa",cascade = CascadeType.ALL,orphanRemoval = true)    
@@ -69,7 +77,7 @@ public abstract class Pessoa extends Anotacao {
     }
 
     public void setCodigo(Integer codigo) throws Exception {
-        if (codigo < 0){
+        if (codigo > 0){
             this.codigo = codigo;
         }else{
             throw new Exception("Erro!\nVerifique. Código menor que zero.");            

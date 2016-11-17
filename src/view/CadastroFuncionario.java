@@ -427,6 +427,11 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados Empresariais"));
 
         jCBCargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBCargo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCBCargoItemStateChanged(evt);
+            }
+        });
 
         jLabel11.setText("Cargo:");
 
@@ -637,6 +642,10 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         CadastroCargo cadastroCargo = new CadastroCargo();
         cadastroCargo.setVisible(true);
     }//GEN-LAST:event_jBTNCadastro_CargoActionPerformed
+
+    private void jCBCargoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCBCargoItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBCargoItemStateChanged
 
     /**
      * @param args the command line arguments
