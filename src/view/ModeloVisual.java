@@ -15,6 +15,7 @@ public class ModeloVisual extends javax.swing.JFrame {
      * Creates new form NewJFrame1
      */
     public ModeloVisual() {
+        jBBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/agenda.png"))); // NOI18N
         initComponents();
         this.setLocationRelativeTo(null);
     }
