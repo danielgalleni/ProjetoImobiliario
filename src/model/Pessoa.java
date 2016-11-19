@@ -5,7 +5,7 @@
  */
 package model;
 
-import classes.Anotacao;
+import anotacao.*;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -26,7 +26,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "pessoa")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Pessoa extends Anotacao {
+public abstract class Pessoa {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

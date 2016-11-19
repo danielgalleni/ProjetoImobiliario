@@ -5,6 +5,7 @@
  */
 package model;
 
+import anotacao.*;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 

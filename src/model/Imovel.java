@@ -5,6 +5,8 @@
  */
 package model;
 
+import anotacao.*;
+
 /**
  *
  * @author Gonzalez

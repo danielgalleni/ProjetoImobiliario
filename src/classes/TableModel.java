@@ -1,11 +1,9 @@
 package classes;
 
+import anotacao.Campo;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
-import model.Cliente;
-import classes.Anotacao;
 import java.lang.reflect.InvocationTargetException;
 
 /**
@@ -59,8 +57,8 @@ public class TableModel extends AbstractTableModel {
     @Override
     public String getColumnName(int column) {
         for (Method metodo : classe.getDeclaredMethods()) {
-            if (metodo.isAnnotationPresent(Anotacao.Campo.class)) {
-                Anotacao.Campo anotacao = metodo.getAnnotation(Anotacao.Campo.class);
+            if (metodo.isAnnotationPresent(Campo.class)) {
+                Campo anotacao = metodo.getAnnotation(Campo.class);
                 if (anotacao.posicao() == column) {
                     return anotacao.nome();
                 }
@@ -83,7 +81,7 @@ public class TableModel extends AbstractTableModel {
 
         int coluna = 0;
         for (Method metodo : classe.getDeclaredMethods()) {
-            if (metodo.isAnnotationPresent(Anotacao.Campo.class)) {
+            if (metodo.isAnnotationPresent(Campo.class)) {
                 coluna++;
             }
         }
@@ -96,8 +94,8 @@ public class TableModel extends AbstractTableModel {
             Object objeto = this.object.get(rowIndex);
             Class<?> classe = objeto.getClass();
             for (Method metodo : classe.getDeclaredMethods()) {
-                if (metodo.isAnnotationPresent(Anotacao.Campo.class)) {
-                    Anotacao.Campo anotacao = metodo.getAnnotation(Anotacao.Campo.class);
+                if (metodo.isAnnotationPresent(Campo.class)) {
+                    Campo anotacao = metodo.getAnnotation(Campo.class);
                     if (anotacao.posicao() == columnIndex) {
                         return String.format(anotacao.formato(), metodo.invoke(objeto));
                     }

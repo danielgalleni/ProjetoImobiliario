@@ -5,9 +5,11 @@
  */
 package model;
 
+import anotacao.*;
 /**
  *
  * @author Gonzalez
+ * @author Galleni
  */
 public class Horario {
     private Integer codigo;

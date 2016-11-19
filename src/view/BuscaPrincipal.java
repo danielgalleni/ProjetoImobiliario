@@ -5,9 +5,9 @@
  */
 package view;
 
+import classes.ComboModel;
 import classes.TableModel;
 import java.lang.reflect.Field;
-import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -231,24 +231,24 @@ public abstract class BuscaPrincipal extends TelaPrincipal {
         }
     }
     
-    public void CarregarComboBox(Class classe) throws Exception {
-    // TODO: Sobrecarregar o método na classe herdada, caso precise
-        classe = Class.class;
-
-        Object[] object = null;
+    public void CarregarComboBox(Object object) throws Exception {
+        Field[] field;
+        field = object.getClass().getDeclaredFields();
+        ComboModel comboModel = new ComboModel(field);
+        jCBBuscar.setModel(comboModel);
         
-        for (Field f : classe.getDeclaredFields()){
+/*        for (Field f : classe.getDeclaredFields()){
             
         }
         
-       Class<Object> classe = Negocio.class;
+       Class<Object> classe = classe.class;
        for (Field atributo : classe.getDeclaredFields()) {
          System.out.println(atributo.getName());      
         }
        
   Class<?> classe = lista.get(0).getClass();
   Field[] atributos = classe.getDeclaredFields();
-  return atributos.length;
+  return atributos.length;*/
     }
     // </editor-fold>
 

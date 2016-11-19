@@ -5,7 +5,7 @@
  */
 package model;
 
-import classes.Anotacao;
+import anotacao.*;
 import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -23,7 +23,7 @@ import javax.persistence.Temporal;
  */
 @Entity
 @Table(name = "Agendamento")
-public class Agendamento extends Anotacao{
+public class Agendamento {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)    
     private Integer codigo;

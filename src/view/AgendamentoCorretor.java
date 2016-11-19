@@ -222,7 +222,7 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
             Agendamento agendamento = null;  
             try{
                 agendamento = new Agendamento();
-                agendamento.setNome(jTFNome.getText());
+                /*agendamento.setNome(jTFNome.getText());
                 agendamento.setCidade(jTFCidade.getText());
                 agendamento.setEstado(jCBEstado.getSelectedItem().toString());
                 agendamento.setBairro(jTFBairro.getText());
@@ -238,11 +238,11 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
                 agendamento.getTelefones().add(telefone);
 
                 DaoAgendamento dAgendamento = new DaoAgendamento();
-                dAgendamento.persistir(agendamento);
+                dAgendamento.persistir(agendamento);*/
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo corretor. Verifique o log abaixo: " + "\n\n" + ex);
             }
-        //}
+        }
     }//GEN-LAST:event_jBTNAgendarActionPerformed
 
     private void jBTNBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNBuscarActionPerformed

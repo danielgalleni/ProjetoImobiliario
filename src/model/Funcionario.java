@@ -5,6 +5,7 @@
  */
 package model;
 
+import anotacao.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
