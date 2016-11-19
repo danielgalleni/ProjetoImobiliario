@@ -6,6 +6,8 @@
 package model;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -24,5 +26,10 @@ public class Cliente extends Pessoa {
     public Cliente() {
         
     }
+    
+    @ManyToOne
+    @JoinColumn(name = "codigo_cliente")    
+    private Pessoa pessoa;
+
     
 }

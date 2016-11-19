@@ -7,10 +7,12 @@ package model;
 
 import classes.Anotacao;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
@@ -30,6 +32,7 @@ public class Agendamento extends Anotacao{
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date DataFim;
     private Corretor corretores;
+    private Cliente cliente;
     
     public Agendamento(Integer codigo, Date DataInicio, Date DataFim) throws Exception {
         if((DataInicio != null) && (DataFim != null)){
@@ -40,6 +43,11 @@ public class Agendamento extends Anotacao{
             throw new Exception("Erro!\nNecessário selecionar a Data de Agendamento.");
         }
     }
+
+    public Agendamento() {
+    }
+    
+    @OneToMany(mappedBy = "Agendamento",cascade = CascadeType.ALL,orphanRemoval = true)
     
     @Campo(nome="Núm. Agendamento", posicao=0, formato="%i")
     public Integer getCodigo() {

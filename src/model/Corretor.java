@@ -5,6 +5,9 @@
  */
 package model;
 
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 /**
  *
  * @author Galleni
@@ -19,4 +22,9 @@ public class Corretor extends Pessoa{
     public Corretor() {
  
     }
+    
+    @ManyToOne
+    @JoinColumn(name = "codigo_corretor")    
+    private Pessoa pessoa;
+    
 }

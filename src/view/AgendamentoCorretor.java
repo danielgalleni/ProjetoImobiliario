@@ -9,7 +9,9 @@ import classes.ComboModel;
 import dao.DaoCliente;
 import dao.HibernateUtil;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.Agendamento;
 import model.Cliente;
 import model.Corretor;
 import org.hibernate.Session;
@@ -210,11 +212,14 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
 
     private void jBTNAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNAgendarActionPerformed
         // TODO add your handling code here:
-        /*if(!jTableAgendamento.getValueAt(getSelectedRow(), coluna)){
-            //JOptionPane.showMessageDialog("Erro!\nSelecione um cliente para Agendar.", evt, null, WIDTH);
+        if(getSelectedRow()==0){ //jTableAgendamento.getValueAt(getSelectedRow(), 1
+            JOptionPane.showMessageDialog(null,"Erro!\nSelecione um cliente para Agendar."); 
         }else{
-            /*PREENCHE COMANDO SALVAR*/
-            /*Agendamento agendamento == null;  
+            //PREENCHE COMANDO SALVAR*/
+            int cod = Integer.parseInt(jTableAgendamento.getValueAt(getSelectedRow(), 1).toString());
+            DaoCliente daoCliente = new DaoCliente();
+            Cliente c = (Cliente) daoCliente.getById(cod);
+            Agendamento agendamento = null;  
             try{
                 agendamento = new Agendamento();
                 agendamento.setNome(jTFNome.getText());
@@ -236,7 +241,7 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
                 dAgendamento.persistir(agendamento);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(rootPane, "Houve um erro ao tentar criar o cadastro de um novo corretor. Verifique o log abaixo: " + "\n\n" + ex);
-            }*/
+            }
         //}
     }//GEN-LAST:event_jBTNAgendarActionPerformed
 
