@@ -84,6 +84,7 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("CADASTROS"));
 
+        jBTNCadastro_Cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cadastrarCliente.png"))); // NOI18N
         jBTNCadastro_Cliente.setText("Cliente");
         jBTNCadastro_Cliente.setContentAreaFilled(false);
         jBTNCadastro_Cliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -93,6 +94,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jBTNCadastro_Funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cadastrarFuncinario.png"))); // NOI18N
         jBTNCadastro_Funcionario.setText("Funcionário");
         jBTNCadastro_Funcionario.setContentAreaFilled(false);
         jBTNCadastro_Funcionario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -102,6 +104,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jBTNCadastro_Corretor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cadastroCorretor.png"))); // NOI18N
         jBTNCadastro_Corretor.setText("Corretor");
         jBTNCadastro_Corretor.setContentAreaFilled(false);
         jBTNCadastro_Corretor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -111,6 +114,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jBTNCadastro_Imovel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cadastroImovel.png"))); // NOI18N
         jBTNCadastro_Imovel.setText("Imóvel");
         jBTNCadastro_Imovel.setContentAreaFilled(false);
         jBTNCadastro_Imovel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -149,6 +153,7 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("CONSULTAR"));
 
+        jBTNBusca_Pessoas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BUSCA PESSOAS.png"))); // NOI18N
         jBTNBusca_Pessoas.setText("Pessoas");
         jBTNBusca_Pessoas.setContentAreaFilled(false);
         jBTNBusca_Pessoas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -158,6 +163,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jBTNBusca_Imovel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscaImovel.png"))); // NOI18N
         jBTNBusca_Imovel.setText("Imóvel");
         jBTNBusca_Imovel.setContentAreaFilled(false);
         jBTNBusca_Imovel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -167,6 +173,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jBTNBusca_Agenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscarAgenda.png"))); // NOI18N
         jBTNBusca_Agenda.setText("Agenda");
         jBTNBusca_Agenda.setContentAreaFilled(false);
         jBTNBusca_Agenda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -197,18 +204,22 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("ALTERAR"));
 
+        jBTNEditar_Cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editarCliente.png"))); // NOI18N
         jBTNEditar_Cliente.setText("Cliente");
         jBTNEditar_Cliente.setContentAreaFilled(false);
         jBTNEditar_Cliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        jBTNEditar_Corretor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editarCorretor.png"))); // NOI18N
         jBTNEditar_Corretor.setText("Corretor");
         jBTNEditar_Corretor.setContentAreaFilled(false);
         jBTNEditar_Corretor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        jBTNEditar_Funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editarFuncionario.png"))); // NOI18N
         jBTNEditar_Funcionario.setText("Funcionário");
         jBTNEditar_Funcionario.setContentAreaFilled(false);
         jBTNEditar_Funcionario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        jBTNEditar_Imovel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editarImovel.png"))); // NOI18N
         jBTNEditar_Imovel.setText("Imóvel");
         jBTNEditar_Imovel.setContentAreaFilled(false);
         jBTNEditar_Imovel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -241,6 +252,7 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("FECHAR O SISTEMA"));
 
+        jBTNSair_Do_Sistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/sairSistema.png"))); // NOI18N
         jBTNSair_Do_Sistema.setText("Sair");
         jBTNSair_Do_Sistema.setContentAreaFilled(false);
         jBTNSair_Do_Sistema.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -251,7 +263,7 @@ public class Menu extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jBTNSair_Do_Sistema, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                .addComponent(jBTNSair_Do_Sistema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -348,7 +360,7 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 78, Short.MAX_VALUE)))
+                        .addGap(0, 66, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -362,7 +374,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addContainerGap(202, Short.MAX_VALUE))
         );
 
         pack();

@@ -165,6 +165,7 @@ public class CadastroCliente extends javax.swing.JFrame {
             }
         });
 
+        jBTNSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salvarCadastro.png"))); // NOI18N
         jBTNSalvar.setText("Salvar");
         jBTNSalvar.setIconTextGap(10);
         jBTNSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -173,6 +174,7 @@ public class CadastroCliente extends javax.swing.JFrame {
             }
         });
 
+        jBTNCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancelarCadastro.png"))); // NOI18N
         jBTNCancelar.setText("Cancelar");
         jBTNCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jBTNCancelar.setIconTextGap(10);
@@ -384,6 +386,7 @@ public class CadastroCliente extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jBTNNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/novoCadastro.png"))); // NOI18N
         jBTNNovo.setText("Novo");
         jBTNNovo.setIconTextGap(10);
         jBTNNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -413,7 +416,7 @@ public class CadastroCliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBTNCancelar)
                     .addComponent(jBTNSalvar)

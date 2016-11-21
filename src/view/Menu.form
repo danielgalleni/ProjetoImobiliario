@@ -126,7 +126,7 @@
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="78" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="66" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -145,7 +145,7 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jSeparator1" min="-2" pref="11" max="-2" attributes="0"/>
-              <EmptySpace pref="250" max="32767" attributes="0"/>
+              <EmptySpace pref="202" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -196,6 +196,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jBTNCadastro_Cliente">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/cadastrarCliente.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Cliente"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -206,6 +209,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jBTNCadastro_Funcionario">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/cadastrarFuncinario.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Funcion&#xe1;rio"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -216,6 +222,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jBTNCadastro_Corretor">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/cadastroCorretor.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Corretor"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -226,6 +235,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jBTNCadastro_Imovel">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/cadastroImovel.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Im&#xf3;vel"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -276,6 +288,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jBTNBusca_Pessoas">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/BUSCA PESSOAS.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Pessoas"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -286,6 +301,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jBTNBusca_Imovel">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/buscaImovel.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Im&#xf3;vel"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -296,6 +314,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jBTNBusca_Agenda">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/buscarAgenda.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Agenda"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -345,6 +366,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jBTNEditar_Cliente">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/editarCliente.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Cliente"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -352,6 +376,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jBTNEditar_Corretor">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/editarCorretor.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Corretor"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -359,6 +386,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jBTNEditar_Funcionario">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/editarFuncionario.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Funcion&#xe1;rio"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -366,6 +396,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jBTNEditar_Imovel">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/editarImovel.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Im&#xf3;vel"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -387,7 +420,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jBTNSair_Do_Sistema" pref="83" max="32767" attributes="0"/>
+                  <Component id="jBTNSair_Do_Sistema" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -405,6 +438,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jBTNSair_Do_Sistema">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/sairSistema.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Sair"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>

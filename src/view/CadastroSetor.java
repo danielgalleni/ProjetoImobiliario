@@ -42,6 +42,7 @@ public class CadastroSetor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Setor Empresarial");
 
+        jBTNCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancelarCadastro.png"))); // NOI18N
         jBTNCancelar.setText("Cancelar");
         jBTNCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,8 +50,15 @@ public class CadastroSetor extends javax.swing.JFrame {
             }
         });
 
+        jBTNSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salvarCadastro.png"))); // NOI18N
         jBTNSalvar.setText("Salvar");
+        jBTNSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTNSalvarActionPerformed(evt);
+            }
+        });
 
+        jBTNNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/novoCadastro.png"))); // NOI18N
         jBTNNovo.setText("Novo");
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados de Cadastro"));
@@ -131,6 +139,10 @@ public class CadastroSetor extends javax.swing.JFrame {
             this.dispose();
         }  
     }//GEN-LAST:event_jBTNCancelarActionPerformed
+
+    private void jBTNSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNSalvarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBTNSalvarActionPerformed
 
     /**
      * @param args the command line arguments

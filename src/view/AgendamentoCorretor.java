@@ -93,6 +93,7 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
             }
         });
 
+        jBTNBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/LOCALIZAR.png"))); // NOI18N
         jBTNBuscar.setText("Buscar");
         jBTNBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +115,7 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
             }
         });
 
+        jBTNAgendar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/agenda.png"))); // NOI18N
         jBTNAgendar.setText("Agendar");
         jBTNAgendar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +123,7 @@ public class AgendamentoCorretor extends javax.swing.JFrame {
             }
         });
 
+        jBTNNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/novoCadastro.png"))); // NOI18N
         jBTNNovo.setText("Novo");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
