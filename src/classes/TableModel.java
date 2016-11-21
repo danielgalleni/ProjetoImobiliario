@@ -19,6 +19,7 @@ public class TableModel extends AbstractTableModel {
 
     // <editor-fold desc="Construtores">
     public TableModel(List<Object> object) {
+    //public TableModel() {
         this.object = object;
         this.classe = object.get(0).getClass();
     }

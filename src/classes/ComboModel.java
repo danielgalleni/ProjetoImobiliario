@@ -20,6 +20,11 @@ public class ComboModel implements ComboBoxModel<Object>{
         this.objects = objects;
     }
 
+    public ComboModel() {
+        this.objects = null;
+        this.object = null;
+    }
+    
     @Override
     public void setSelectedItem(Object anItem) {
         object = (Object) anItem;

@@ -54,6 +54,8 @@ public class ModeloVisual extends javax.swing.JFrame {
 
         jLabel1.setText("Buscar por");
 
+        jCBBuscar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "123", "456", "789" }));
+
         jTFBuscar.setToolTipText("Selecionar");
 
         jLabel2.setText("Digite aqui o termo da busca:");

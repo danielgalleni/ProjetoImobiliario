@@ -12,6 +12,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -75,9 +77,9 @@ public abstract class BuscaPrincipal extends TelaPrincipal {
         });
 
         jBBuscar.setText("Buscar");
-        jBBuscar.setMaximumSize(new java.awt.Dimension(83, 23));
-        jBBuscar.setMinimumSize(new java.awt.Dimension(83, 23));
-        jBBuscar.setPreferredSize(new java.awt.Dimension(83, 23));
+        jBBuscar.setMaximumSize(new java.awt.Dimension(100, 23));
+        jBBuscar.setMinimumSize(new java.awt.Dimension(100, 23));
+        jBBuscar.setPreferredSize(new java.awt.Dimension(100, 23));
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBBuscarActionPerformed(evt);
@@ -91,7 +93,7 @@ public abstract class BuscaPrincipal extends TelaPrincipal {
                 .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jCBBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jCBBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,51 +229,44 @@ public abstract class BuscaPrincipal extends TelaPrincipal {
             }
         };
 
-        if (object != null) {
-            for (Object c : object) {
-                dtm.addRow(c);
+        try {
+            if (object != null) {
+                for (Object c : object) {
+                    dtm.addRow(c);
+                }
+                this.jTLista.setModel(dtm);
             }
-        this.setJTLista(dtm);
+        } catch (Exception ex) {
+            Logger.getLogger(BuscaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(rootPane, ex);
         }
+
+        // Instancia o TableModelPadrao
     }
-    
+
     public void CarregarComboBox(Object object) throws Exception {
         //ComboModel comboModel = new ComboModel((Object[]) object);
         //jCBBuscar.setModel(comboModel);
-        
         Class<?> classe = object.getClass();
-        List<String> listaCampos = null;
+        String[] listaCampos = {"Selecione um campo"};
+        int i = 0;
         for (Method metodo : classe.getDeclaredMethods()) {
             if (metodo.isAnnotationPresent(Campo.class)) {
                 Campo anotacao = metodo.getAnnotation(Campo.class);
-                listaCampos.add(anotacao.nome());
-                //metodo.invoke(object);
+                listaCampos[i] = anotacao.nome();
+                i++;
             }
         }
 
         // Pega a lista de métodos de busca declarados e os insere no combobox
-        String[] metodo = null;
-        metodo = (String[]) listaCampos.toArray();
-        ComboModel comboModel = new ComboModel(metodo);
-        jCBBuscar.setModel(comboModel);
+        //ComboModel comboModel = new ComboModel();
         
-/*        for (Field f : classe.getDeclaredFields()){
-            
-        }
-        
-       Class<Object> classe = classe.class;
-       for (Field atributo : classe.getDeclaredFields()) {
-         System.out.println(atributo.getName());      
-        }
-       
-  Class<?> classe = lista.get(0).getClass();
-  Field[] atributos = classe.getDeclaredFields();
-  return atributos.length;*/
+        jCBBuscar.setModel(new javax.swing.DefaultComboBoxModel(listaCampos));
     }
     // </editor-fold>
 
 // Variables declaration - do not modify                     
-private javax.swing.JButton jBBuscar;
+    private javax.swing.JButton jBBuscar;
     private javax.swing.JButton jBSairSelecionar;
     private javax.swing.JComboBox jCBBuscar;
     private javax.swing.JLabel jLabel1;
