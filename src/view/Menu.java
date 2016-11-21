@@ -256,6 +256,11 @@ public class Menu extends javax.swing.JFrame {
         jBTNSair_Do_Sistema.setText("Sair");
         jBTNSair_Do_Sistema.setContentAreaFilled(false);
         jBTNSair_Do_Sistema.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBTNSair_Do_Sistema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTNSair_Do_SistemaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -502,6 +507,13 @@ public class Menu extends javax.swing.JFrame {
     private void jBTNBusca_ImovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNBusca_ImovelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBTNBusca_ImovelActionPerformed
+
+    private void jBTNSair_Do_SistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTNSair_Do_SistemaActionPerformed
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        if (JOptionPane.showConfirmDialog(null, "Deseja realmente sair da tela?", "Atenção", JOptionPane.YES_NO_OPTION) == 0) {
+            this.dispose();
+        }   
+    }//GEN-LAST:event_jBTNSair_Do_SistemaActionPerformed
     
     /**
      * @param args the command line arguments

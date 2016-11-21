@@ -445,6 +445,9 @@
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBTNSair_Do_SistemaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
