@@ -15,8 +15,6 @@ public class TableModel extends AbstractTableModel {
     //<editor-fold desc="Atributos">
     private List<Object> object;
     private final Class<?> classe;
-    //private List<Object> object;
-    /*private String[] colunas;*/
     // </editor-fold>
 
     // <editor-fold desc="Construtores">

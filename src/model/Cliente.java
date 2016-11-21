@@ -6,6 +6,7 @@
 package model;
 
 import anotacao.*;
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,7 +21,7 @@ import javax.persistence.Table;
 @Table(name = "cliente")
 public class Cliente extends Pessoa {
     
-    public Cliente(Integer codigo, String nome, String endereco, String estado, String bairro, String numero, String cidade, String cpf, String rg, String email) {
+    public Cliente(Integer codigo, String nome, String endereco, String estado, String bairro, String numero, String cidade, String cpf, String rg, String email) throws Exception {
         super(codigo, nome, endereco, estado, bairro, numero, cidade, cpf, rg, email);
     }
 
@@ -31,6 +32,5 @@ public class Cliente extends Pessoa {
     @ManyToOne
     @JoinColumn(name = "codigo_cliente")    
     private Pessoa pessoa;
-
     
 }

@@ -6,7 +6,6 @@
 package model;
 
 import anotacao.*;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -59,17 +58,17 @@ public abstract class Pessoa {
     public Pessoa() {
     }
     
-    public Pessoa(Integer codigo, String nome, String endereco, String estado, String bairro, String numero, String cidade, String cpf, String rg, String email) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.endereco = endereco;
-        this.estado = estado;
-        this.bairro = bairro;
-        this.numero = numero;
-        this.cidade = cidade;
-        this.cpf = cpf;
-        this.rg = rg;
-        this.email = email;
+    public Pessoa(Integer codigo, String nome, String endereco, String estado, String bairro, String numero, String cidade, String cpf, String rg, String email) throws Exception {
+        this.setCodigo(codigo);
+        this.setNome(nome);
+        this.setEndereco(endereco);
+        this.setEstado(estado);
+        this.setBairro(bairro);
+        this.setNumero(numero);
+        this.setCidade(cidade);
+        this.setCpf(cpf);
+        this.setRg(rg);
+        this.setEmail(email);
     }
 
     @Campo(nome="Código", posicao=0, formato="%i")

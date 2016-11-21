@@ -10,6 +10,7 @@ import classes.ComboModel;
 import classes.TableModel;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -217,9 +218,9 @@ public abstract class BuscaPrincipal extends TelaPrincipal {
         }
     }
 
-    public void CarregarGrade(Object[] object) throws Exception {
+    public void CarregarGrade(List<?> object) throws Exception {
         // TODO: Sobrecarregar o método na classe herdada, caso precise
-        TableModel dtm = new TableModel() {
+        TableModel dtm = new TableModel((List<Object>) object) {
             @Override
             public boolean isCellEditable(int row, int col) {
                 return false;
@@ -230,11 +231,14 @@ public abstract class BuscaPrincipal extends TelaPrincipal {
             for (Object c : object) {
                 dtm.addRow(c);
             }
-            this.setJTLista(dtm);
+        this.setJTLista(dtm);
         }
     }
     
     public void CarregarComboBox(Object object) throws Exception {
+        //ComboModel comboModel = new ComboModel((Object[]) object);
+        //jCBBuscar.setModel(comboModel);
+        
         Class<?> classe = object.getClass();
         List<String> listaCampos = null;
         for (Method metodo : classe.getDeclaredMethods()) {
