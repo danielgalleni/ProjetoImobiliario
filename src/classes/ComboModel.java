@@ -5,6 +5,9 @@
  */
 package classes;
 
+import anotacao.Campo;
+import java.lang.reflect.Method;
+import java.util.List;
 import javax.swing.ComboBoxModel;
 import javax.swing.event.ListDataListener;
 
@@ -13,10 +16,10 @@ import javax.swing.event.ListDataListener;
  * @author Daniel
  */
 public class ComboModel implements ComboBoxModel<Object>{
-    private Object[] objects;
+    private final List<Object> objects;
     private Object object;
     
-    public ComboModel(Object[] objects){
+    public ComboModel(<Object> objects){
         this.objects = objects;
     }
 
@@ -38,16 +41,25 @@ public class ComboModel implements ComboBoxModel<Object>{
     @Override
     public Object getElementAt(int index) {
         return this.objects[index];
+        for (Method metodo : object.getDeclaredMethods()) {
+            if (metodo.isAnnotationPresent(Campo.class)) {
+                Campo anotacao = metodo.getAnnotation(Campo.class);
+                if (anotacao.posicao() == column) {
+                    return anotacao.nome();
+                }
+            }
+        }
+        return "";
     }
 
     @Override
     public void addListDataListener(ListDataListener l) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
     @Override
     public void removeListDataListener(ListDataListener l) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
 }

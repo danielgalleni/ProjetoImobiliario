@@ -5,9 +5,12 @@
  */
 package view;
 
+import anotacao.Campo;
 import classes.ComboModel;
 import classes.TableModel;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -87,7 +90,7 @@ public abstract class BuscaPrincipal extends TelaPrincipal {
                 .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jCBBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jCBBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,9 +235,20 @@ public abstract class BuscaPrincipal extends TelaPrincipal {
     }
     
     public void CarregarComboBox(Object object) throws Exception {
-        Field[] field;
-        field = object.getClass().getDeclaredFields();
-        ComboModel comboModel = new ComboModel(field);
+        Class<?> classe = object.getClass();
+        List<String> listaCampos = null;
+        for (Method metodo : classe.getDeclaredMethods()) {
+            if (metodo.isAnnotationPresent(Campo.class)) {
+                Campo anotacao = metodo.getAnnotation(Campo.class);
+                listaCampos.add(anotacao.nome());
+                //metodo.invoke(object);
+            }
+        }
+
+        // Pega a lista de métodos de busca declarados e os insere no combobox
+        String[] metodo = null;
+        metodo = (String[]) listaCampos.toArray();
+        ComboModel comboModel = new ComboModel(metodo);
         jCBBuscar.setModel(comboModel);
         
 /*        for (Field f : classe.getDeclaredFields()){

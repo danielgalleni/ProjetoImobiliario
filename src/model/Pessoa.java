@@ -6,6 +6,7 @@
 package model;
 
 import anotacao.*;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -27,7 +28,7 @@ import javax.persistence.Table;
 @Table(name = "pessoa")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Pessoa {
-    
+   
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer codigo;

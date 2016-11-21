@@ -5,11 +5,10 @@
  */
 package view;
 
-import classes.TableModel;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Cliente;
+import model.Pessoa;
 
 /**
  *
@@ -48,6 +47,7 @@ public class BuscaCliente extends BuscaPrincipal {
     public void formWindowOpened(java.awt.event.WindowEvent evt) {                                  
         Cliente[] clientes = null;
         try {
+            this.CarregarComboBox(Pessoa.class);
             this.CarregarGrade(clientes);
             this.ValidarBotoes();
         } catch (Exception ex) {

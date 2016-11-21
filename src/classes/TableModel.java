@@ -14,33 +14,34 @@ public class TableModel extends AbstractTableModel {
 
     //<editor-fold desc="Atributos">
     private List<Object> object;
-    private Class<?> classe;
+    private final Class<?> classe;
     //private List<Object> object;
     /*private String[] colunas;*/
     // </editor-fold>
 
     // <editor-fold desc="Construtores">
-    public TableModel() {
-
+    public TableModel(List<Object> object) {
+        this.object = object;
+        this.classe = object.get(0).getClass();
     }
     // </editor-fold>
 
     // <editor-fold desc="Gets e Sets">  
     /*public List<?> getObject() {
-        return this.object;
-    }
+     return this.object;
+     }
 
-    public void setObject(List<?> object) {
-        this.object = object;
-        this.classe = object.get(0).getClass();
-    }
+     public void setObject(List<?> object) {
+     this.object = object;
+     this.classe = object.get(0).getClass();
+     }
 
-    public Object getLinha(int row) {
+     public Object getLinha(int row) {
      return this.object.get(row);
      }*/
     // </editor-fold>
-    // <editor-fold desc="Métodos CRUD">
     
+    // <editor-fold desc="Métodos CRUD">
     public void addRow(Object object) {
         this.object.add(object);
         this.fireTableDataChanged();
@@ -53,22 +54,6 @@ public class TableModel extends AbstractTableModel {
 
     // </editor-fold>
     // <editor-fold desc="Métodos sobrecarregados">
-
-    @Override
-    public String getColumnName(int column) {
-        for (Method metodo : classe.getDeclaredMethods()) {
-            if (metodo.isAnnotationPresent(Campo.class)) {
-                Campo anotacao = metodo.getAnnotation(Campo.class);
-                if (anotacao.posicao() == column) {
-                    return anotacao.nome();
-                }
-            }
-        }
-        return "";
-        //return this.colunas[column];
-        //return super.getColumnName(column);
-    }
-
     @Override
     public int getRowCount() {
         return this.object.size();
@@ -76,9 +61,6 @@ public class TableModel extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        Object objeto = this.object.get(0);
-        Class<?> classe = objeto.getClass();
-
         int coluna = 0;
         for (Method metodo : classe.getDeclaredMethods()) {
             if (metodo.isAnnotationPresent(Campo.class)) {
@@ -91,20 +73,32 @@ public class TableModel extends AbstractTableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         try {
-            Object objeto = this.object.get(rowIndex);
-            Class<?> classe = objeto.getClass();
+            Object objeto = object.get(rowIndex);
             for (Method metodo : classe.getDeclaredMethods()) {
                 if (metodo.isAnnotationPresent(Campo.class)) {
                     Campo anotacao = metodo.getAnnotation(Campo.class);
                     if (anotacao.posicao() == columnIndex) {
-                        return String.format(anotacao.formato(), metodo.invoke(objeto));
+                        return metodo.invoke(objeto);
                     }
                 }
             }
-            return "";
         } catch (SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
             return "Erro: " + e;
         }
+        return "";
+    }
+
+    @Override
+    public String getColumnName(int column) {
+        for (Method metodo : classe.getDeclaredMethods()) {
+            if (metodo.isAnnotationPresent(Campo.class)) {
+                Campo anotacao = metodo.getAnnotation(Campo.class);
+                if (anotacao.posicao() == column) {
+                    return anotacao.nome();
+                }
+            }
+        }
+        return "";
     }
     // </editor-fold>
 

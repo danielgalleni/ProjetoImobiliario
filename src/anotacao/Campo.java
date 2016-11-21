@@ -22,4 +22,5 @@ public @interface Campo {
     int posicao() default -1;
     String nome() default "";
     String formato() default "%s";
+    boolean busca() default true;
 }

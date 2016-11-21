@@ -14,8 +14,8 @@ import model.Cliente;
  */
 public class TableModelCliente extends TableModel{
 
-    public TableModelCliente(List<?> object) {
-        /*super(object);*/
+    public TableModelCliente(List<Object> object) {
+        super(object);
     }
     
     // <editor-fold desc="Métodos sobrecarregados">
